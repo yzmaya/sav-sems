@@ -57,6 +57,8 @@
 				<h2>Sistema de Administración de Viaticos</h2>
 				<br>
                                 Beinvenido
+                                Benvenuto
+                                
 			</div>
 		</div>
 	</div>

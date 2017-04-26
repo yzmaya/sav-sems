@@ -39,9 +39,8 @@
 					<li><a href="comissioner">COMISIONADOS</a></li>
 					<li><a href="omvi">OMVI</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-							Sign Up</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-							Login</a></li>
+							Iniciar Sesión</a></li>
+					
 				</ul>
 			</div>
 		</div>
@@ -54,7 +53,7 @@
 		<div class="row">
 
 			<div>
-				<h2>Sistema de Administraci�n de Viaticos</h2>
+				<h2>Sistema de Administración de Viaticos</h2>
 				<br>
                               
 			</div>

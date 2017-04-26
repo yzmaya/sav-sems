@@ -57,6 +57,10 @@
 				<h2>Sistema de Administración de Viaticos</h2>
 				<br>
                                 Beinvenido
+                                <a target="_blank" href="lComperco">dale</a>
+                                <a target="_blank" href="lPasajes">dale</a>
+                                <a target="_blank" href="lViaticos">dale</a>
+                                <a target="_blank" href="lComprobante">dale</a>
 			</div>
 		</div>
 	</div>

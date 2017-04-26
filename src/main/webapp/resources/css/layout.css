@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26/04/2017, 02:41:07 PM
+    Author     : nestor.yzmaya
+*/
+
+*{
+
+font-family: "Times New Roman", Georgia, Serif;
+}
+
+table {
+   width: 790px;
+    border-spacing: 0px;
+
+} 
+
+th{
+text-align: center;
+background-color: #B4B4B4;
+border: 1px solid #000;
+font-size: 12px;
+
+
+}
+ td{
+   width: auto;
+   vertical-align: top;
+   border: 1px solid #000;
+   text-align: center;
+   height: auto;
+   font-size: 13px;
+}
+
+td.e, th.e{
+	border: hidden;
+	background-color: #fff;
+}
+
+p.axion{
+  letter-spacing: normal;
+  word-spacing: 180px;
+  font-weight: bold;
+}
+
+p.axion2{
+  letter-spacing: normal;
+  word-spacing: 20px;
+  font-weight: bold;
+}
+
+td.t{
+  width: 1px;
+  height: 1px;
+}
+
+input{
+  text-align: center;
+}
+
+
+
+

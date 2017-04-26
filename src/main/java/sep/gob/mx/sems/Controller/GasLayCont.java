@@ -25,8 +25,6 @@ public class GasLayCont {
 	@RequestMapping(value = "/lComperco", method = RequestMethod.GET)
 	public String test(Locale locale, Model model){
             
-            String var = "Hola papu vengo desde controller";
-            model.addAttribute("variab",var);
             
             return "GasLay";
         }

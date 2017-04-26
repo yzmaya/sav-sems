@@ -58,7 +58,29 @@
 </head>
 <body>
 
-	<button class="btn btn-danger" onclick="ir()">Cancelar</button>
+	
+        
+        
+        <!--Lo siguiente contiene el menu desplegable-->
+      
+                                      
+  <div class="dropdown">
+      <!-- boton para cancelar-->
+      <button class="btn btn-danger" onclick="ir()">Cancelar</button>
+      <!---->
+    <button class="btn btn-info dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Imprimir
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="lComperco" target="_blank">Comperco</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="lPasajes" target="_blank">Pasajes Nacionales</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="lViaticos" target="_blank">Viaticos Nacionales</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="lComprobante" target="_blank">Comprobante de Viaticos</a></li>
+    </ul>
+  </div>
+
+        
+        <!--aqui empieza el contenedor de pestañas-->
 
 	<div class="container">
 		<h2>Modificar Viaticos</h2>

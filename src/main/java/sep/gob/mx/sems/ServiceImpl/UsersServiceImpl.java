@@ -8,45 +8,41 @@ import org.springframework.transaction.annotation.Transactional;
 
 import sep.gob.mx.sems.DAO.UsersDAO;
 import sep.gob.mx.sems.Model.Users;
+import sep.gob.mx.sems.Model.UsuarioComisionado;
 import sep.gob.mx.sems.Service.UsersService;
 
 @Service
 @Transactional
-public class UsersServiceImpl implements UsersService{
-	
-	@Autowired
-	UsersDAO usersDAO;
+public class UsersServiceImpl implements UsersService {
 
-	@Override
-	@Transactional
-	public void addUser(Users user) throws Exception {
-		usersDAO.addUser(user);
-	}
+    @Autowired
+    UsersDAO usersDAO;
 
-	@Override
-	@Transactional
-	public List<Users> listUsers() throws Exception {
-		return usersDAO.listUsers();
-	}
+    @Override
+    @Transactional
+    public List<UsuarioComisionado> listUsuarios() throws Exception {
+        return usersDAO.listUsuarios();
+    }
 
-	@Override
-	@Transactional
-	public void deleteUser(Integer idUser) throws Exception {
-		usersDAO.deleteUser(idUser);
-	}
+    @Override
+    public UsuarioComisionado updateUsuario(UsuarioComisionado user) throws Exception {
+        return usersDAO.updateUsuario(user);
+    }
 
-	@Override
-	public Users updateUser(Users user) throws Exception {
-		return usersDAO.updateUser(user);
-	}
+    @Override
+    public UsuarioComisionado getUsuario(Integer idUser) throws Exception {
+        return usersDAO.getUsuario(idUser);
+    }
 
-	@Override
-	public Users getUserById(int idUser) throws Exception {
-		return usersDAO.getUser(idUser);
-	}
-	
-	public void setUsersDAO(UsersDAO usersDAO){
-		this.usersDAO=usersDAO;
-	}
+    @Override
+    @Transactional
+    public String saveUsuario(UsuarioComisionado user) throws Exception {
+        return usersDAO.saveUsuario(user);
+    }
 
+    @Override
+    @Transactional
+    public String deleteUsuario(Integer idUser) throws Exception {
+        return usersDAO.deleteUsuario(idUser);
+    }
 }

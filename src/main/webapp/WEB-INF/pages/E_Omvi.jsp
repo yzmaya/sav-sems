@@ -19,10 +19,9 @@
 	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
 
 <script>
-            function ir(){
+         function ir(){
                 window.location='/SAV/omvi';
             }
-
         </script>
 
 <script type="text/javascript">
@@ -87,7 +86,7 @@
 		<ul class="nav nav-pills">
 			<li class="active"><a data-toggle="pill" href="#comisionado">Orden
 					de Servicio para Pasajes Nacionales</a></li>
-			<li><a data-toggle="pill" href="#menu1">Orden de
+			<li><a data-toggle="pill" href="#menuOrdSer">Orden de
 					Ministracion de Viaticos Nacionales</a></li>
 			<li><a data-toggle="pill" href="#menu2">Gastos de
 					Combustible</a></li>
@@ -127,11 +126,11 @@
 					<div class="row">
 						<div class="col-md-4">
 							<input type="text" class="form-control" id="omvi" name="omvi"
-								value="${omvi.ID_OMVI}" disabled>
+								value="${omvi.id_OMVI}" disabled>
 						</div>
 						<div class="col-md-8">
 							<input type="text" class="form-control" id="datepicker" 
-							value="${natTour.NT_DATE1}">
+							value="${omvi.fecha_OMVI}">
 						</div>
 					</div>
 				</div>
@@ -151,7 +150,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<input type="text" class="form-control" id="nombre" name="nombre"
-								value="${user.FULL_NAME}" disabled>
+								value="${user.ap_Paterno} ${user.ap_Materno} ${user.nombre_s}" disabled>
 						</div>
 						<div class="col-md-4">
 							<input type="text" class="form-control" id="rfc" name="rfc"
@@ -159,7 +158,7 @@
 						</div>
 						<div class="col-md-4">
 							<input type="text" class="form-control" id="puesto" name="puesto"
-								value="${user.POSITION}" disabled>
+								value="${user.puesto}" disabled>
 						</div>
 					</div>
 					<br>
@@ -171,12 +170,12 @@
 					<div class="row">
 						<div class="col-md-4">
 							<input type="text" class="form-control" id="clave" name="clave"
-								value="${user.KEY_SAV}" disabled>
+								value="¿Clave SAV?" disabled>
 						</div>
 						<div class="col-md-8">
 							<input type="text" class="form-control" id="area_adsc"
 								name="area_adsc"
-								value="${user.AREA_OF_ASCRIPTION}" disabled>
+								value="${user.area_Adscripcion}" disabled>
 						</div>
 					</div>
 					<br>
@@ -185,8 +184,8 @@
 							<label class="control-label">DOMICILIO:</label>
 						</div>
 						<div class="col-md-11">
-							<input type="text" class="form-control" id="" name=""
-								value="${user.ADDRESS}" disabled>
+							<input type="text" class="form-control" id="domAA" name=""
+								value="${user.direccion_Area_Adscripcion}" disabled>
 						</div>
 					</div>
 				</div>
@@ -208,11 +207,11 @@
 							<div class="row">
 								<div class="col-md-6">
 									<input type="text" class="form-control" id="punto_partida"
-										name="punto_partida" value="${natTour.PLACE1}">
+										name="punto_partida" value="${destOrdSer.punto_Partida}">
 								</div>
 								<div class="col-md-6">
 									<input type="text" class="form-control" id="punto_llegada"
-										name="punto_llegada" value="${natTour.PLACE2}">
+										name="punto_llegada" value="${destOrdSer.punto_Llegada}">
 								</div>
 							</div>
 							<br>
@@ -224,7 +223,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<input type="text" class="form-control" id="otro_destino"
-										name="otro_destino" value="${natTour.PLACE3}">
+										name="otro_destino" value="${destOrdSer.otro_Destino}">
 								</div>
 								<div class="col-md-6">
 									<select class="form-control">
@@ -242,7 +241,7 @@
 						<div class="panel-heading">OBJETO DE LA COMISION</div>
 						<div class="panel-body">
 							<div class="row">
-								<textarea class="form-control" id="obj_comision" rows="8">${natTour.MOT_COMISION}</textarea>
+								<textarea class="form-control" id="obj_comision" rows="8">${motComision.motivo_Comision}</textarea>
 							</div>
 						</div>
 					</div>
@@ -262,7 +261,7 @@
 						<div class="panel-heading">OBSERVACIONES</div>
 						<div class="panel-body">
 							<div class="row">
-								<textarea class="form-control" id="observacione" rows="5">${natTour.OBSERVACIONES}</textarea>
+								<textarea class="form-control" id="observacione" rows="5">${motComision.observaciones}</textarea>
 							</div>
 						</div>
 					</div>
@@ -330,7 +329,7 @@
 				</div>
 			</div>
 			
-			<div id="menu1" class="tab-pane fade">
+			<div id="menuOrdSer" class="tab-pane fade">
 			<form name="op" method="POST" oninput="importe.value=parseFloat(cuotaDiaria.value)*parseFloat(dias.value)">
 				<div class="row">
 					<div class="panel panel-default col-md-6">
@@ -339,10 +338,11 @@
 						<div class="panel-body">
 							<div class="col-md-6">
 								<input type="text" class="form-control" id="lugarComision" 
-								name="" value="${natTour.PLACE1}">
+								name="" value="${destViatNac.lugar}">
 							</div>
 							<div class="col-md-6">
-								<input type="text" class="form-control" id="periodoComision" name="">
+								<input type="text" class="form-control" id="periodoComision" 
+                                                                       name="" value="${destViatNac.periodo}">
 							</div>
 						</div>
 					</div>
@@ -350,7 +350,8 @@
 						<div class="panel-heading text-center">CUOTA DIARIA</div>
 						<div class="panel-body">
 							<div>
-								<input type="text" class="form-control" id="cuotaDiaria" name="cuotaDiaria">
+								<input type="text" class="form-control" id="cuotaDiaria" 
+                                                                       name="cuotaDiaria" value="${destViatNac.cuota_Diaria}">
 							</div>
 						</div>
 					</div>
@@ -358,7 +359,8 @@
 						<div class="panel-heading text-center">DIAS</div>
 						<div class="panel-body">
 							<div>
-								<input type="text" class="form-control" id="dias" name="dias">
+								<input type="text" class="form-control" id="dias" 
+                                                                       name="dias" value="${destViatNac.dias}">
 							</div>
 						</div>
 					</div>
@@ -385,7 +387,7 @@
 						<div class="panel-heading text-center">MOTIVO DE LA COMISION</div>
 						<div class="panel-body">
 							<div class="row">
-								<textarea class="form-control" id="motivo_comis_anexo2" rows="5">${natTour.MOT_COMISION}</textarea>
+								<textarea class="form-control" id="motivo_comis_anexo2" rows="5">${motComision.motivo_Comision}</textarea>
 							</div>
 						</div>
 					</div>
@@ -393,7 +395,7 @@
 						<div class="panel-heading text-center">OBSERVACIONES</div>
 						<div class="panel-body">
 							<div class="row">
-								<textarea class="form-control" id="observ_anexo2" rows="5">${natTour.MOT_COMISION}</textarea>
+								<textarea class="form-control" id="observ_anexo2" rows="5">${motComision.observaciones}</textarea>
 							</div>
 						</div>
 					</div>
@@ -564,7 +566,7 @@
 					<div class="panel panel-default col-md-6">
 						<div class="panel-heading">COMISION O TRABAJO A DESARROLLAR</div>
 						<div class="panel-body">
-							<textarea class="form-control" id="observaciones" rows="5">${natTour.MOT_COMISION}</textarea>
+							<textarea class="form-control" id="observaciones" rows="5">${motComision.motivo_Comision}</textarea>
 						</div>
 					</div>
 					<div class="panel panel-default col-md-6">
@@ -573,13 +575,13 @@
 							<div class="panel panel-default col-md-6">
 								<div class="panel-heading">NUMERO</div>
 								<div class="panel-body">
-									<input type="text" class="form-control" id="numOficio" name="numOficio" value="${omvi.ID_OMVI}">
+									<input type="text" class="form-control" id="numOficio" name="numOficio" value="${omvi.id_OMVI}">
 								</div>
 							</div>
 							<div class="panel panel-default col-md-6">
 								<div class="panel-heading">FECHA</div>
 								<div class="panel-body">
-									<input type="text" class="form-control" id="datepicker2" value="${natTour.NT_DATE1}"
+									<input type="text" class="form-control" id="datepicker2" value="${omvi.fecha_OMVI}"
 										readonly="readonly">
 								</div>
 							</div>
@@ -662,13 +664,13 @@
 								<tbody>
 									<tr>
 										<td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
+											id="fechaIti" name="" value="${itinerario.fecha_Itinerario}"></td>
 										<td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
+											id="deIti" name="" value="${itinerario.origenDe}"></td>
 										<td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
+											id="aIti" name="" value="${itinerario.destinoA}"></td>
 										<td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
+											id="distKM" name="" value="${itinerario.distancia_Km}"></td>
 									</tr>
 									<tr>
 										<td><input type="text" class="form-control col-md-1"
@@ -693,7 +695,8 @@
 							<div class="row">
 								<label class="control-label col-md-2">$</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="" name="">
+									<input type="text" class="form-control" id="precGas" 
+                                                                               name="" value="${comperco.precio_Vigente_Gasolina}">
 								</div>
 							</div>
 
@@ -705,15 +708,18 @@
 						<div class="panel-body">
 							<div class="row">
 								<label class="control-label col-md-6 text-center">KM
-									RECORRIDOS /5=</label> <label class="control-label col-md-6  ">LITROS
+									RECORRIDOS /5=</label>
+                                                            <label class="control-label col-md-6  ">LITROS
 									DE GASOLINA</label>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
-									<input type="text" class="form-control" id="" name="">
+									<input type="text" class="form-control" id="recorridos" 
+                                                                               value="${itinerario.distancia_Km}">
 								</div>
 								<div class="col-md-6">
-									<input type="text" class="form-control" id="" name="">
+									<input type="text" class="form-control" id="litrosGas" 
+                                                                               value="${comperco.litros_Gasolina}">
 								</div>
 							</div>
 						</div>
@@ -729,13 +735,13 @@
 							</div>
 							<div class="row">
 								<div class="col-md-4">
-									<input type="text" class="form-control" id="" name="">
+									<input type="text" class="form-control" id="litGas" value="${comperco.litros_Gasolina}">
 								</div>
 								<div class="col-md-4">
-									<input type="text" class="form-control" id="" name="">
+									<input type="text" class="form-control" id="precVigGas" name="" value="${comperco.precio_Vigente_Gasolina}">
 								</div>
 								<div class="col-md-4">
-									<input type="text" class="form-control" id="" name="">
+									<input type="text" class="form-control" id="impGas" value="${comperco.importe_Gasolina}">
 								</div>
 							</div>
 						</div>

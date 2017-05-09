@@ -8,38 +8,40 @@ import org.springframework.stereotype.Repository;
 
 import sep.gob.mx.sems.DAO.UsersDAO;
 import sep.gob.mx.sems.Model.Users;
+import sep.gob.mx.sems.Model.UsuarioComisionado;
 
 @Repository
-public class UsersDAOImpl implements UsersDAO{
-	
-	@Autowired
-	private SessionFactory sessionFactory;
+public class UsersDAOImpl implements UsersDAO {
 
-	@Override
-	public void addUser(Users user) throws Exception {
-		sessionFactory.getCurrentSession().saveOrUpdate(user);
-	}
+    @Autowired
+    private SessionFactory sessionFactory;
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Users> listUsers() throws Exception {
-		return sessionFactory.getCurrentSession().createQuery("from Users").list();
-	}
+    @Override
+    public List<UsuarioComisionado> listUsuarios() throws Exception {
+        return sessionFactory.getCurrentSession().createQuery("from UsuarioComisionado").list();
+    }
 
-	@Override
-	public void deleteUser(Integer idUser) throws Exception {
-		Users user = (Users)sessionFactory.getCurrentSession().load(Users.class, idUser);
-		if(null != user)this.sessionFactory.getCurrentSession().delete(user);
-	}
+    @Override
+    public UsuarioComisionado updateUsuario(UsuarioComisionado user) throws Exception {
+        sessionFactory.getCurrentSession().update(user);
+        return user;
+    }
 
-	@Override
-	public Users updateUser(Users user) throws Exception {
-		sessionFactory.getCurrentSession().update(user);
-		return user;
-	}
+    @Override
+    public UsuarioComisionado getUsuario(Integer idUser) throws Exception {
+        return (UsuarioComisionado)sessionFactory.getCurrentSession().get(UsuarioComisionado.class, idUser);
+    }
 
-	@Override
-	public Users getUser(int idUser) throws Exception {
-		return (Users)sessionFactory.getCurrentSession().get(Users.class, idUser);
-	}
+    @Override
+    public String saveUsuario(UsuarioComisionado user) throws Exception {
+        sessionFactory.getCurrentSession().saveOrUpdate(user);
+        return "Se guardo Usuario";
+    }
+
+    @Override
+    public String deleteUsuario(Integer idUser) throws Exception {
+        UsuarioComisionado user = (UsuarioComisionado)sessionFactory.getCurrentSession().load(UsuarioComisionado.class, idUser);
+        if(null != user)this.sessionFactory.getCurrentSession().delete(user);
+        return "Se borro Usuario";
+    }
 }

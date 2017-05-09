@@ -80,15 +80,15 @@
 			<c:forEach var="user" items="${listaUsers}">
 				<tr>
 					
-					<td>${user.FULL_NAME}</td>
-					<td>${user.CHECK_SAV}</td>
-					<td>${user.TARGET}</td>
-					<td>${user.DEVASTED}</td>
-					<td>${user.TOTAL_REINTEGRATED}</td>
-					<td>${user.BALANCE_TO_BE_REINTEGRATED}</td>
-					<td>${user.BALANCE_TO_BE_PAID_UP}</td>
-					<td>${user.DEVASTED_PAID}</td>
-					<td><a href="generaOmvi?id=${user.ID_USER}">Viaticos</a></td>
+					<td>${user.ap_Paterno} ${user.ap_Materno} ${user.nombre_s}</td>
+					<td>568712</td>
+					<td>789</td>
+					<td>789</td>
+					<td>0</td>
+					<td>123</td>
+					<td>5</td>
+					<td>0</td>
+					<td><a href="generaOmvi?id=${user.id_UsrCom}">Viaticos</a></td>
 				</tr>
 			</c:forEach>
 									

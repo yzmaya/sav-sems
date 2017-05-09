@@ -65,7 +65,7 @@
 				placeholder="Ingresa la palabra clave a buscar">
 		</div>
 
-		<table class="table table-hover">
+		<table class="table table-hover" id="tablaOmvi">
 			<thead>
 				<tr class="success">
 					<th># OMVI</th>
@@ -78,17 +78,17 @@
 			</thead>
 			<tbody class="buscar">
 			
-			<c:forEach var="omvi" items="${listaTablaOmvi}">
+			<c:forEach var="omvi" items="${tablaOmvi}">
 				<tr>
-					<td>${omvi.ID_OMVI}</td>
-					<td>${omvi.FULL_NAME}</td>
-					<td>${omvi.AREA_OF_ADSCRIPTION}</td>
-					<td>${omvi.MOT_COMISION}</td>
-					<td>${omvi.TOTAL_IMPORT}</td>
-					<td><a href="editOmvi?id=${omvi.ID_OMVI}">Modificar</a></td>
+					<td>${omvi.id_OMVI}</td>
+					<td>${omvi.ap_Paterno} ${omvi.ap_Materno} ${omvi.nombre_s}</td>
+					<td>${omvi.area_Adscripcion}</td>
+					<td>${omvi.motivo_Comision}</td>
+					<td>${omvi.total_Importe}</td>
+					<td><a href="editOmvi?id=${omvi.id_OMVI}">Modificar</a></td>
 				</tr>
 			</c:forEach>
-			
+                                
 			</tbody>
 		</table>
 	</div>

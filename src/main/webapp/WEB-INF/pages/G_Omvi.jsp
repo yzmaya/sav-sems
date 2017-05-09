@@ -52,8 +52,10 @@
             $(document).ready(function() {
             	$("#datepicker").datepicker();
                 $("#datepicker2").datepicker();
-                
-                <!--Inicia serialize -->
+            });
+            
+            function addOmvi(){
+                 <!--Inicia serialize -->
                 $('#btn_GeneraOmvi').click(function(){
 
                     var dataString = $('#user').serialize();
@@ -74,7 +76,7 @@
                     });
                 });
                 <!--Termina serialize -->
-            });
+            }
         </script>
 </head>
 <body>
@@ -151,7 +153,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<input type="text" class="form-control" id="FULL_NAME" name="FULL_NAME"
-								value="${user.FULL_NAME}" disabled>
+								value="${user.ap_Paterno} ${user.ap_Materno} ${user.nombre_s}" disabled>
 						</div>
 						<div class="col-md-4">
 							<input type="text" class="form-control" id="RFC" name="RFC"
@@ -159,7 +161,7 @@
 						</div>
 						<div class="col-md-4">
 							<input type="text" class="form-control" id="POSITION" name="POSITION"
-								value="${user.POSITION}" disabled>
+								value="${user.puesto}" disabled>
 						</div>
 					</div>
 					<br>
@@ -171,12 +173,12 @@
 					<div class="row">
 						<div class="col-md-4">
 							<input type="text" class="form-control" id="KEY_SAV" name="KEY_SAV"
-								value="${user.KEY_SAV}" disabled>
+								value="¿Clave SAV?" disabled>
 						</div>
 						<div class="col-md-8">
 							<input type="text" class="form-control" id="AREA_OF_ASCRIPTION"
 								name="AREA_OF_ASCRIPTION"
-								value="${user.AREA_OF_ASCRIPTION}" disabled>
+								value="${user.area_Adscripcion}" disabled>
 						</div>
 					</div>
 					<br>
@@ -186,7 +188,7 @@
 						</div>
 						<div class="col-md-11">
 							<input type="text" class="form-control" id="dom" name=""
-								value="${user.ADDRESS}" disabled>
+								value="${user.direccion_Area_Adscripcion}" disabled>
 						</div>
 					</div>
 				</div>
@@ -353,7 +355,7 @@
 						<div class="panel-heading text-center">CUOTA DIARIA</div>
 						<div class="panel-body">
 							<div>
-								<input type="text" class="form-control" id="" name="" disabled>
+								<input type="text" class="form-control" id="cuotaDia" name="" disabled>
 							</div>
 						</div>
 					</div>
@@ -361,7 +363,7 @@
 						<div class="panel-heading text-center">DIAS</div>
 						<div class="panel-body">
 							<div>
-								<input type="text" class="form-control" id="" name="">
+								<input type="text" class="form-control" id="diasComp" name="">
 							</div>
 						</div>
 					</div>
@@ -369,7 +371,7 @@
 						<div class="panel-heading text-center">IMPORTE</div>
 						<div class="panel-body">
 							<div>
-								<input type="text" class="form-control" id="" name="" disabled>
+								<input type="text" class="form-control" id="imp" name="" disabled>
 							</div>
 						</div>
 					</div>
@@ -378,7 +380,7 @@
 					<div class="panel panel-default col-md-offset-10">
 						<div class="panel-heading text-center">TOTAL</div>
 						<div class="panel-body">
-							<input type="text" class="form-control" id="" name="" disabled>
+							<input type="text" class="form-control" id="tot" name="" disabled>
 						</div>
 					</div>
 				</div>

@@ -21,7 +21,7 @@ public class SavOmviController {
     }
 
     @Autowired
-    private OMVIService omviServ;
+    private OmviServ omviServ;
     @Autowired
     private COMPERCO3Service compServ;
     @Autowired
@@ -47,9 +47,9 @@ public class SavOmviController {
     @RequestMapping(value = "/omvi")
     public ModelAndView showOmvis(ModelAndView model, HttpServletRequest request)
             throws IOException {
-        List<TablaO> listaTablaOmvi = new ArrayList<TablaO>();
+        List<TablaOmvi> listaTablaOmvi = new ArrayList<TablaOmvi>();
         try {
-            listaTablaOmvi = omviServ.llenaTablaOmvi();
+            listaTablaOmvi = omviServ.listaTablaOmvi();
             System.out.println("Tamaño lista TRY: " + listaTablaOmvi.size());
         } catch (Exception e) {
             System.out.println("Error OMVI controller: " + e.getMessage());
@@ -59,14 +59,14 @@ public class SavOmviController {
         @SuppressWarnings("rawtypes")
         Iterator itr = listaTablaOmvi.iterator();
 
-        List<TablaO> newTab = new ArrayList<TablaO>();
-        TablaO tab;
+        List<TablaOmvi> newTab = new ArrayList<TablaOmvi>();
+        TablaOmvi tab;
 
         System.out.println("Cargando info...");
         while (itr.hasNext()) {
             Object[] obj = (Object[]) itr.next();
 
-            tab = new TablaO();
+            tab = new TablaOmvi();
             tab.setId_OMVI(Integer.valueOf(obj[0].toString()));
             tab.setAp_Paterno(obj[1].toString());
             tab.setAp_Materno(obj[2].toString());

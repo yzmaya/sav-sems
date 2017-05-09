@@ -1,79 +1,60 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sep.gob.mx.sems.Model;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  *
  * @author brayan.padilla
  */
 
-@Entity
-@Table(name="tablaomvi")
 public class TablaOmvi implements Serializable {
-    
-    
-        @Id
-        @Column(name="Id_OMVI")
+        
 	private Integer Id_OMVI;
-        @Column
 	private String Ap_Paterno;
-        @Column
         private String Ap_Materno;
-        @Column
         private String Nombre_s;
-        @Column
 	private String Area_Adscripcion;
-        @Column
 	private String Motivo_Comision;
-        @Column
 	private Double Total_Importe;
 
-    public String getApMaterno() {
+    public String getAp_Materno() {
         return Ap_Materno;
     }
 
-    public void setApMaterno(String ApMaterno) {
-        this.Ap_Materno = ApMaterno;
+    public void setAp_Materno(String Ap_Materno) {
+        this.Ap_Materno = Ap_Materno;
     }
 
-    public String getApPaterno() {
+    public String getAp_Paterno() {
         return Ap_Paterno;
     }
 
-    public void setApPaterno(String ApPaterno) {
-        this.Ap_Paterno = ApPaterno;
+    public void setAp_Paterno(String Ap_Paterno) {
+        this.Ap_Paterno = Ap_Paterno;
     }
 
-    public String getAreaAdscripcion() {
+    public String getArea_Adscripcion() {
         return Area_Adscripcion;
     }
 
-    public void setAreaAdscripcion(String AreaAdscripcion) {
-        this.Area_Adscripcion = AreaAdscripcion;
+    public void setArea_Adscripcion(String Area_Adscripcion) {
+        this.Area_Adscripcion = Area_Adscripcion;
     }
 
-    public Integer getIdOMVI() {
+    public Integer getId_OMVI() {
         return Id_OMVI;
     }
 
-    public void setIdOMVI(Integer IdOMVI) {
-        this.Id_OMVI = IdOMVI;
+    public void setId_OMVI(Integer Id_OMVI) {
+        this.Id_OMVI = Id_OMVI;
     }
 
-    public String getMotivoComision() {
+    public String getMotivo_Comision() {
         return Motivo_Comision;
     }
 
-    public void setMotivoComision(String MotivoComision) {
-        this.Motivo_Comision = MotivoComision;
+    public void setMotivo_Comision(String Motivo_Comision) {
+        this.Motivo_Comision = Motivo_Comision;
     }
 
     public String getNombre_s() {
@@ -84,12 +65,13 @@ public class TablaOmvi implements Serializable {
         this.Nombre_s = Nombre_s;
     }
 
-    public Double getTotalImporte() {
+    public Double getTotal_Importe() {
         return Total_Importe;
     }
 
-    public void setTotalImporte(Double TotalImporte) {
-        this.Total_Importe = TotalImporte;
+    public void setTotal_Importe(Double Total_Importe) {
+        this.Total_Importe = Total_Importe;
     }
+
     
 }

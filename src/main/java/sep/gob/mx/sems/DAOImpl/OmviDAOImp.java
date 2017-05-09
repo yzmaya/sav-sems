@@ -27,10 +27,10 @@ public class OmviDAOImp implements OmviDAO{
     @Override
     public List<TablaOmvi> listaTablaOmvi() throws Exception {
 		return sessionFactory.getCurrentSession().createQuery(""
-+"select omvi.Id_OMVI, usr.Ap_Paterno, usr.Ap_Materno, usr.Nombre_s, usr.Area_Adscripcion, objCom.Motivo_Comision, viatNac.Total_Importe "+
++"select distinct omvi.Id_OMVI, usr.Ap_Paterno, usr.Ap_Materno, usr.Nombre_s, usr.Area_Adscripcion, objCom.Motivo_Comision, viatNac.Total_Importe "+
 "from OMVI omvi, UsuarioComisionado as usr,Objeto_comision as objCom, Viaticos_nacionales as viatNac "+
-"where omvi.Id_UsrCom=usr.Id_UsrCom and viatNac.Id_Viaticos=(select Id_viaticos from ViaticosDestinos as viatDest "+
-"where omvi.Id_OMVI=viatDest.Id_OMVI) order by omvi.Id_OMVI desc").list();
+"where omvi.Id_UsrCom=usr.Id_UsrCom and viatNac.Id_Viaticos=(select Id_Viaticos from ViaticosDestinos as viatDest "+
+"where omvi.Id_OMVI=viatDest.Id_OMVI)").list();
     }
 
     @Override

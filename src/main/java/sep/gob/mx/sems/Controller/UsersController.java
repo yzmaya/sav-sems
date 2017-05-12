@@ -16,11 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import sep.gob.mx.sems.Model.National_tours;
-import sep.gob.mx.sems.Model.Sav_omvi;
-import sep.gob.mx.sems.Model.Users;
 import sep.gob.mx.sems.Model.UsuarioComisionado;
-import sep.gob.mx.sems.Service.National_toursService;
 import sep.gob.mx.sems.Service.UsersService;
 
 @Controller

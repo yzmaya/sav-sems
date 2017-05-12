@@ -72,7 +72,7 @@
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
         <li role="presentation"><a role="menuitem" tabindex="-1" href="lComperco" target="_blank">Comperco</a></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="lPasajes" target="_blank">Pasajes Nacionales</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="lViaticos" target="_blank">Viaticos Nacionales</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="lViaticos?id=${omvi.id_OMVI}" target="_blank">Viaticos Nacionales</a></li>
       <li role="presentation" class="divider"></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="lComprobante" target="_blank">Comprobante de Viaticos</a></li>
     </ul>

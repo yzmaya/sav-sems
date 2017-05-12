@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import sep.gob.mx.sems.DAO.UsersDAO;
-import sep.gob.mx.sems.Model.Users;
 import sep.gob.mx.sems.Model.UsuarioComisionado;
 
 @Repository

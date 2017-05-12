@@ -27,7 +27,7 @@ public class OMVI implements Serializable{
     @Column
     private Integer Id_Obj_Comision;
     @Column
-    private Integer Id_Viaticos;
+    private Integer Id_Viaticos_Destino;
     @Column
     private Integer Id_COMPERCO;
 
@@ -87,12 +87,12 @@ public class OMVI implements Serializable{
         this.Id_UsrCom = Id_UsrCom;
     }
 
-    public Integer getId_Viaticos() {
-        return Id_Viaticos;
+    public Integer getId_Viaticos_Destino() {
+        return Id_Viaticos_Destino;
     }
 
-    public void setId_Viaticos(Integer Id_Viaticos) {
-        this.Id_Viaticos = Id_Viaticos;
+    public void setId_Viaticos_Destino(Integer Id_Viaticos_Destino) {
+        this.Id_Viaticos_Destino = Id_Viaticos_Destino;
     }
-    
+       
 }

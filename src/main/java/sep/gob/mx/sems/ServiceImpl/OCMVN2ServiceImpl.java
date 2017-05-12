@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sep.gob.mx.sems.DAO.OCMVN2DAO;
 import sep.gob.mx.sems.Model.Destinos_viat_nac;
-import sep.gob.mx.sems.Model.ViaticosDestinos;
 import sep.gob.mx.sems.Model.Viaticos_nacionales;
 import sep.gob.mx.sems.Service.OCMVN2Service;
 /**
@@ -84,33 +83,6 @@ public class OCMVN2ServiceImpl implements OCMVN2Service{
     @Override
     public String deleteViaticos_nacionales(Integer idViatNac) throws Exception {
         return ocmvn2DAO.deleteViaticos_nacionales(idViatNac);
-    }
-
-    @Override
-    public ViaticosDestinos getViaticosDestinosByIdOMVI(Integer IdOMVI) throws Exception {
-        return ocmvn2DAO.getViaticosDestinosByIdOMVI(IdOMVI);
-    }
-
-    @Override
-    public ViaticosDestinos updateViaticosDestinos(ViaticosDestinos viatDest) throws Exception {
-        return ocmvn2DAO.updateViaticosDestinos(viatDest);
-    }
-
-    @Transactional
-    @Override
-    public String saveViaticosDestinos(ViaticosDestinos viatDest) throws Exception {
-        return ocmvn2DAO.saveViaticosDestinos(viatDest);
-    }
-
-    @Transactional
-    @Override
-    public String deleteViaticosDestinos(Integer idViatDest) throws Exception {
-        return ocmvn2DAO.deleteViaticosDestinos(idViatDest);
-    }
-
-    @Override
-    public ViaticosDestinos getviaticosDestinosById(Integer idViatDest) throws Exception {
-        return ocmvn2DAO.getViaticosDestinosById(idViatDest);
     }
     
 }

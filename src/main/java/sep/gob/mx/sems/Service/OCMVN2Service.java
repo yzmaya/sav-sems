@@ -6,7 +6,6 @@ package sep.gob.mx.sems.Service;
 
 import java.util.List;
 import sep.gob.mx.sems.Model.Destinos_viat_nac;
-import sep.gob.mx.sems.Model.ViaticosDestinos;
 import sep.gob.mx.sems.Model.Viaticos_nacionales;
 
 /**
@@ -29,10 +28,6 @@ public interface OCMVN2Service {
     public String saveViaticos_nacionales(Viaticos_nacionales viatNac)throws Exception;
     public String deleteViaticos_nacionales(Integer idViatNac)throws Exception;
     
-    public ViaticosDestinos getviaticosDestinosById(Integer idViatDest)throws Exception;
-    public ViaticosDestinos getViaticosDestinosByIdOMVI (Integer IdOMVI)throws Exception;
-    public ViaticosDestinos updateViaticosDestinos(ViaticosDestinos viatDest)throws Exception;
-    public String saveViaticosDestinos(ViaticosDestinos viatDest)throws Exception;
-    public String deleteViaticosDestinos(Integer idViatDest)throws Exception;
+    
     
 }

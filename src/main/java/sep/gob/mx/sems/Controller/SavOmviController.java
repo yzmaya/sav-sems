@@ -98,7 +98,7 @@ public class SavOmviController {
         Destino_ordser destOrdSer = new Destino_ordser();
         Objeto_comision objComision = new Objeto_comision();
         Itinerario itinerario = new Itinerario();
-        ViaticosDestinos viatDest = new ViaticosDestinos();
+//        ViaticosDestinos viatDest = new ViaticosDestinos();
         CompercoItinerario compItin = new CompercoItinerario();
 
         try {
@@ -109,9 +109,9 @@ public class SavOmviController {
             itinerario = compServ.getItinerarioById(compItin.getID_Itinerario());
             destOrdSer = OSPN1Serv.getDestinoOrdserById(omvi.getId_Destino_OrdSer());
             objComision = OSPN1Serv.getObjetoComisionById(omvi.getId_Obj_Comision());
-            viatDest = MVN2Service.getviaticosDestinosById(omvi.getId_Viaticos());
-            destViatNac = MVN2Service.getDestViatNacById(viatDest.getId_Destino());
-            viatNac = MVN2Service.getViaticos_nacionalesById(viatDest.getId_Viaticos());
+//            viatDest = MVN2Service.getviaticosDestinosById(omvi.getId_Viaticos());
+//            destViatNac = MVN2Service.getDestViatNacById(viatDest.getId_Destino());
+//            viatNac = MVN2Service.getViaticos_nacionalesById(viatDest.getId_Viaticos());
 
         } catch (NumberFormatException e) {
             System.out.println("Error Catch Number Format Exception: " + e.getMessage());

@@ -11,8 +11,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
          <title>Viaticos Nacionales</title>
-        <link rel="stylesheet"  href="<c:url value="/resources/css/layout.css"/>">
-        <link rel="stylesheet" media="print"  href="<c:url  value="/resources/css/imprimir.css"/>">
+        <link rel="stylesheet" href="<c:url value="/resources/css/layout.css"/>">
+        <link rel="stylesheet" media="print" href="<c:url value="/resources/css/imprimir.css"/>">
        
     </head>
     <body>
@@ -50,8 +50,8 @@
 		<td>600</td>
 		<td>SECRETARIA DE EDUCACIÓN MEDIA SUPERIOR</td>
 		<td class="e"></td>
-		<td class="t"><input type="text" id="" name="" value="" size="8" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="12" disabled></td></td>
+		<td class="t"><input type="text" id="numOMVI" name="" value="${omvi.id_OMVI}" size="8" disabled></td>
+		<td class="t"><input type="text" id="fechaOMVI" name="" value="${omvi.fecha_OMVI}" size="12" disabled></td>
 	</tr>
 </table>
 
@@ -65,15 +65,15 @@
 	</tr>
 	<tr>
 		<td><br>
-			C. <input type="text" id="" name="" value="" size="65" disabled> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			R.F.C <input type="text" id="" name="" value="" size="20" disabled>
+			C. <input type="text" id="nombreComisionado" name="" value="${user.nombre_s} ${user.ap_Paterno} ${user.ap_Materno}" size="65" disabled> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			R.F.C <input type="text" id="rfcComisionado" name="" value="${user.RFC}" size="20" disabled>
 			<br><br>
-			AREA DE ADSCRIPCIÓN: <input type="text" id="" name="" value="" size="78" disabled>
+			AREA DE ADSCRIPCIÓN: <input type="text" id="areaAdscrip" name="" value="${user.area_Adscripcion}" size="78" disabled>
 			<br><br>
-			DOMICILIO:&nbsp; <input type="text" id="" name="" value="" size="88" disabled>
+			DOMICILIO:&nbsp; <input type="text" id="domicAreaAdscrip" name="" value="${user.direccion_Area_Adscripcion}" size="88" disabled>
 			<br><br>
-			PUESTO O CATEGORIA: <input type="text" id="" name="" value="" size="41" disabled>&nbsp;
-			CLAVE: <input type="text" id="" name="" value="" size="25" disabled>
+			PUESTO O CATEGORIA: <input type="text" id="puestoComis" name="" value="${user.puesto}" size="41" disabled>&nbsp;
+			CLAVE: <input type="text" id="claveSAV" name="" value="${user.clave_SAV}" size="25" disabled>
 			<br><br>
 		</td>
 	</tr>
@@ -91,37 +91,37 @@
 		<th>IMPORTE</th>
 	</tr>
 	<tr>
-		<td class="t"><input type="text" id="" name="" value="" size="30" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="30" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="10" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="5" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="11" disabled></td>
+		<td class="t"><input type="text" id="lugarComision1"       name="" value="${destViatNac.lugar}" size="30" disabled></td>
+		<td class="t"><input type="text" id="periodoComision1"     name="" value="${destViatNac.periodo}" size="30" disabled></td>
+		<td class="t"><input type="text" id="cuotaDiariaComision1" name="" value="${destViatNac.cuota_Diaria}" size="10" disabled></td>
+		<td class="t"><input type="text" id="diasComision1"        name="" value="${destViatNac.dias}" size="5" disabled></td>
+		<td class="t"><input type="text" id="importeComision1"     name="" value="${destViatNac.importe}" size="11" disabled></td>
 	</tr>
 	<tr>
-		<td class="t"><input type="text" id="" name="" value="" size="30" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="30" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="10" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="5" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="11" disabled></td>
+		<td class="t"><input type="text" id="lugarComision2"       name="" value="11" size="30" disabled></td>
+		<td class="t"><input type="text" id="periodoComision2"     name="" value="22" size="30" disabled></td>
+		<td class="t"><input type="text" id="cuotaDiariaComision2" name="" value="33" size="10" disabled></td>
+		<td class="t"><input type="text" id="diasComision2"        name="" value="44" size="5" disabled></td>
+		<td class="t"><input type="text" id="importeComision2"     name="" value="55" size="11" disabled></td>
 	</tr>
 	<tr>
-		<td class="t"><input type="text" id="" name="" value="" size="30" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="30" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="10" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="5" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="11" disabled></td>
+		<td class="t"><input type="text" id="lugarComision3"       name="" value="111" size="30" disabled></td>
+		<td class="t"><input type="text" id="periodoComision3"     name="" value="222" size="30" disabled></td>
+		<td class="t"><input type="text" id="cuotaDiariaComision3" name="" value="333" size="10" disabled></td>
+		<td class="t"><input type="text" id="diasComision3"        name="" value="444" size="5" disabled></td>
+		<td class="t"><input type="text" id="importeComision3"     name="" value="555" size="11" disabled></td>
 	</tr>
 	<tr>
-		<td class="t"><input type="text" id="" name="" value="" size="30" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="30" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="10" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="5" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="11" disabled></td>
+		<td class="t"><input type="text" id="lugarComision4"       name="" value="1111" size="30" disabled></td>
+		<td class="t"><input type="text" id="periodoComision4"     name="" value="2222" size="30" disabled></td>
+		<td class="t"><input type="text" id="cuotaDiariaComision4" name="" value="3333" size="10" disabled></td>
+		<td class="t"><input type="text" id="diasComision4"        name="" value="4444" size="5" disabled></td>
+		<td class="t"><input type="text" id="importeComision4"     name="" value="5555" size="11" disabled></td>
 	</tr>
 	<tr>
 		<td colspan="3"></td>
 		<tH>Total</TH>
-		<td class="t"><input type="text" id="" name="" value="" size="11" disabled></td>
+		<td class="t"><input type="text" id="totalComision" name="" value="$total" size="11" disabled></td>
 	</tr>
 </table>
 
@@ -181,53 +181,53 @@
 
 	<tr>
 		<td class="e"></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
+		<td class="t"><input type="text" id="rs1" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="ur1" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="gf1" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="fn1" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="sf1" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="rg1" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="ai1" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="pp1" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="og1" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="tg1" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="ff1" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="importe1" name="" value="" size="4" disabled></td>
 	</tr>
 	<tr>
 		<td class="e"></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
+		<td class="t"><input type="text" id="rs2" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="ur2" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="gf2" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="fn2" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="sf2" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="rg2" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="ai2" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="pp2" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="og2" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="tg2" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="ff2" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="importe2" name="" value="" size="4" disabled></td>
 	</tr>
 	<tr>
 		<td class="e"></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="1" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
+		<td class="t"><input type="text" id="rs3" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="ur3" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="gf3" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="fn3" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="sf3" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="rg3" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="ai3" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="pp3" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="og3" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="tg3" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="ff3" name="" value="" size="1" disabled></td>
+		<td class="t"><input type="text" id="importe3" name="" value="" size="4" disabled></td>
 	</tr>
 	<tr>
 		<td colspan="10" class="e"></td>
 		<th colspan="3">TOTAL</th>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
+		<td class="t"><input type="text" id="totalDC" name="" value="" size="4" disabled></td>
 	</tr>
 
 </table>
@@ -254,7 +254,7 @@
 		<td>
 		<br><br><br>
 		<br>
-			<input type="text" id="" name="" value="" size="40" disabled>
+			<input type="text" id="nombFirma" name="" value="" size="40" disabled>
 			<BR>NOMBRE Y FIRMA
 			<br><br>
 		</td>

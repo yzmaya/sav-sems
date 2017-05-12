@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import sep.gob.mx.sems.DAO.UsersDAO;
-import sep.gob.mx.sems.Model.Users;
 import sep.gob.mx.sems.Model.UsuarioComisionado;
 import sep.gob.mx.sems.Service.UsersService;
 

@@ -4,6 +4,7 @@
  */
 package sep.gob.mx.sems.DAOImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +20,36 @@ import sep.gob.mx.sems.Model.TablaOmvi;
  */
 @Component
 @Repository
-public class OmviDAOImp implements OmviDAO{
+public class OmviDAOImp implements OmviDAO {
 
     @Autowired
     SessionFactory sessionFactory;
-    
+
     @Override
     public List<TablaOmvi> listaTablaOmvi() throws Exception {
-		return sessionFactory.getCurrentSession().createQuery(""
-+"select distinct omvi.Id_OMVI, usr.Ap_Paterno, usr.Ap_Materno, usr.Nombre_s, usr.Area_Adscripcion, objCom.Motivo_Comision, viatNac.Total_Importe "+
-"from OMVI omvi, UsuarioComisionado as usr,Objeto_comision as objCom, Viaticos_nacionales as viatNac "+
-"where omvi.Id_UsrCom=usr.Id_UsrCom and viatNac.Id_Viaticos=(select Id_Viaticos from ViaticosDestinos as viatDest "+
-"where omvi.Id_OMVI=viatDest.Id_OMVI)").list();
+//        List<OMVIViatNac> listViatNac = sessionFactory.getCurrentSession().createQuery("from OMVIViatNac").list();
+////        Viaticos_nacionales viatNac = (Viaticos_nacionales);
+//        TablaOmvi tab;
+//        List<TablaOmvi> listTab = new ArrayList<TablaOmvi>();
+        String query;
+
+//        for (int i = 0; i < listViatNac.size(); i++) {
+            query = "select distinct omvi.Id_OMVI, usr.Ap_Paterno, usr.Ap_Materno, usr.Nombre_s, usr.Area_Adscripcion, objCom.Motivo_Comision, viatNac.Total_Importe "
+                    + "from OMVI omvi, UsuarioComisionado usr,Objeto_comision objCom, Viaticos_nacionales viatNac, Viaticos_Destinos_Nacionales viatDN "
+                    + "where omvi.Id_UsrCom=usr.Id_UsrCom and omvi.Id_Obj_Comision=objCom.Id_Obj_Comision and "
+                    + "omvi.Id_Viaticos_Destino = viatDN.Id_Viaticos and viatDN.Id_Viaticos=viatNac.Id_Viaticos";
+            
+//            tab = (TablaOmvi) sessionFactory.getCurrentSession().createQuery(query);
+//            System.out.println("Tab id: "+tab.getId_OMVI());
+//            System.out.println("Nombre: "+tab.getAp_Paterno()+tab.getAp_Materno()+tab.getNombre_s());
+//            listTab.add(tab);
+//        }
+
+        return sessionFactory.getCurrentSession().createQuery(query).list();
     }
 
     @Override
     public OMVI getOMVIById(Integer idOMVI) throws Exception {
-        return(OMVI)sessionFactory.getCurrentSession().get(OMVI.class, idOMVI);
+        return (OMVI) sessionFactory.getCurrentSession().get(OMVI.class, idOMVI);
     }
-    
 }

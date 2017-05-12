@@ -50,8 +50,8 @@
 		<td>600</td>
 		<td>SECRETARIA DE EDUCACIÓN MEDIA SUPERIOR</td>
 		<td class="e"></td>
-		<td class="t"><input type="text" id="" name="" value="" size="8" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="12" disabled></td></td>
+		<td class="t"><input type="text" id="" name="" value="${omvi.id_OMVI}" size="8" disabled></td>
+		<td class="t"><input type="text" id="" name="" value="${omvi.fecha_OMVI}" size="12" disabled></td></td>
 		
 	</tr>
 </table>
@@ -70,13 +70,13 @@
 	<tr>
 		<td>
 		<br>
-			<input type="text" id="" name="" value="" size="33" disabled>
-			<input type="text" id="" name="" value="" disabled>
-			<input type="text" id="" name="" value="" size="33" disabled>
+			<input type="text" id="" name="" value="${user.nombre_s} ${user.ap_Paterno} ${user.ap_Materno}" size="33" disabled>
+			<input type="text" id="" name="" value="${user.RFC}" disabled>
+			<input type="text" id="" name="" value="${user.puesto}" size="33" disabled>
 			<p class="axion">NOMBRE R.F.C PUESTO</p>
 			<br>
-			<input type="text" id="" name="" value="" disabled>
-			<input type="text" id="" name="" value="" size="70" disabled>
+			<input type="text" id="" name="" value="${user.clave_SAV}" disabled>
+			<input type="text" id="" name="" value="${user.area_Adscripcion}" size="70" disabled>
 			<p class="axion">CLAVE AREA.DE.ADSCRIPCIÓN .</p>
 		</td>
 	</tr>
@@ -93,12 +93,12 @@
 	<tr>
 		<td>
 			<br>
-			<input type="text" id="" name="" value="" size="45" disabled>
-			<input type="text" id="" name="" value="" size="45" disabled>
+			<input type="text" id="" name="" value="${destOrdSer.punto_Partida}" size="45" disabled>
+			<input type="text" id="" name="" value="${destOrdSer.punto_Llegada}" size="45" disabled>
 			<p class="axion">PUNTO.DE.PARTIDA PUNTO.DE.LLEGADA </p>
 			<br>
-			<input type="text" id="" name="" value="" size="45" disabled>
-			<input type="text" id="" name="" value="" size="45" disabled>
+			<input type="text" id="" name="" value="${destOrdSer.otro_Destino}" size="45" disabled>
+			<input type="text" id="" name="" value="${destOrdSer.clase_Servicio}" size="45" disabled>
 			<p class="axion">OTRO.DESTINO CLASE.DE.SERVICIO </p>
 		</td>
 	</tr>
@@ -118,7 +118,7 @@
 	</tr>
 	<tr>
 		<td>
-			<textarea rows="3" cols="71" disabled></textarea>
+			<textarea rows="3" cols="71" disabled>${motComision.motivo_Comision}</textarea>
 		</td>
 		<td rowspan="3"></td>
 	</tr>
@@ -128,7 +128,7 @@
 	</tr>
 	<tr>
 	<p></p>
-		<td><textarea rows="3" cols="71" disabled></textarea></td>
+		<td><textarea rows="3" cols="71" disabled>${motComision.observaciones}</textarea></td>
 		
 	</tr>
 
@@ -206,7 +206,7 @@
 		<td class="e"></td>
 		<td>
 		<br><br><br>
-			<input type="text" id="" name="" value="" size="40" disabled>
+			<input type="text" id="" name="" value="${user.nombre_s} ${user.ap_Paterno} ${user.ap_Materno}" size="40" disabled>
 			<BR>NOMBRE Y FIRMA
 
 	</td>

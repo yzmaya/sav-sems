@@ -117,7 +117,7 @@ public class OCMVN2DAOImpl implements OCMVN2DAO{
     
     @Override
     public List<Viaticos_Destinos_Nacionales> getListViaticos_Destinos_NacionalesByIdOMVI(Integer idOMVI) throws Exception {
-        String query = "from Viaticos_Destinos_Nacionales viatDestNac where destViatNac.Id_OMVI="+idOMVI;
+        String query = "from Viaticos_Destinos_Nacionales viatDestNac where viatDestNac.Id_OMVI="+idOMVI;
         return sessionFactory.getCurrentSession().createQuery(query).list();
     }
 

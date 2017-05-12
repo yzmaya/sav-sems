@@ -98,7 +98,8 @@ public class SavOmviController {
         Destino_ordser destOrdSer = new Destino_ordser();
         Objeto_comision objComision = new Objeto_comision();
         Itinerario itinerario = new Itinerario();
-//        ViaticosDestinos viatDest = new ViaticosDestinos();
+        List<Viaticos_Destinos_Nacionales> listViatDN = new ArrayList<Viaticos_Destinos_Nacionales>();
+        List<Destinos_viat_nac> listDestVN = new ArrayList<Destinos_viat_nac>();
         CompercoItinerario compItin = new CompercoItinerario();
 
         try {
@@ -109,10 +110,15 @@ public class SavOmviController {
             itinerario = compServ.getItinerarioById(compItin.getID_Itinerario());
             destOrdSer = OSPN1Serv.getDestinoOrdserById(omvi.getId_Destino_OrdSer());
             objComision = OSPN1Serv.getObjetoComisionById(omvi.getId_Obj_Comision());
-//            viatDest = MVN2Service.getviaticosDestinosById(omvi.getId_Viaticos());
-//            destViatNac = MVN2Service.getDestViatNacById(viatDest.getId_Destino());
-//            viatNac = MVN2Service.getViaticos_nacionalesById(viatDest.getId_Viaticos());
-
+            listViatDN = MVN2Service.getListViaticos_Destinos_NacionalesByIdOMVI(omvi.getId_OMVI());
+            listDestVN = MVN2Service.getListDestViatNacByIdOMVI(omvi.getId_OMVI());
+            destViatNac = listDestVN.get(0);
+            System.out.println("*******************************************************Tamaño listDestVN: "+listDestVN.size());
+            System.out.println("Id: "+destViatNac.getId_Destino());
+            System.out.println("Lugar: "+destViatNac.getLugar());
+            System.out.println("Periodo: "+destViatNac.getPeriodo());
+            viatNac = MVN2Service.getViaticos_nacionalesById(listViatDN.get(0).getId_Viaticos());
+            
         } catch (NumberFormatException e) {
             System.out.println("Error Catch Number Format Exception: " + e.getMessage());
         } catch (Exception e) {
@@ -125,7 +131,12 @@ public class SavOmviController {
         model.addObject("omvi", omvi);
         model.addObject("destOrdSer", destOrdSer);
         model.addObject("motComision", objComision);
-        model.addObject("destViatNac", destViatNac);
+        //------------------------------------------------------------------------------------------------------------------------------------------------
+                                                           //En este punto hay que saber si hay un numero maximo de lugares y periodos que puede
+         model.addObject("destViatNac", destViatNac);//tener un comisionado para ver de que manera podemos acomodar los objetos y pasarlos
+                                                           //al JSP y los layouts para visualizar los datos. Por ahora solo muestra el primer registro 
+                                                           //de la tabla, correspondiente al numero de omvi que se este modificando
+        //------------------------------------------------------------------------------------------------------------------------------------------------
         model.addObject("itinerario", itinerario);
                 
         model.setViewName("E_Omvi");

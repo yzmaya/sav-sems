@@ -98,30 +98,30 @@
 		<td class="t"><input type="text" id="importeComision1"     name="" value="${destViatNac.importe}" size="11" disabled></td>
 	</tr>
 	<tr>
-		<td class="t"><input type="text" id="lugarComision2"       name="" value="11" size="30" disabled></td>
-		<td class="t"><input type="text" id="periodoComision2"     name="" value="22" size="30" disabled></td>
-		<td class="t"><input type="text" id="cuotaDiariaComision2" name="" value="33" size="10" disabled></td>
-		<td class="t"><input type="text" id="diasComision2"        name="" value="44" size="5" disabled></td>
-		<td class="t"><input type="text" id="importeComision2"     name="" value="55" size="11" disabled></td>
+		<td class="t"><input type="text" id="lugarComision2"       name="" value="" size="30" disabled></td>
+		<td class="t"><input type="text" id="periodoComision2"     name="" value="" size="30" disabled></td>
+		<td class="t"><input type="text" id="cuotaDiariaComision2" name="" value="" size="10" disabled></td>
+		<td class="t"><input type="text" id="diasComision2"        name="" value="" size="5" disabled></td>
+		<td class="t"><input type="text" id="importeComision2"     name="" value="" size="11" disabled></td>
 	</tr>
 	<tr>
-		<td class="t"><input type="text" id="lugarComision3"       name="" value="111" size="30" disabled></td>
-		<td class="t"><input type="text" id="periodoComision3"     name="" value="222" size="30" disabled></td>
-		<td class="t"><input type="text" id="cuotaDiariaComision3" name="" value="333" size="10" disabled></td>
-		<td class="t"><input type="text" id="diasComision3"        name="" value="444" size="5" disabled></td>
-		<td class="t"><input type="text" id="importeComision3"     name="" value="555" size="11" disabled></td>
+		<td class="t"><input type="text" id="lugarComision3"       name="" value="" size="30" disabled></td>
+		<td class="t"><input type="text" id="periodoComision3"     name="" value="" size="30" disabled></td>
+		<td class="t"><input type="text" id="cuotaDiariaComision3" name="" value="" size="10" disabled></td>
+		<td class="t"><input type="text" id="diasComision3"        name="" value="" size="5" disabled></td>
+		<td class="t"><input type="text" id="importeComision3"     name="" value="" size="11" disabled></td>
 	</tr>
 	<tr>
-		<td class="t"><input type="text" id="lugarComision4"       name="" value="1111" size="30" disabled></td>
-		<td class="t"><input type="text" id="periodoComision4"     name="" value="2222" size="30" disabled></td>
-		<td class="t"><input type="text" id="cuotaDiariaComision4" name="" value="3333" size="10" disabled></td>
-		<td class="t"><input type="text" id="diasComision4"        name="" value="4444" size="5" disabled></td>
-		<td class="t"><input type="text" id="importeComision4"     name="" value="5555" size="11" disabled></td>
+		<td class="t"><input type="text" id="lugarComision4"       name="" value="" size="30" disabled></td>
+		<td class="t"><input type="text" id="periodoComision4"     name="" value="" size="30" disabled></td>
+		<td class="t"><input type="text" id="cuotaDiariaComision4" name="" value="" size="10" disabled></td>
+		<td class="t"><input type="text" id="diasComision4"        name="" value="" size="5" disabled></td>
+		<td class="t"><input type="text" id="importeComision4"     name="" value="" size="11" disabled></td>
 	</tr>
 	<tr>
 		<td colspan="3"></td>
 		<tH>Total</TH>
-		<td class="t"><input type="text" id="totalComision" name="" value="$total" size="11" disabled></td>
+		<td class="t"><input type="text" id="totalComision" name="" value="${viatNac.total_Importe}" size="11" disabled></td>
 	</tr>
 </table>
 
@@ -135,9 +135,9 @@
 	</tr>
 
 	<tr>
-		<td class="t"><textarea rows="4" cols="50" disabled></textarea></td>
+		<td class="t"><textarea rows="4" cols="50" disabled>${motComision.motivo_Comision}</textarea></td>
 		<td class="e"></td>
-		<td class="t"><textarea rows="4" cols="50" disabled></textarea></td>
+		<td class="t"><textarea rows="4" cols="50" disabled>${motComision.observaciones}</textarea></td>
 	</tr>
 </table>
 <br>
@@ -254,7 +254,7 @@
 		<td>
 		<br><br><br>
 		<br>
-			<input type="text" id="nombFirma" name="" value="" size="40" disabled>
+			<input type="text" id="nombFirma" name="" value="${user.nombre_s} ${user.ap_Paterno} ${user.ap_Materno}" size="40" disabled>
 			<BR>NOMBRE Y FIRMA
 			<br><br>
 		</td>

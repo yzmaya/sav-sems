@@ -49,19 +49,4 @@ public class UsersController {
 		return model;
 	}
 	
-	@RequestMapping(value="/generaOmvi")
-	public ModelAndView generaOmvi(/*@RequestBody Users usr,@RequestBody Sav_omvi omvi,*/ ModelAndView model, HttpServletRequest request){
-		
-		UsuarioComisionado user = new UsuarioComisionado();
-		
-		try{
-			user = usersService.getUsuario(Integer.parseInt(request.getParameter("id")));
-		}catch(Exception e){
-			System.out.println("Error en GeneraOmvi: "+e.getMessage());
-		}
-		model.addObject("user",user);
-		model.setViewName("G_Omvi");
-		return model;
-	}
-	
 }

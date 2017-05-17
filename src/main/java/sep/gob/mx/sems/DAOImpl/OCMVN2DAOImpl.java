@@ -32,7 +32,7 @@ public class OCMVN2DAOImpl implements OCMVN2DAO{
 
     @Override
     public Destinos_viat_nac getDestViatNacByIdOMVI(Integer idOMVI) throws Exception {
-        String query = "from Destinos_viat_nac where Id_OMVI="+idOMVI;
+        String query = "from Destinos_viat_nac dvn where dvn.Id_OMVI="+idOMVI;
         return (Destinos_viat_nac)sessionFactory.getCurrentSession().createQuery(query);
     }
     
@@ -58,7 +58,7 @@ public class OCMVN2DAOImpl implements OCMVN2DAO{
 
     @Override
     public String saveDestViatNac(Destinos_viat_nac destViatNac) throws Exception {
-        sessionFactory.getCurrentSession().saveOrUpdate(destViatNac);
+        sessionFactory.getCurrentSession().save(destViatNac);
         return "Se guardo Destinos Viaticos Nacionales";
     }
 
@@ -93,7 +93,7 @@ public class OCMVN2DAOImpl implements OCMVN2DAO{
 
     @Override
     public String saveViaticos_nacionales(Viaticos_nacionales viatNac) throws Exception {
-        sessionFactory.getCurrentSession().saveOrUpdate(viatNac);
+        sessionFactory.getCurrentSession().save(viatNac);
         return "Se guardo Viaticos Nacionales";
     }
 
@@ -123,7 +123,7 @@ public class OCMVN2DAOImpl implements OCMVN2DAO{
 
     @Override
     public Viaticos_Destinos_Nacionales getViaticos_Destinos_NacionalesByIdOMVI(Integer idOMVI) throws Exception {
-        return(Viaticos_Destinos_Nacionales)sessionFactory.getCurrentSession().createQuery("from Viaticos_Destinos_Nacionales where Id_OMVI="+idOMVI);
+        return(Viaticos_Destinos_Nacionales)sessionFactory.getCurrentSession().createQuery("from Viaticos_Destinos_Nacionales vdn where vdn.Id_OMVI="+idOMVI);
     }
 
     @Override
@@ -134,7 +134,7 @@ public class OCMVN2DAOImpl implements OCMVN2DAO{
 
     @Override
     public String saveViaticos_Destinos_Nacionales(Viaticos_Destinos_Nacionales viaticos_Destinos_Nacionales) throws Exception {
-        sessionFactory.getCurrentSession().saveOrUpdate(viaticos_Destinos_Nacionales);
+        sessionFactory.getCurrentSession().save(viaticos_Destinos_Nacionales);
         return "Se guardo Viaticos_Destinos_Nacionales";
     }
 

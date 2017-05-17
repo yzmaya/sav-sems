@@ -33,7 +33,7 @@ public class UsersDAOImpl implements UsersDAO {
 
     @Override
     public String saveUsuario(UsuarioComisionado user) throws Exception {
-        sessionFactory.getCurrentSession().saveOrUpdate(user);
+        sessionFactory.getCurrentSession().save(user);
         return "Se guardo Usuario";
     }
 

@@ -74,7 +74,7 @@
       <li role="presentation"><a role="menuitem" tabindex="-1" href="lPasajes?id=${omvi.id_OMVI}" target="_blank">Pasajes Nacionales</a></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="lViaticos?id=${omvi.id_OMVI}" target="_blank">Viaticos Nacionales</a></li>
       <li role="presentation" class="divider"></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="lComprobante" target="_blank">Comprobante de Viaticos</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="lComprobante?id=${omvi.id_OMVI}" target="_blank">Comprobante de Viaticos</a></li>
     </ul>
   </div>
 
@@ -227,7 +227,7 @@
 								</div>
 								<div class="col-md-6">
 									<select class="form-control">
-										<option value=""></option>
+										<option value="${destOrdSer.clase_Servicio}"></option>
 										<option value="economico">Economico</option>
 										<option value="terrestre">Terrestre</option>
 									</select>

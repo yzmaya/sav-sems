@@ -6,7 +6,9 @@ package sep.gob.mx.sems.DAOImpl;
 
 import sep.gob.mx.sems.DAO.OSPN1DAO;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import sep.gob.mx.sems.Model.Destino_ordser;
@@ -29,7 +31,8 @@ public class OSPN1DAOImpl implements OSPN1DAO {
 
     @Override
     public Destino_ordser getDestinoOrdserByIdOMVI(Integer idOMVI) throws Exception {
-        return (Destino_ordser) sessionFactory.getCurrentSession().createQuery("from Destino_ordser where Id_OMVI=" + idOMVI);
+        Criteria crit=sessionFactory.getCurrentSession().createCriteria(Destino_ordser.class).add(Restrictions.eq("Id_OMVI",idOMVI));
+        return (Destino_ordser) crit.uniqueResult();
     }
 
     @Override
@@ -45,7 +48,7 @@ public class OSPN1DAOImpl implements OSPN1DAO {
 
     @Override
     public String saveDestinoOrdser(Destino_ordser destOrd) throws Exception {
-        sessionFactory.getCurrentSession().saveOrUpdate(destOrd);
+        sessionFactory.getCurrentSession().save(destOrd);
         return "Se guardo DestinoOrdSer";
     }
 
@@ -63,7 +66,8 @@ public class OSPN1DAOImpl implements OSPN1DAO {
 
     @Override
     public Objeto_comision getObjetoComisionByIdOMVI(Integer idOMVI) throws Exception {
-        return (Objeto_comision) sessionFactory.getCurrentSession().createQuery("from Objeto_comision where Id_OMVI=" + idOMVI);
+        Criteria crit=sessionFactory.getCurrentSession().createCriteria(Objeto_comision.class).add(Restrictions.eq("Id_OMVI",idOMVI));
+        return (Objeto_comision) crit.uniqueResult();
     }
 
     @Override
@@ -79,7 +83,7 @@ public class OSPN1DAOImpl implements OSPN1DAO {
 
     @Override
     public String saveObjetoComision(Objeto_comision objCom) throws Exception {
-        sessionFactory.getCurrentSession().saveOrUpdate(objCom);
+        sessionFactory.getCurrentSession().save(objCom);
         return "Se guardo Objeto Comision";
     }
 

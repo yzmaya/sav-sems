@@ -32,7 +32,7 @@ public class COMPERCO3DAOImpl implements COMPERCO3DAO{
 
     @Override
     public Itinerario getItinerarioByIdOMVI(Integer idOMVI) throws Exception {
-        CompercoItinerario compItin= getCompercoItinerarioByIdOMVI(idOMVI);
+        CompercoItinerario compItin= getCompercoItinerarioByIdOMVI(idOMVI).get(0);
         return (Itinerario)sessionFactory.getCurrentSession().get(Itinerario.class, compItin.getID_Itinerario());
     }
 
@@ -44,7 +44,7 @@ public class COMPERCO3DAOImpl implements COMPERCO3DAO{
 
     @Override
     public String saveItinerario(Itinerario itinerario) throws Exception {
-        sessionFactory.getCurrentSession().saveOrUpdate(itinerario);
+        sessionFactory.getCurrentSession().save(itinerario);
         return "Se guardo Itinerario";
     }
 
@@ -67,7 +67,7 @@ public class COMPERCO3DAOImpl implements COMPERCO3DAO{
 
     @Override
     public COMPERCO getCOMPERCOByIdOMVI(Integer idOMVI) throws Exception {
-        CompercoItinerario compItin = getCompercoItinerarioByIdOMVI(idOMVI);
+        CompercoItinerario compItin = getCompercoItinerarioByIdOMVI(idOMVI).get(0);
         return (COMPERCO)sessionFactory.getCurrentSession().get(COMPERCO.class, compItin.getId_COMPERCO());
     }
 
@@ -79,7 +79,7 @@ public class COMPERCO3DAOImpl implements COMPERCO3DAO{
 
     @Override
     public String saveCOMPERCO(COMPERCO comperco) throws Exception {
-        sessionFactory.getCurrentSession().saveOrUpdate(comperco);
+        sessionFactory.getCurrentSession().save(comperco);
         return "Se guardo COMPERCO";
     }
 
@@ -91,9 +91,9 @@ public class COMPERCO3DAOImpl implements COMPERCO3DAO{
     }
 
     @Override
-    public CompercoItinerario getCompercoItinerarioByIdOMVI(Integer idOMVI) throws Exception {
+    public List<CompercoItinerario> getCompercoItinerarioByIdOMVI(Integer idOMVI) throws Exception {
         String query = "from CompercoItinerario compItin where compItin.Id_OMVI="+idOMVI;
-        return (CompercoItinerario)sessionFactory.getCurrentSession().createSQLQuery(query);
+        return sessionFactory.getCurrentSession().createQuery(query).list();
     }
 
     @Override
@@ -104,7 +104,7 @@ public class COMPERCO3DAOImpl implements COMPERCO3DAO{
 
     @Override
     public String saveCompercoItinerario(CompercoItinerario compItin) throws Exception {
-        sessionFactory.getCurrentSession().saveOrUpdate(compItin);
+        sessionFactory.getCurrentSession().save(compItin);
         return "Se guardo Comperco Itinerario";
     }
 

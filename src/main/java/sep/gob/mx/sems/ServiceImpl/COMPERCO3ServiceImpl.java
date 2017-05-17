@@ -87,7 +87,7 @@ public class COMPERCO3ServiceImpl implements COMPERCO3Service{
     }
 
     @Override
-    public CompercoItinerario getCompercoItinerarioByIdOMVI(Integer idOMVI) throws Exception {
+    public List<CompercoItinerario> getCompercoItinerarioByIdOMVI(Integer idOMVI) throws Exception {
         return compercoDAO.getCompercoItinerarioByIdOMVI(idOMVI);
     }
 

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import java.io.Serializable;
+import javax.persistence.*;
 /**
  *
  * @author brayan.padilla
@@ -14,6 +15,7 @@ import java.io.Serializable;
 public class Viaticos_Destinos_Nacionales implements Serializable{
     
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column
     private Integer Id_Viat_Dest_Nac;
     

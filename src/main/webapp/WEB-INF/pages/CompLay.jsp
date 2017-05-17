@@ -30,7 +30,7 @@
 <table>
 	<tr>
 		<th>OC/OMVI No. </th>
-		<td class="t"><input type="text" id="" name="" value="" size="12" disabled></td>
+		<td class="t"><input type="text" id="omvi" name="omvi" value="${omvi.id_OMVI}" size="12" disabled></td>
 		<td class="e" style="width: 541px"></td>
 	</tr>
 </table>
@@ -54,8 +54,8 @@
 		<td>600</td>
 		<td>SEMS</td>
 		<td class="e"></td>
-		<td class="t"><input type="text" id="" name="" value="" size="10" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="10" disabled></td>
+		<td class="t"><input type="text" id="omviformato" name="omviformato" value="${omvi.id_OMVI}" size="10" disabled></td>
+		<td class="t"><input type="text" id="fechaFormato" name="fechaFormato" value="${omvi.fecha_OMVI}" size="10" disabled></td>
 	</tr>
 </table>
 
@@ -70,7 +70,7 @@
 	<tr>
 		<td class="e"></td>
 		<th>TOTAL</th>
-		<td class="t"><input type="text" id="" name="" value="" size="10" disabled></td>
+		<td class="t"><input type="text" id="totalMinViat" name="totalMinViat" value="" size="10" disabled></td>
 	</tr>
 </table>
 
@@ -263,7 +263,7 @@
 	<tr>
 		<td class="t">
 			<br><br><br><br>
-			<input type="text" id="" name="" value="" size="28" disabled>
+			<input type="text" id="user" name="user" value="${user.nombre_s} ${user.ap_Paterno} ${user.ap_Materno}" size="28" disabled>
 			<BR><article>NOMBRE Y FIRMA</article>
 			<br>
 		</td>

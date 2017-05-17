@@ -13,8 +13,11 @@ import sep.gob.mx.sems.Model.TablaOmvi;
  * @author brayan.padilla
  */
 public interface OmviServ {
-    
-    public List<TablaOmvi> listaTablaOmvi()throws Exception;
-        public OMVI getOMVIById(Integer idOMVI)throws Exception;
+
+    public List<TablaOmvi> listaTablaOmvi() throws Exception;
+
+    public OMVI getOMVIById(Integer idOMVI) throws Exception;
+
+    public String saveOMVI(OMVI omvi) throws Exception;
     
 }

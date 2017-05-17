@@ -34,5 +34,10 @@ public class OmviServImp implements OmviServ{
     public OMVI getOMVIById(Integer idOMVI) throws Exception {
         return omviDAO.getOMVIById(idOMVI);
     }
+
+    public String saveOMVI(OMVI omvi) throws Exception {
+        omviDAO.saveOMVI(omvi);
+        return "Se guardo OMVI correctamente";
+    }
     
 }

@@ -52,4 +52,10 @@ public class OmviDAOImp implements OmviDAO {
     public OMVI getOMVIById(Integer idOMVI) throws Exception {
         return (OMVI) sessionFactory.getCurrentSession().get(OMVI.class, idOMVI);
     }
+
+    @Override
+    public String saveOMVI(OMVI omvi) throws Exception {
+        sessionFactory.getCurrentSession().save(omvi);
+        return "Se guardo OMVI";
+    }
 }

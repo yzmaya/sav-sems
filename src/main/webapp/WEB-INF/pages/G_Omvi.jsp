@@ -74,6 +74,27 @@
                 Total_Importe.value = Importe.value;
             }
             
+            function desactivaCOMPERCO(){
+                var sel = document.getElementById("selectClase");
+                if(sel.value == "economico"){
+                    var fields = document.getElementById("formCOMPERCO").getElementsByTagName('*');
+                    for(var i = 0; i < fields.length; i++)
+                    {
+                        fields[i].disabled = true;
+                    }
+                    
+                    omviOficioComision.value="";
+                    datepicker2.value="";
+
+                }else if(sel.value == "terrestre"){
+                    var fields = document.getElementById("formCOMPERCO").getElementsByTagName('*');
+                    for(var i = 0; i < fields.length; i++)
+                    {
+                        fields[i].disabled = false;
+                    }
+                }
+            }
+            
             function realizaCalculosCOMPERCO(){
                 var km1 =km1Itinerario.value;
                 var km2 = km2Itinerario.value;
@@ -165,6 +186,8 @@
                         alert('Datos: '+datosOMVI);
                     }*/
                 });
+                
+                alert("OMVI Generado");
             }
         </script>
     </head>
@@ -310,20 +333,18 @@
                                     </div>
                                     <br>
                                     <div class="row">
-                                        <label class="control-label col-md-6 text-center">OTRO
-                                            DESTINO</label> <label class="control-label col-md-6 text-center">CLASE
-                                            DE SERVICIO</label>
+                                        <label class="control-label col-md-6 text-center">OTRO DESTINO</label> 
+                                        <label class="control-label col-md-6 text-center">CLASE DE SERVICIO</label>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" id="otro_destino"
-                                                   name="otro_destino" value="">
+                                            <input type="text" class="form-control" id="otro_destino" name="otro_destino" value="">
                                         </div>
                                         <div class="col-md-6">
-                                            <select class="form-control" id="selectClase" name="selectClase">
+                                            <select class="form-control" id="selectClase" name="selectClase" onchange="desactivaCOMPERCO()">
                                                 <option value=""></option>
-                                                <option value="economico">Economico</option>
-                                                <option value="terrestre">Terrestre</option>
+                                                <option value="Economico">Economico</option>
+                                                <option value="Terrestre">Terrestre</option>
                                             </select>
                                         </div>
                                     </div>

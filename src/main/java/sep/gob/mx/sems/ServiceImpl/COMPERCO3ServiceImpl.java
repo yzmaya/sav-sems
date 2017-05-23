@@ -112,5 +112,11 @@ public class COMPERCO3ServiceImpl implements COMPERCO3Service{
     public CompercoItinerario getCompercoItinerarioById(Integer idCompItin) throws Exception {
         return compercoDAO.getCompercoItinerarioById(idCompItin);
     }
+
+    @Transactional
+    @Override
+    public List<CompercoItinerario> getListCompercoItinerarioByIdComperco(Integer idCOMPERCO) throws Exception {
+        return compercoDAO.getListCompercoItinerarioByIdComperco(idCOMPERCO);
+    }
     
 }

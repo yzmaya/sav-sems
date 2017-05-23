@@ -31,6 +31,7 @@ public interface COMPERCO3Service {
     
     public CompercoItinerario getCompercoItinerarioById(Integer idCompItin)throws Exception;
     public List<CompercoItinerario> getCompercoItinerarioByIdOMVI(Integer idOMVI)throws Exception;
+    public List<CompercoItinerario> getListCompercoItinerarioByIdComperco(Integer idCOMPERCO)throws Exception;
     public CompercoItinerario updateCompercoItinerario(CompercoItinerario compItin)throws Exception;
     public String saveCompercoItinerario(CompercoItinerario compItin)throws Exception;
     public String deleteCompercoItinerario(Integer idCompItin)throws Exception;

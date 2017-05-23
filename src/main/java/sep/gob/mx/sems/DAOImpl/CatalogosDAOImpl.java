@@ -35,4 +35,9 @@ public class CatalogosDAOImpl implements CatalogosDAO {
     public List<Cat_unidad_responsable> getCatUR() throws Exception {
         return sessionFactory.getCurrentSession().createQuery("from Cat_unidad_responsable").list();
     }
+
+    @Override
+    public Cat_puesto getPuestoById(Integer idPuesto) throws Exception {
+        return (Cat_puesto)sessionFactory.getCurrentSession().get(Cat_puesto.class, idPuesto);
+    }
 }

@@ -17,6 +17,7 @@ public interface CatalogosService {
     
     public List<Cat_partidas> getCatPartidas()throws Exception;
     public List<Cat_puesto> getCatPuesto()throws Exception;
+    public Cat_puesto getPuestoById(Integer idPuesto)throws Exception;
     public List<Cat_unidad_responsable> getCatUR()throws Exception;
     
 }

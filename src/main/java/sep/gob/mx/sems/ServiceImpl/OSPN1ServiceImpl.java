@@ -41,7 +41,7 @@ public class OSPN1ServiceImpl implements OSPN1Service {
         return osp1DAO.updateDestinoOrdser(destinoOrdSer);
     }
 
-    @Transactional
+    @Transactional(rollbackFor={Exception.class})
     @Override
     public void saveDestinoOrdser(Destino_ordser destOrd) throws Exception {
         osp1DAO.saveDestinoOrdser(destOrd);
@@ -74,7 +74,7 @@ public class OSPN1ServiceImpl implements OSPN1Service {
         return osp1DAO.updateObjetoComision(objComis);
     }
 
-    @Transactional
+    @Transactional(rollbackFor={Exception.class})
     @Override
     public void saveObjetoComision(Objeto_comision objCom) throws Exception {
         osp1DAO.saveObjetoComision(objCom);

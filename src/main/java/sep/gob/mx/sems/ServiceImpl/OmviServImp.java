@@ -35,9 +35,18 @@ public class OmviServImp implements OmviServ{
         return omviDAO.getOMVIById(idOMVI);
     }
 
+    @Transactional(rollbackFor={Exception.class})
+    @Override
     public String saveOMVI(OMVI omvi) throws Exception {
         omviDAO.saveOMVI(omvi);
         return "Se guardo OMVI correctamente";
+    }
+
+    @Transactional
+    @Override
+    public OMVI updateOMVI(OMVI omvi) throws Exception {
+        omviDAO.updateOMVI(omvi);
+        return omvi;
     }
     
 }

@@ -58,4 +58,10 @@ public class OmviDAOImp implements OmviDAO {
         sessionFactory.getCurrentSession().save(omvi);
         return "Se guardo OMVI";
     }
+
+    @Override
+    public OMVI updateOMVI(OMVI omvi) throws Exception {
+        sessionFactory.getCurrentSession().update(omvi);
+        return omvi;
+    }
 }

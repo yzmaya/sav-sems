@@ -1,7 +1,9 @@
 package sep.gob.mx.sems.DAOImpl;
 
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -115,8 +117,15 @@ public class COMPERCO3DAOImpl implements COMPERCO3DAO{
         return "Se borro Comperco Itinerario";
     }
 
+    @Override
     public CompercoItinerario getCompercoItinerarioById(Integer idCompItin) throws Exception {
         return(CompercoItinerario)sessionFactory.getCurrentSession().get(CompercoItinerario.class, idCompItin);
+    }
+
+    @Override
+    public List<CompercoItinerario> getListCompercoItinerarioByIdComperco(Integer idCOMPERCO) throws Exception {
+        Criteria crit=sessionFactory.getCurrentSession().createCriteria(CompercoItinerario.class).add(Restrictions.eq("Id_COMPERCO", idCOMPERCO));
+        return crit.list();
     }
     
 }

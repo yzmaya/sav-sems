@@ -18,6 +18,15 @@ public class Cat_puesto implements Serializable {
         @Id
 	@Column
 	private Integer Id_Puesto;
+        
+        @Column
+	private String Cve_Nivel_Puesto;
+	
+	@Column
+	private String Denominacion_Puesto;
+	
+	@Column
+	private String Denominacion_Cargo;
 
     public String getCve_Nivel_Puesto() {
         return Cve_Nivel_Puesto;
@@ -51,14 +60,7 @@ public class Cat_puesto implements Serializable {
         this.Id_Puesto = Id_Puesto;
     }
 	
-	@Column
-	private String Cve_Nivel_Puesto;
 	
-	@Column
-	private String Denominacion_Puesto;
-	
-	@Column
-	private String Denominacion_Cargo;
         
         
 

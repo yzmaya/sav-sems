@@ -104,63 +104,6 @@ public class SavOmviController {
         return model;
     }
     
-    @RequestMapping(value = "/editOmvi")
-    public ModelAndView editOmvi(ModelAndView model, HttpServletRequest request) {
-
-        UsuarioComisionado usuario = new UsuarioComisionado();
-        COMPERCO comperco = new COMPERCO();
-        Viaticos_nacionales viatNac = new Viaticos_nacionales();
-        Destinos_viat_nac destViatNac = new Destinos_viat_nac();
-        OMVI omvi = new OMVI();
-        Destino_ordser destOrdSer = new Destino_ordser();
-        Objeto_comision objComision = new Objeto_comision();
-        Itinerario itinerario = new Itinerario();
-        List<Viaticos_Destinos_Nacionales> listViatDN = new ArrayList<Viaticos_Destinos_Nacionales>();
-        List<Destinos_viat_nac> listDestVN = new ArrayList<Destinos_viat_nac>();
-        CompercoItinerario compItin = new CompercoItinerario();
-
-        try {
-            omvi = omviServ.getOMVIById(Integer.parseInt(request.getParameter("id")));
-            usuario = usrServ.getUsuario(omvi.getId_UsrCom());//Aqui va el request del id del usuario
-            compItin = compServ.getCompercoItinerarioById(omvi.getId_COMPERCO());
-            comperco = compServ.getCOMPERCOById(compItin.getId_COMPERCO());
-            itinerario = compServ.getItinerarioById(compItin.getID_Itinerario());
-            destOrdSer = OSPN1Serv.getDestinoOrdserById(omvi.getId_Destino_OrdSer());
-            objComision = OSPN1Serv.getObjetoComisionById(omvi.getId_Obj_Comision());
-            listViatDN = MVN2Service.getListViaticos_Destinos_NacionalesByIdOMVI(omvi.getId_OMVI());
-            listDestVN = MVN2Service.getListDestViatNacByIdOMVI(omvi.getId_OMVI());
-            destViatNac = listDestVN.get(0);
-//            System.out.println("*******************************************************Tamaño listDestVN: "+listDestVN.size());
-//            System.out.println("Id: "+destViatNac.getId_Destino());
-//            System.out.println("Lugar: "+destViatNac.getLugar());
-//            System.out.println("Periodo: "+destViatNac.getPeriodo());
-            viatNac = MVN2Service.getViaticos_nacionalesById(listViatDN.get(0).getId_Viaticos());
-            
-        } catch (NumberFormatException e) {
-            System.out.println("Error Catch Number Format Exception: " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("Error Exception Modifica OMVI: " + e.getMessage());
-        }
-
-        model.addObject("user", usuario);
-        model.addObject("comperco", comperco);
-        model.addObject("viatNac", viatNac);
-        model.addObject("omvi", omvi);
-        model.addObject("destOrdSer", destOrdSer);
-        model.addObject("motComision", objComision);
-        //------------------------------------------------------------------------------------------------------------------------------------------------
-                                                     //En este punto hay que saber si hay un numero maximo de lugares y periodos que puede
-         model.addObject("destViatNac", destViatNac);//tener un comisionado para ver de que manera podemos acomodar los objetos y pasarlos
-                                                     //al JSP y los layouts para visualizar los datos. Por ahora solo muestra el primer registro 
-                                                     //de la tabla, correspondiente al numero de omvi que se este modificando
-        //------------------------------------------------------------------------------------------------------------------------------------------------
-        model.addObject("itinerario", itinerario);
-                
-        model.setViewName("E_Omvi");
-
-        return model;
-    }
-    
     @RequestMapping(value="/generaOmvi")
 	public ModelAndView generaOmvi(ModelAndView model, HttpServletRequest request){
 		
@@ -299,15 +242,11 @@ public class SavOmviController {
         itinerario2.setDestinoA(a2Itinerario);
         itinerario2.setDistancia_Km(km2Itinerario);
         
-        compItin1.setID_Itinerario(itinerario1.getId_Itinerario());
-        compItin1.setId_COMPERCO(comperco.getId_COMPERCO());
+//        compItin1.setId_COMPERCO(comperco.getId_COMPERCO());
         compItin1.setId_OMVI(omvi.getId_OMVI());
-        compItin1.setId_COMPERCOItinerario(200);
         
-        compItin2.setID_Itinerario(itinerario2.getId_Itinerario());
-        compItin2.setId_COMPERCO(comperco.getId_COMPERCO());
+//        compItin2.setId_COMPERCO(comperco.getId_COMPERCO());
         compItin2.setId_OMVI(omvi.getId_OMVI());
-        compItin2.setId_COMPERCOItinerario(200);
         
         
         
@@ -336,7 +275,7 @@ public class SavOmviController {
         List<Viaticos_Destinos_Nacionales> listViatDN2 = new ArrayList<Viaticos_Destinos_Nacionales>();
         CompercoItinerario compItin22 = new CompercoItinerario();
         Viaticos_Destinos_Nacionales vdn = new Viaticos_Destinos_Nacionales();
-        
+        boolean guardaCOMPERCO=false;
            try{
                
                 System.out.println("1");
@@ -354,28 +293,35 @@ public class SavOmviController {
                 System.out.println("7");
                 MVN2Service.saveViaticos_Destinos_Nacionales(viatDestNac);
                 System.out.println("8");
-                compServ.saveCOMPERCO(comperco);
-                System.out.println("9");
-                compServ.saveItinerario(itinerario1);
-                System.out.println("10");
-                compServ.saveItinerario(itinerario2);
                 
+                System.out.println("getImporte_Gasolina: "+comperco.getImporte_Gasolina());
+                System.out.println("getLitros_Gasolina: "+comperco.getLitros_Gasolina());
+                System.out.println("getPrecio_Vigente_Gasolina: "+comperco.getPrecio_Vigente_Gasolina());
+                System.out.println("getFecha_COMPERCO: "+comperco.getFecha_COMPERCO());
                 
-                System.out.println("11");
-                //System.out.println("Id comperco: "+comperco.getId_COMPERCO());
-                compItin1.setId_COMPERCO(comperco.getId_COMPERCO());
-                //System.out.println("setIdCOMPERCO compItin1");
-                compItin1.setID_Itinerario(itinerario1.getId_Itinerario());
-                //System.out.println("setIdItinerario compItin1");
-                compServ.saveCompercoItinerario(compItin1);
-                System.out.println("12");
-                compItin2.setId_COMPERCO(comperco.getId_COMPERCO());
-                //System.out.println("setIdCOMPERCO compItin2");
-                compItin2.setID_Itinerario(itinerario2.getId_Itinerario());
-                //System.out.println("setIdItinerario compItin2");
-                compServ.saveCompercoItinerario(compItin2);
-                System.out.println("13");
-                
+                if(comperco.getFecha_COMPERCO()!= null){
+                    guardaCOMPERCO = true;
+                    System.out.println("Va a guardar comperco");
+                    compServ.saveCOMPERCO(comperco);
+                    System.out.println("9");
+                    compServ.saveItinerario(itinerario1);
+                    System.out.println("10");
+                    compServ.saveItinerario(itinerario2);
+                    System.out.println("11");
+                    //System.out.println("Id comperco: "+comperco.getId_COMPERCO());
+                    compItin1.setId_COMPERCO(comperco.getId_COMPERCO());
+                    //System.out.println("setIdCOMPERCO compItin1");
+                    compItin1.setID_Itinerario(itinerario1.getId_Itinerario());
+                    //System.out.println("setIdItinerario compItin1");
+                    compServ.saveCompercoItinerario(compItin1);
+                    System.out.println("12");
+                    compItin2.setId_COMPERCO(comperco.getId_COMPERCO());
+                    //System.out.println("setIdCOMPERCO compItin2");
+                    compItin2.setID_Itinerario(itinerario2.getId_Itinerario());
+                    //System.out.println("setIdItinerario compItin2");
+                    compServ.saveCompercoItinerario(compItin2);
+                    System.out.println("13");
+                }
             
            }catch(Exception e){
                System.out.println("Error al guardar un objeto: "+e.getMessage());
@@ -384,9 +330,11 @@ public class SavOmviController {
            
            
             try {
-                
-            //System.out.println("1 id_omvi: "+omvi.getId_OMVI());
-            compItin22 = compServ.getCompercoItinerarioByIdOMVI(omvi.getId_OMVI()).get(0);
+                if(guardaCOMPERCO){
+                    System.out.println("Va a traer Comperco Itinerario...");
+                    compItin22 = compServ.getCompercoItinerarioByIdOMVI(omvi.getId_OMVI()).get(0);
+                }
+            
             //System.out.println("id comperco save omvi: "+compItin22.getId_COMPERCOItinerario());
             //System.out.println("2");
             destOrdSer2 = OSPN1Serv.getDestinoOrdserByIdOMVI(omvi.getId_OMVI());

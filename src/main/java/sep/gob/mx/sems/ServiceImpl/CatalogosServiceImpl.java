@@ -43,5 +43,11 @@ public class CatalogosServiceImpl implements CatalogosService{
     public List<Cat_unidad_responsable> getCatUR() throws Exception {
         return catalogosDAO.getCatUR();
     }
+
+    @Override
+    @Transactional
+    public Cat_puesto getPuestoById(Integer idPuesto) throws Exception {
+        return catalogosDAO.getPuestoById(idPuesto);
+    }
     
 }

@@ -20,4 +20,6 @@ public interface OmviServ {
 
     public String saveOMVI(OMVI omvi) throws Exception;
     
+    public OMVI updateOMVI(OMVI omvi)throws Exception;
+    
 }

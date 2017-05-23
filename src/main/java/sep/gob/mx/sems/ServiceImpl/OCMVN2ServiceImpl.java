@@ -46,7 +46,7 @@ public class OCMVN2ServiceImpl implements OCMVN2Service{
         return ocmvn2DAO.updateDestViatNac(destViatNac);
     }
 
-    @Transactional
+    @Transactional(rollbackFor={Exception.class})
     @Override
     public String saveDestViatNac(Destinos_viat_nac destViatNac) throws Exception {
         return ocmvn2DAO.saveDestViatNac(destViatNac);
@@ -79,7 +79,7 @@ public class OCMVN2ServiceImpl implements OCMVN2Service{
         return ocmvn2DAO.updateViaticos_nacionales(viatNac);
     }
 
-    @Transactional
+    @Transactional(rollbackFor={Exception.class})
     @Override
     public String saveViaticos_nacionales(Viaticos_nacionales viatNac) throws Exception {
         return ocmvn2DAO.saveViaticos_nacionales(viatNac);
@@ -117,7 +117,7 @@ public class OCMVN2ServiceImpl implements OCMVN2Service{
         return ocmvn2DAO.updateViaticos_Destinos_Nacionales(viaticos_Destinos_Nacionales);
     }
 
-    @Transactional
+    @Transactional(rollbackFor={Exception.class})
     @Override
     public String saveViaticos_Destinos_Nacionales(Viaticos_Destinos_Nacionales viaticos_Destinos_Nacionales) throws Exception {
         return ocmvn2DAO.saveViaticos_Destinos_Nacionales(viaticos_Destinos_Nacionales);

@@ -76,7 +76,7 @@
             
             function desactivaCOMPERCO(){
                 var sel = document.getElementById("selectClase");
-                if(sel.value == "economico"){
+                if(sel.value == "Economico"){
                     var fields = document.getElementById("formCOMPERCO").getElementsByTagName('*');
                     for(var i = 0; i < fields.length; i++)
                     {
@@ -86,7 +86,7 @@
                     omviOficioComision.value="";
                     datepicker2.value="";
 
-                }else if(sel.value == "terrestre"){
+                }else if(sel.value == "Terrestre"){
                     var fields = document.getElementById("formCOMPERCO").getElementsByTagName('*');
                     for(var i = 0; i < fields.length; i++)
                     {

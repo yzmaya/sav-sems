@@ -31,7 +31,9 @@ public class PasLayCont {
     @Autowired
     private UsersService usrServ;
     @Autowired
-    OSPN1Service OSPN1Serv;
+    private OSPN1Service OSPN1Serv;
+    @Autowired
+    private CatalogosService catServ;
 
     @RequestMapping(value = "/lPasajes", method = RequestMethod.GET)
     public ModelAndView getLayPasajes(Locale locale, ModelAndView model, HttpServletRequest request) {
@@ -40,13 +42,14 @@ public class PasLayCont {
         OMVI omvi = new OMVI();
         Destino_ordser destOrdSer = new Destino_ordser();
         Objeto_comision objComision = new Objeto_comision();
-
+        Cat_puesto puesto = new Cat_puesto();
 
         try {
             omvi = omviServ.getOMVIById(Integer.parseInt(request.getParameter("id")));
             usuario = usrServ.getUsuario(omvi.getId_UsrCom());
             destOrdSer = OSPN1Serv.getDestinoOrdserById(omvi.getId_Destino_OrdSer());
             objComision = OSPN1Serv.getObjetoComisionById(omvi.getId_Obj_Comision());
+            puesto = catServ.getPuestoById(usuario.getPuesto());
 
         } catch (NumberFormatException e) {
             System.out.println("Error Catch Number Format Exception: " + e.getMessage());
@@ -58,6 +61,7 @@ public class PasLayCont {
         model.addObject("omvi", omvi);
         model.addObject("destOrdSer", destOrdSer);
         model.addObject("motComision", objComision);
+        model.addObject("puesto", puesto);
 
         model.setViewName("PasLay");
         return model;

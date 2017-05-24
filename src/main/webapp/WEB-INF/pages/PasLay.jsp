@@ -72,10 +72,10 @@
 		<br>
 			<input type="text" id="" name="" value="${user.nombre_s} ${user.ap_Paterno} ${user.ap_Materno}" size="33" disabled>
 			<input type="text" id="" name="" value="${user.RFC}" disabled>
-			<input type="text" id="" name="" value="${user.puesto}" size="33" disabled>
+			<input type="text" id="" name="" value="${puesto.denominacion_Puesto}" size="33" disabled>
 			<p class="axion">NOMBRE R.F.C PUESTO</p>
 			<br>
-			<input type="text" id="" name="" value="${user.clave_SAV}" disabled>
+			<input type="text" id="" name="" value="${puesto.cve_Nivel_Puesto}" disabled>
 			<input type="text" id="" name="" value="${user.area_Adscripcion}" size="70" disabled>
 			<p class="axion">CLAVE AREA.DE.ADSCRIPCIÓN .</p>
 		</td>

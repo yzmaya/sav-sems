@@ -106,8 +106,25 @@
                         fields[i].disabled = false;
                     }
                 }
-            
+        }
         
+        function desactivaCOMPERCO(){
+            var sel = document.getElementById("selectClase");
+                if(sel.value == "Economico"){
+                    var fields = document.getElementById("formCOMPERCO").getElementsByTagName('*');
+                    for(var i = 0; i < fields.length; i++)
+                    {
+                        fields[i].disabled = true;
+                        fields[i].value="";
+                    }
+                }else if(sel.value == "Terrestre"){
+                    var fields = document.getElementById("formCOMPERCO").getElementsByTagName('*');
+                    for(var i = 0; i < fields.length; i++)
+                    {
+                        fields[i].disabled = false;
+                    }
+                   location.reload(true);
+                }
         }
             
             function pasaOmviFecha(){
@@ -341,7 +358,7 @@
                             <div class="row">
                                 <div class="col-md-4">
 							<input type="text" class="form-control" id="clave" name="clave"
-                                           value="¿Clave SAV?" disabled>
+                                           value="${puesto.cve_Nivel_Puesto}" disabled>
                                 </div>
                                 <div class="col-md-8">
 							<input type="text" class="form-control" id="area_adsc"
@@ -399,7 +416,7 @@
                                                    name="otro_destino" value="${destOrdSer.otro_Destino}">
                                         </div>
                                         <div class="col-md-6">
-                                            <select class="form-control" id="selectClase" name="selectClase"></select>
+                                            <select class="form-control" id="selectClase" name="selectClase" onchange="desactivaCOMPERCO()"></select>
                                         </div>
                                     </div>
                                 </div>

@@ -11,5 +11,6 @@ public interface OmviDAO {
         public OMVI getOMVIById(Integer idOMVI)throws Exception;
         public String saveOMVI(OMVI omvi)throws Exception;
         public OMVI updateOMVI(OMVI omvi)throws Exception;
+        public Integer getUltimoOmvi()throws Exception;
 
 }

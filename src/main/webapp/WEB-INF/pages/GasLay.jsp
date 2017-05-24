@@ -82,8 +82,8 @@
 			NOMBRE: <input type="text" id="nomUsrComp" name="" value="${user.nombre_s} ${user.ap_Paterno} ${user.ap_Materno}" size="58" disabled> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			R.F.C: <input type="text" id="rfcUsrComp" name="" value="${user.RFC}" size="20" disabled>
 			<br><br>
-			PUESTO O CATEGORIA: &nbsp;&nbsp;<input type="text" id="puestoUsrComp" name="" value="${user.puesto}" size="46" disabled>&nbsp;
-			CLAVE:&nbsp; <input type="text" id="cveUsrComp" name="" value="${user.clave_SAV}" size="20" disabled>
+			PUESTO O CATEGORIA: &nbsp;&nbsp;<input type="text" id="puestoUsrComp" name="" value="${puesto.denominacion_Puesto}" size="46" disabled>&nbsp;
+			CLAVE:&nbsp; <input type="text" id="cveUsrComp" name="" value="${puesto.cve_Nivel_Puesto}" size="20" disabled>
 			<br><br>
 			AREA DE ADSCRIPCIÓN: <input type="text" id="areaUsrComp" name="" value="${user.area_Adscripcion}" size="79" disabled>&nbsp;
 			

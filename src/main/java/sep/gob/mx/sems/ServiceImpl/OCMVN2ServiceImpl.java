@@ -82,7 +82,12 @@ public class OCMVN2ServiceImpl implements OCMVN2Service{
     @Transactional(rollbackFor={Exception.class})
     @Override
     public String saveViaticos_nacionales(Viaticos_nacionales viatNac) throws Exception {
-        return ocmvn2DAO.saveViaticos_nacionales(viatNac);
+        try{
+            ocmvn2DAO.saveViaticos_nacionales(viatNac);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        return "Se guardo Viaticos Nacionales";
     }
 
     @Transactional

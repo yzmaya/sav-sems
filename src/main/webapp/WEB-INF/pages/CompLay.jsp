@@ -93,14 +93,7 @@
 	<th colspan="2">OBSERVACIONES</th>
 	<th>IMPORTE</th>
 </tr>
-<tr>
-	<td class="t"><input type="text" id="" name="" value="" size="7" ></td>
-	<td class="t"><input type="text" id="" name="" value="" size="7" ></td>
-	<td class="t"><input type="text" id="" name="" value="" size="10" ></td>
-	<td class="t"><input type="text" id="" name="" value="" size="7" ></td>
-	<td class="t" colspan="2"><input type="text" id="" name="" value="" size="41" ></td>
-	<td class="t"><input type="text" id="" name="" value="" size="9" ></td>
-</tr>
+
 <tr>
 	<td class="t"><input type="text" id="" name="" value="" size="7" ></td>
 	<td class="t"><input type="text" id="" name="" value="" size="7" ></td>

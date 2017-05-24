@@ -64,4 +64,10 @@ public class OmviDAOImp implements OmviDAO {
         sessionFactory.getCurrentSession().update(omvi);
         return omvi;
     }
+    
+    @Override
+    public Integer getUltimoOmvi() throws Exception {
+        String query = "select max(id_omvi) from omvi";
+        return (Integer)sessionFactory.getCurrentSession().createSQLQuery(query).uniqueResult();
+    }
 }

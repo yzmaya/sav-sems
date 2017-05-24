@@ -48,5 +48,11 @@ public class OmviServImp implements OmviServ{
         omviDAO.updateOMVI(omvi);
         return omvi;
     }
+
+    @Transactional
+    @Override
+    public Integer getUltimoOmvi() throws Exception {
+        return omviDAO.getUltimoOmvi();
+    }
     
 }

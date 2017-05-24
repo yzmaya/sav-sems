@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import sep.gob.mx.sems.Model.*;
-import sep.gob.mx.sems.Service.OCMVN2Service;
-import sep.gob.mx.sems.Service.OSPN1Service;
-import sep.gob.mx.sems.Service.OmviServ;
-import sep.gob.mx.sems.Service.UsersService;
+import sep.gob.mx.sems.Service.*;
 
 /**
  *
@@ -30,6 +27,8 @@ public class ViatLayCont {
     private OCMVN2Service MVN2Service;
     @Autowired
     OSPN1Service OSPN1Serv;
+    @Autowired
+    private CatalogosService catServ;
 
     @RequestMapping(value = "/lViaticos", method = RequestMethod.GET)
     public ModelAndView test(Locale locale, ModelAndView model, HttpServletRequest request) {
@@ -44,6 +43,7 @@ public class ViatLayCont {
         Objeto_comision objComision = new Objeto_comision();
         List<Viaticos_Destinos_Nacionales> listViatDN = new ArrayList<Viaticos_Destinos_Nacionales>();
         List<Destinos_viat_nac> listDestVN = new ArrayList<Destinos_viat_nac>();
+        Cat_puesto puesto = new Cat_puesto();
 
         try {
             omvi = omviServ.getOMVIById(Integer.parseInt(request.getParameter("id")));
@@ -53,6 +53,7 @@ public class ViatLayCont {
             listDestVN = MVN2Service.getListDestViatNacByIdOMVI(omvi.getId_OMVI());
             destViatNac = listDestVN.get(0);
             viatNac = MVN2Service.getViaticos_nacionalesById(listViatDN.get(0).getId_Viaticos());
+            puesto = catServ.getPuestoById(usuario.getPuesto());
             
         } catch (NumberFormatException e) {
             System.out.println("Error Catch Number Format Exception: " + e.getMessage());
@@ -72,6 +73,7 @@ public class ViatLayCont {
         //------------------------------------------------------------------------------------------------------------------------------------------------
                 
         model.setViewName("ViatLay");
+        model.addObject("puesto", puesto);
 
         return model;
     }

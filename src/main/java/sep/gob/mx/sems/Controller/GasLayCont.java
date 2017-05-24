@@ -34,6 +34,8 @@ public class GasLayCont {
     private UsersService usrServ;
     @Autowired
     OSPN1Service OSPN1Serv;
+    @Autowired
+    private CatalogosService catServ;
 
     @RequestMapping(value = "/lComperco", method = RequestMethod.GET)
     public ModelAndView getLayComperco(ModelAndView model, HttpServletRequest request) {
@@ -43,6 +45,7 @@ public class GasLayCont {
         OMVI omvi = new OMVI();
         Objeto_comision objComision = new Objeto_comision();
         Itinerario itinerario = new Itinerario();
+        Cat_puesto puesto = new Cat_puesto();
         
         CompercoItinerario compItin = new CompercoItinerario();
 
@@ -59,6 +62,7 @@ public class GasLayCont {
             System.out.println("itinerario: "+itinerario.getId_Itinerario());
             objComision = OSPN1Serv.getObjetoComisionById(omvi.getId_Obj_Comision());
             System.out.println("obj comision: "+objComision.getId_Obj_Comision());
+            puesto = catServ.getPuestoById(usuario.getPuesto());
 
         } catch (NumberFormatException e) {
             System.out.println("Error Catch Number Format Exception GasLayController: " + e.getMessage());
@@ -71,6 +75,7 @@ public class GasLayCont {
         model.addObject("omvi", omvi);
         model.addObject("motComision", objComision);
         model.addObject("itinerario", itinerario);
+        model.addObject("puesto", puesto);
         
         model.setViewName("GasLay");
         return model;

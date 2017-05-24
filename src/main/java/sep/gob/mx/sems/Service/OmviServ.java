@@ -22,4 +22,6 @@ public interface OmviServ {
     
     public OMVI updateOMVI(OMVI omvi)throws Exception;
     
+    public Integer getUltimoOmvi()throws Exception;
+    
 }

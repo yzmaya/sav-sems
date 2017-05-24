@@ -72,8 +72,8 @@
 			<br><br>
 			DOMICILIO:&nbsp; <input type="text" id="domicAreaAdscrip" name="" value="${user.direccion_Area_Adscripcion}" size="88" disabled>
 			<br><br>
-			PUESTO O CATEGORIA: <input type="text" id="puestoComis" name="" value="${user.puesto}" size="41" disabled>&nbsp;
-			CLAVE: <input type="text" id="claveSAV" name="" value="${user.clave_SAV}" size="25" disabled>
+			PUESTO O CATEGORIA: <input type="text" id="puestoComis" name="" value="${puesto.denominacion_Puesto}" size="41" disabled>&nbsp;
+			CLAVE: <input type="text" id="claveSAV" name="" value="${puesto.cve_Nivel_Puesto}" size="25" disabled>
 			<br><br>
 		</td>
 	</tr>

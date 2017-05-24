@@ -27,6 +27,8 @@
         </script>
 
         <script type="text/javascript">
+            
+            window.addEventListener("load", inicio);
        
             jQuery(function($){
                 $.datepicker.regional['es'] = {
@@ -54,7 +56,27 @@
                 $("#datepicker").datepicker();
                 $("#datepicker2").datepicker();
             });
-            
+            function inicio(){
+                //alert(document.getElementById("ultOmvi").value);
+                
+                if(document.getElementById("ultOmvi").value == "" || document.getElementById("ultOmvi").value == null){
+                    omvi.value = parseInt(1);
+                    
+                }else if(document.getElementById("ultOmvi").value >=1){
+                    omvi.value = parseInt(document.getElementById("ultOmvi").value) + 1;
+                }
+                                
+                var datosOMVI = $('#formOMVI').serialize();
+                if ($(":text#omvi").attr("value").match(/^[0-9]+$/)) {
+                    $.ajax({
+                    type:"POST",
+                    url:"setIdOMVI",
+                    data: datosOMVI,
+                    success: function(){
+                        alert('succes');
+                    }});
+                }
+            }
             function pasaOmviFecha(){
                 omviOficioComision.value = omvi.value;
                 datepicker2.value = datepicker.value;
@@ -115,20 +137,23 @@
             
             function setIdOMVI(){
                 var datosOMVI = $('#formOMVI').serialize();
-                $.ajax({
+                
+                if ($(":text#omvi").attr("value").match(/^[0-9]+$/)) {
+                    $.ajax({
                     type:"POST",
                     url:"setIdOMVI",
                     data: datosOMVI,
                     success: function(){
                         alert('succes');
-                    }/*,error:function(err){
-                        alert('Error: '+err.responseText);
-                    }*/
-                });
+                    }});
+                }else{
+                    omvi.title = "El omvi debe ser numeros";
+                    //alert('El OMVI debe estar conformado solo por numeros');
+                    omvi.value="";
+                }
             }
-            
-            function generaOmvi(){
 
+                    function generaOmvi(){
                 var datosDestinoOrdSer = $('#formDestinoOrdSer').serialize();
                 var datosObjComision = $('#formObjComision').serialize();
                 var datosDestViatNac = $('#formDestinos_Viat_Nac').serialize();
@@ -192,7 +217,7 @@
         </script>
     </head>
     <body>
-
+        <input type="hidden" id="ultOmvi" name="ultOmvi" value="${ultOmvi}">
         <button class="btn btn-danger" onclick="ir()">Cancelar</button>
         <!-- <form id="generaOmvi" name="generaOmvi" method="post"> -->
         <div class="container">
@@ -239,8 +264,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="omvi" name="omvi" onkeyup="setIdOMVI()"
-                                       value="">
+                                <input type="text" class="form-control" id="omvi" name="omvi" readonly>
                             </div>
                             <div class="col-md-8">
                                 <input type="text" class="form-control" id="datepicker" name="datepicker" readonly="readonly">
@@ -272,19 +296,18 @@
                                 </div>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" id="POSITION" name="POSITION"
-                                           value="${user.puesto}" disabled>
+                                           value="${puesto.denominacion_Puesto}" disabled>
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <label class="control-label col-md-4 text-center">CLAVE</label> <label
-                                    class="control-label col-md-8 text-center">AREA DE
-                                    ADSCRIPCION</label>
+                                    class="control-label col-md-8 text-center">AREA DE ADSCRIPCION</label>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" id="KEY_SAV" name="KEY_SAV"
-                                           value="¿Clave SAV?" disabled>
+                                           value="${puesto.cve_Nivel_Puesto}" disabled>
                                 </div>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control" id="AREA_OF_ASCRIPTION"

@@ -32,7 +32,9 @@ public class SavOmviController {
     @Autowired
     private OCMVN2Service MVN2Service;
     @Autowired
-    OSPN1Service OSPN1Serv;
+    private OSPN1Service OSPN1Serv;
+    @Autowired
+    private CatalogosService catServ;
     
     
     Destino_ordser destinoOrdSer = new Destino_ordser();
@@ -109,13 +111,22 @@ public class SavOmviController {
 		
 		UsuarioComisionado user = new UsuarioComisionado();
 		Integer idUser = Integer.parseInt(request.getParameter("id"));
+                Integer idUltOmvi=0;
+                Cat_puesto puesto = new Cat_puesto();
+                
 		try{
 			user = usrServ.getUsuario(idUser);
                         omvi.setId_UsrCom(idUser);
+                        idUltOmvi = omviServ.getUltimoOmvi();
+                        //if(idUltOmvi == null)idUltOmvi = 1;
+                        puesto = catServ.getPuestoById(user.getPuesto());
 		}catch(Exception e){
 			System.out.println("Error en GeneraOmvi: "+e.getMessage());
 		}
+                System.out.println("Ultimo omvi: "+idUltOmvi);
+                model.addObject("ultOmvi",idUltOmvi);
 		model.addObject("user",user);
+                model.addObject("puesto", puesto);
 		model.setViewName("G_Omvi");
 		return model;
 	}
@@ -371,6 +382,8 @@ public class SavOmviController {
     
     @RequestMapping(value="/setIdOMVI", method= RequestMethod.POST)
     public void setIdOMVI(@RequestParam("omvi")Integer omviV){
+        //System.out.println(omviV);
         omvi.setId_OMVI(omviV);
+        System.out.println("OMVI a guardar: "+omvi.getId_OMVI());
     }
 }

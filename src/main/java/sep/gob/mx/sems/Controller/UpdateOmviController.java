@@ -235,7 +235,9 @@ public class UpdateOmviController {
                 System.out.println("7");
 //                MVN2ServiceUp.updateViaticos_Destinos_Nacionales(viatDestNac);
                 System.out.println("8");
-                compServUp.updateCOMPERCO(comperco);
+                
+               if(comperco.getId_COMPERCO() != null){
+                    compServUp.updateCOMPERCO(comperco);
                 System.out.println("9");
                 compServUp.updateItinerario(itinerario1);
                 System.out.println("10");
@@ -256,7 +258,11 @@ public class UpdateOmviController {
                 System.out.println("setIdItinerario compItin2");
                 compServUp.updateCompercoItinerario(listCompItin.get(1));
                 System.out.println("13");
-                
+               }else{
+                   comperco = null;
+                   System.out.println("Comperco null: "+comperco);
+               }
+                System.out.println("Guardo tablas != de omvi");
             
            }catch(Exception e){
                System.out.println("Error al guardar un objeto: "+e.getMessage());
@@ -267,8 +273,12 @@ public class UpdateOmviController {
             try {
                 
             System.out.println("1 id_omvi: "+omvi.getId_OMVI());
-            compItin22 = compServUp.getCompercoItinerarioByIdOMVI(omvi.getId_OMVI()).get(0);
-            System.out.println("id comperco save omvi: "+compItin22.getId_COMPERCOItinerario());
+            if(comperco != null){
+                System.out.println("Entro a if y no consultara comperco itinerario...");
+                compItin22 = compServUp.getCompercoItinerarioByIdOMVI(omvi.getId_OMVI()).get(0);
+                System.out.println("id comperco save omvi: "+compItin22.getId_COMPERCOItinerario());
+            }
+            
             System.out.println("2");
             destOrdSer2 = OSPN1ServUp.getDestinoOrdserByIdOMVI(omvi.getId_OMVI());
             System.out.println("3");
@@ -297,7 +307,7 @@ public class UpdateOmviController {
             omviServUp.updateOMVI(omvi);
             System.out.println("Se actualizo correctamente el MOVI...");
         } catch (Exception ex) {
-            System.out.println("Error al guardar OMVI : "+ex.getMessage());
+            System.out.println("Error al actualizar OMVI : "+ex.getMessage());
         }
         return "Se actualizo el OMVI "+omvi.getId_OMVI()+" correctamente";
     }

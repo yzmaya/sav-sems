@@ -17,8 +17,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/web.css">
-<link rel="stylesheet" type="text/css" href="css/web.css">
+<link rel="stylesheet" type="text/css" href="resources/css/web.css"/>
+
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar"
 	data-offset="60">
@@ -39,7 +39,7 @@
 					<li><a href="comissioner">COMISIONADOS</a></li>
 					<li><a href="omvi">OMVI</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-							Iniciar Sesión</a></li>
+							Iniciar Sesi&oacute;n</a></li>
 					
 				</ul>
 			</div>
@@ -53,7 +53,7 @@
 		<div class="row">
 
 			<div>
-				<h2>Sistema de Administración de Viaticos</h2>
+				<h2>Sistema de Administraci&oacute;n de Viaticos</h2>
 				<br>
                               
 			</div>

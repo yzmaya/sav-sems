@@ -6,19 +6,15 @@
         <title>OMVI</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
-        <script type="text/javascript"
-        src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-        <script type="text/javascript"
-        src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-
+        <link rel="stylesheet" type="text/css" href="resources/css/jquery-ui-1.7.2.custom.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="resources/css/web.css" /> -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+        
         <script>
             function ir(){
                 window.location='/SAV/comissioner';
@@ -135,7 +131,7 @@
                 importeTotalGas.value = parseFloat(parseFloat(litrosGas2.value) * precioVigGas).toFixed(2);
             }
             
-            function setIdOMVI(){
+            /*function setIdOMVI(){
                 var datosOMVI = $('#formOMVI').serialize();
                 
                 if ($(":text#omvi").attr("value").match(/^[0-9]+$/)) {
@@ -151,7 +147,7 @@
                     //alert('El OMVI debe estar conformado solo por numeros');
                     omvi.value="";
                 }
-            }
+            }*/
 
                     function generaOmvi(){
                 var datosDestinoOrdSer = $('#formDestinoOrdSer').serialize();
@@ -347,7 +343,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" id="punto_partida"
-                                                   name="punto_partida" value="">
+                                                   name="punto_partida" value="" pattern="[A-Za-z]{50}">
                                         </div>
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" id="punto_llegada"

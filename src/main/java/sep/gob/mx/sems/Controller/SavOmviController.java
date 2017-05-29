@@ -136,7 +136,7 @@ public class SavOmviController {
                                    @RequestParam("punto_llegada") String punto_llegada,
                                    @RequestParam("otro_destino") String otro_destino, 
                                    @RequestParam("selectClase") String selectClase) {
-        //System.out.println("***********************addDestinoOrdSer");
+        System.out.println("***********************addDestinoOrdSer");
         
 //        destinoOrdSer.setId_Destino_ORDSER(200);
         destinoOrdSer.setId_OMVI(omvi.getId_OMVI());
@@ -159,7 +159,7 @@ public class SavOmviController {
     public String addObjComision(@RequestParam("Motivo_Comision") String Motivo_Comision, 
                                  @RequestParam("Observaciones") String Observaciones){
         
-        //System.out.println("*******************addObjComision");
+        System.out.println("*******************addObjComision");
 
 //        objCom.setId_Obj_Comision(200);
         objCom.setId_OMVI(omvi.getId_OMVI());
@@ -186,7 +186,7 @@ public class SavOmviController {
                                  @RequestParam("Total_Importe") Double Total_Importe,
                                  @RequestParam("Caracteristicas_Viat") String Caracteristicas_Viat){
         
-        //System.out.println("***********************addDestViatNac");
+        System.out.println("***********************addDestViatNac");
 
 //        destViatNac.setId_Destino(200);
         destViatNac.setLugar(Lugar);
@@ -233,7 +233,7 @@ public class SavOmviController {
                               @RequestParam("precioVigenteGasolina2") Double precioVigenteGasolina2,
                               @RequestParam("importeTotalGas") Double importeTotalGas,
                               @RequestParam("datepicker2") String datepicker2){
-        //System.out.println("********************************************addCOMPERCO");
+        System.out.println("********************************************addCOMPERCO");
 
 //        comperco.setId_COMPERCO(200);
         comperco.setFecha_COMPERCO(datepicker2);
@@ -258,9 +258,7 @@ public class SavOmviController {
         
 //        compItin2.setId_COMPERCO(comperco.getId_COMPERCO());
         compItin2.setId_OMVI(omvi.getId_OMVI());
-        
-        
-        
+
 //        try {
 //            compServ.saveCOMPERCO(comperco);
 //            compServ.saveItinerario(itinerario1);
@@ -279,7 +277,7 @@ public class SavOmviController {
     public String addOMVI(@RequestParam("omvi") Integer omviV,
                           @RequestParam("datepicker") String datepicker, HttpServletRequest request){
         
-        //System.out.println("**********************addOMVI");
+        System.out.println("**********************addOMVI");
         
         Destino_ordser destOrdSer2 = new Destino_ordser();
         Objeto_comision objComision2 = new Objeto_comision();

@@ -54,16 +54,21 @@ public class GasLayCont {
             System.out.println("id omvi: "+omvi.getId_OMVI());
             usuario = usrServ.getUsuario(omvi.getId_UsrCom());
             System.out.println("id user: "+usuario.getId_UsrCom());
-            compItin = compServ.getCompercoItinerarioById(omvi.getId_COMPERCO());
-            System.out.println("id comperco itinerario: "+compItin.getId_COMPERCOItinerario());
-            comperco = compServ.getCOMPERCOById(compItin.getId_COMPERCO());
-            System.out.println("comperco"+comperco.getId_COMPERCO());
-            itinerario = compServ.getItinerarioById(compItin.getID_Itinerario());
-            System.out.println("itinerario: "+itinerario.getId_Itinerario());
             objComision = OSPN1Serv.getObjetoComisionById(omvi.getId_Obj_Comision());
             System.out.println("obj comision: "+objComision.getId_Obj_Comision());
             puesto = catServ.getPuestoById(usuario.getPuesto());
-
+            System.out.println("Puesto: "+puesto.getId_Puesto());
+//            System.out.println("omvi.getIdCOMPERCO: "+omvi.getId_COMPERCO());
+            
+            if(omvi.getId_COMPERCO() != null){
+                compItin = compServ.getCompercoItinerarioById(omvi.getId_COMPERCO());
+                System.out.println("id comperco itinerario: "+compItin.getId_COMPERCOItinerario());
+                comperco = compServ.getCOMPERCOById(compItin.getId_COMPERCO());
+                System.out.println("comperco"+comperco.getId_COMPERCO());
+                itinerario = compServ.getItinerarioById(compItin.getID_Itinerario());
+                System.out.println("itinerario: "+itinerario.getId_Itinerario());
+            }
+            
         } catch (NumberFormatException e) {
             System.out.println("Error Catch Number Format Exception GasLayController: " + e.getMessage());
         } catch (Exception e) {
@@ -71,11 +76,12 @@ public class GasLayCont {
         }
 
         model.addObject("user", usuario);
-        model.addObject("comperco", comperco);
+        model.addObject("puesto", puesto);
         model.addObject("omvi", omvi);
         model.addObject("motComision", objComision);
+        model.addObject("comperco", comperco);
         model.addObject("itinerario", itinerario);
-        model.addObject("puesto", puesto);
+        
         
         model.setViewName("GasLay");
         return model;

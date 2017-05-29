@@ -6,19 +6,16 @@
         <title>OMVI</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
-        <script type="text/javascript"
-        src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-        <script type="text/javascript"
-        src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-
+        <link rel="stylesheet" type="text/css" href="resources/css/jquery-ui-1.7.2.custom.css" />
+        <!--<link rel="stylesheet" type="text/css" href="resources/css/web.css" />-->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+        
         <script>
             function ir(){
                 window.location='/SAV/omvi';
@@ -239,6 +236,7 @@
                 });
                 
                 alert("OMVI Actualizado");
+                location.href ="omvi";
             }
             
         </script>
@@ -1334,7 +1332,7 @@
             <div class="col-md-offset-1 ">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                <button id="btn_updateOmvi" name="btn_updateOmvi" onClick="updateOMVI()" class="btn btn-success">Generar Omvi</button>
+                <button id="btn_updateOmvi" name="btn_updateOmvi" onClick="updateOMVI()" class="btn btn-success">Actualiza Omvi</button>
                 <!--<a href="#menu1" class="btn btn-primary btn-info" data-toggle="pill">Siguiente</a>-->
             </div>
         </div>

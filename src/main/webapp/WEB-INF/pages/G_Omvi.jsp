@@ -4,6 +4,57 @@
 <html lang="en">
     <head>
         <title>OMVI</title>
+        <style>
+            #selectDC{
+                width:90px;
+            }
+            #importeDocCont{
+                width:120px;
+            }
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0,0.4);
+            }
+
+            .modal-content {
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 40%;
+            }
+            
+            .modal-footer{
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 40%;
+            }
+
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -14,7 +65,7 @@
         <!-- <link rel="stylesheet" type="text/css" href="resources/css/web.css" /> -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-        
+
         <script>
             function ir(){
                 window.location='/SAV/comissioner';
@@ -50,7 +101,9 @@
             
             $(document).ready(function() {
                 $("#datepicker").datepicker();
-                $("#datepicker2").datepicker();
+                $("#fecha1Itinerario").datepicker();
+                $("#fecha2Itinerario").datepicker();
+                //$("#datepicker2").datepicker();
             });
             function inicio(){
                 //alert(document.getElementById("ultOmvi").value);
@@ -65,17 +118,21 @@
                 var datosOMVI = $('#formOMVI').serialize();
                 if ($(":text#omvi").attr("value").match(/^[0-9]+$/)) {
                     $.ajax({
-                    type:"POST",
-                    url:"setIdOMVI",
-                    data: datosOMVI,
-                    success: function(){
-                        alert('succes');
-                    }});
+                        type:"POST",
+                        url:"setIdOMVI",
+                        data: datosOMVI,
+                        success: function(){
+                            alert('succes');
+                        }});
                 }
             }
             function pasaOmviFecha(){
                 omviOficioComision.value = omvi.value;
                 datepicker2.value = datepicker.value;
+            }
+            
+            function pasaValorLugar(){
+                Lugar.value = punto_llegada.value;
             }
 
             function pasaValorMotivo(){
@@ -129,63 +186,142 @@
                 litrosGas2.value = litrosGas1.value;
                 precioVigenteGasolina2.value = precioVigGas;
                 importeTotalGas.value = parseFloat(parseFloat(litrosGas2.value) * precioVigGas).toFixed(2);
+                importeDocCont.value = importeTotalGas.value;
             }
             
-            /*function setIdOMVI(){
-                var datosOMVI = $('#formOMVI').serialize();
-                
-                if ($(":text#omvi").attr("value").match(/^[0-9]+$/)) {
-                    $.ajax({
-                    type:"POST",
-                    url:"setIdOMVI",
-                    data: datosOMVI,
-                    success: function(){
-                        alert('succes');
-                    }});
-                }else{
-                    omvi.title = "El omvi debe ser numeros";
-                    //alert('El OMVI debe estar conformado solo por numeros');
-                    omvi.value="";
+    
+    
+    function generaOmvi(){
+        var datosDestinoOrdSer = $('#formDestinoOrdSer').serialize();
+        var datosObjComision = $('#formObjComision').serialize();
+        var datosDestViatNac = $('#formDestinos_Viat_Nac').serialize();
+        var datosCOMPERCO = $('#formCOMPERCO').serialize();
+        var datosOMVI = $('#formOMVI').serialize();
+        var modalDestino = document.getElementById('modalDestOrdSer');
+        var modalObjCom = document.getElementById('modalObjetoComision');
+        var modalViatNac= document.getElementById('modalDestViatNac');
+        var modalComperco = document.getElementById('modalCOMPERCO');
+        var modalOmvi = document.getElementById('modalOMVI');
+        var modalSel = document.getElementById('modalSelect');
+        var modalOmviOk = document.getElementById('modalOmviOk');
+        
+        if(punto_llegada.value == "" || punto_llegada.value ==  null || selectClase.value == "" || selectClase.value == null){
+            modalDestino.style.display = "block";
+            spOrdSer.onclick = function() {
+                modalDestino.style.display = "none";
+            }
+            window.onclick = function(event) {
+                if (event.target == modalDestino) {
+                    modalDestino.style.display = "none";
                 }
-            }*/
-
-                    function generaOmvi(){
-                var datosDestinoOrdSer = $('#formDestinoOrdSer').serialize();
-                var datosObjComision = $('#formObjComision').serialize();
-                var datosDestViatNac = $('#formDestinos_Viat_Nac').serialize();
-                var datosCOMPERCO = $('#formCOMPERCO').serialize();
-                var datosOMVI = $('#formOMVI').serialize();
-                
-                $.ajax({
-                    type: "POST",
-                    url: "addDestinoOrdSer",
-                    data: datosDestinoOrdSer,
-                    success: function() {
-                        alert('succes');
-                        //alert('Datos serializados: '+datosDestinoOrdSer);
+            }
+            return;
+            
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "addDestinoOrdSer",
+                data: datosDestinoOrdSer,
+                success: function() {
+                    alert('succes');
+                    //alert('Datos serializados: '+datosDestinoOrdSer);
+                }
+            });
+        }
+        
+        if(Motivo_Comision.value == ""){
+            modalObjCom.style.display = "block";
+            spObjCom.onclick = function() {
+                modalObjCom.style.display = "none";
+            }
+            window.onclick = function(event) {
+                if (event.target == modalObjCom) {
+                    modalObjCom.style.display = "none";
+                }
+            }
+            return;
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "addObjComision",
+                data: datosObjComision,
+                success: function() {
+                    alert('succes');
+                    //alert('Datos serializados: '+datosObjComision);
+                }
+            });
+        }
+        
+        var fields = document.getElementById("formDestinos_Viat_Nac").getElementsByTagName('*');
+        var ind=0;
+        for(var i = 0; i < parseInt(fields.length)-parseInt(1); i++){
+            if(fields[i].value==""){
+                ind+=1;
+            }
+        }
+        
+        if(ind > 0){
+            modalViatNac.style.display = "block";
+            spViatNac.onclick = function() {
+                modalViatNac.style.display = "none";
+            }
+            window.onclick = function(event) {
+                if (event.target == modalViatNac) {
+                    modalViatNac.style.display = "none";
+                }
+            }
+            return;
+        }
+        if(Caracteristicas_Viat1.checked == false && Caracteristicas_Viat2.checked == false && Caracteristicas_Viat3.checked == false && Caracteristicas_Viat4.checked == false){
+            
+            modalSel.style.display = "block";
+            spSelect.onclick = function() {
+                modalSel.style.display = "none";
+            }
+            window.onclick = function(event) {
+                if (event.target == modalSel) {
+                    modalSel.style.display = "none";
+                }
+            }
+            return;
+        } else{
+            $.ajax({
+                type: "POST",
+                url: "addDestViatNac",
+                data: datosDestViatNac,
+                success: function() {
+                    alert('succes');
+                    //alert('Datos serializados: '+datosDestViatNac);
+                }
+            });
+        }
+        
+        if(selectClase.value == "Terrestre"){
+            //alert('Va a validar comperco');
+            
+        var fieldsComperco = document.getElementById("formCOMPERCO").getElementsByTagName('*');
+        var indCom=0;
+        for(var i = 0; i < parseInt(fieldsComperco.length); i++){
+            if(fieldsComperco[i].value==""){
+                console.log(fieldsComperco[i].name+": "+fieldsComperco[i].value);
+                indCom+=1;
+            }
+        }
+            console.log("Indice comperco: "+indCom);
+            
+            if(indCom > 0){
+                console.log("Entro en if de indCom > 0: "+indCom);
+                modalComperco.style.display = "block";
+                spComperco.onclick = function() {
+                    modalComperco.style.display = "none";
+                }
+                window.onclick = function(event) {
+                    if (event.target == modalComperco) {
+                        modalComperco.style.display = "none";
                     }
-                });
-                
-                $.ajax({
-                    type: "POST",
-                    url: "addObjComision",
-                    data: datosObjComision,
-                    success: function() {
-                        alert('succes');
-                        //alert('Datos serializados: '+datosObjComision);
-                    }
-                });
-                
-                $.ajax({
-                    type: "POST",
-                    url: "addDestViatNac",
-                    data: datosDestViatNac,
-                    success: function() {
-                        alert('succes');
-                        //alert('Datos serializados: '+datosDestViatNac);
-                    }
-                });
-                
+                }
+                return;
+            }else{
                 $.ajax({
                     type:"POST",
                     url:"addCOMPERCO",
@@ -194,25 +330,99 @@
                         alert('succes');
                     }
                 });
-                
-                $.ajax({
-                    type: "POST",
-                    url: "addOMVI",
-                    data: datosOMVI,
-                    success: function() {
-                        alert('succes');
-                        //alert('Datos serializados: '+datosObjComision);
-                    }/*,error: function(err){
+            }
+        }
+        
+        if(omvi.value=="" || datepicker.value == ""){
+            
+            modalOmvi.style.display = "block";
+            spOmvi.onclick = function() {
+                modalOmvi.style.display = "none";
+            }
+            window.onclick = function(event) {
+                if (event.target == modalOmvi) {
+                    modalOmvi.style.display = "none";
+                }
+            }
+            return;
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "addOMVI",
+                data: datosOMVI,
+                success: function() {
+                    alert('succes');
+                    //alert('Datos serializados: '+datosObjComision);
+                }/*,error: function(err){
                         alert(err.responseText);
                         alert('Datos: '+datosOMVI);
                     }*/
-                });
-                
-                alert("OMVI Generado");
+            });
+        }
+        modalOmviOk.style.display = "block";
+        spOmviOk.onclick = function() {
+                modalOmviOk.style.display = "none";
             }
+            window.onclick = function(event) {
+                if (event.target == modalOmviOk) {
+                    modalOmviOk.style.display = "none";
+                }
+            }
+    }
         </script>
     </head>
     <body>
+<!-- -------------------------------------------------------- -->
+        <div id='modalDestOrdSer' class='modal'>
+            <div class='modal-content'>
+                <span id='spOrdSer' class='close'>&times;</span>
+                <p>Datos incompletos en <strong>"Orden de servicio para Pasajes Nacionales"</strong>.</p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalObjetoComision' class='modal'>
+            <div class='modal-content'>
+                <span id='spObjCom' class='close'>&times;</span>
+                <p>Falta Objeto de la Comision.</p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalDestViatNac' class='modal'>
+            <div class='modal-content'>
+                <span id="spViatNac" class='close'>&times;</span>
+                <p>Datos incompletos en <strong>"Oficio de Comision/Orden de Ministracion de Viaticos Nacionales"</strong>.</p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalCOMPERCO' class='modal'>
+            <div class='modal-content'>
+                <span id="spComperco" class='close'>&times;</span>
+                <p>Datos incompletos en <strong>"Gastos de Combustible para el Personal Comisionado"</strong>.</p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalOMVI' class='modal'>
+            <div class='modal-content'>
+                <span id="spOmvi" class='close'>&times;</span>
+                <p><strong>Ingresa fecha del OMVI.</strong></p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalSelect' class='modal'>
+            <div class='modal-content'>
+                <span id="spSelect" class='close'>&times;</span>
+                <p><strong>Elige caracteristicas de los Viaticos.</strong></p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalOmviOk' class='modal'>
+            <div class='modal-content'>
+                <span id="spOmviOk" class='close'>&times;</span>
+                <p><strong>Se genero correctamente el OMVI.</strong></p><br>
+                <center><a href="omvi" class="btn btn-info">Aceptar</a></center>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
         <input type="hidden" id="ultOmvi" name="ultOmvi" value="${ultOmvi}">
         <button class="btn btn-danger" onclick="ir()">Cancelar</button>
         <!-- <form id="generaOmvi" name="generaOmvi" method="post"> -->
@@ -221,10 +431,10 @@
             <ul class="nav nav-pills">
                 <li class="active"><a data-toggle="pill" href="#comisionado">Orden
                         de Servicio para Pasajes Nacionales</a></li>
-                <li><a data-toggle="pill" href="#menu1">Orden de
+                <li><a data-toggle="pill" href="#menu1">Oficio de Comision/Orden de
                         Ministracion de Viaticos Nacionales</a></li>
                 <li><a data-toggle="pill" href="#menu2">Gastos de
-                        Combustible</a></li>
+                        Combustible para el Personal Comisionado</a></li>
                 <li><a data-toggle="pill" href="#menu3">Comprobacion de
                         Viaticos</a></li>
             </ul>
@@ -254,19 +464,19 @@
                 <div class="panel panel-default col-md-4">
                     <div class="panel-heading text-center">ORDSER</div>
                     <form id="formOMVI" name="formOMVI" method="post"><div class="panel-body">
-                        <div class="row">
-                            <label class=" control-label col-md-6"> NUMERO</label> <label
-                                class=" control-label col-md-6"> FECHA</label>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="omvi" name="omvi" readonly>
+                            <div class="row">
+                                <label class=" control-label col-md-6"> NUMERO</label> <label
+                                    class=" control-label col-md-6"> FECHA</label>
                             </div>
-                            <div class="col-md-8">
-                                <input type="text" class="form-control" id="datepicker" name="datepicker" readonly="readonly">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="omvi" name="omvi" readonly>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="datepicker" name="datepicker" readonly="readonly">
+                                </div>
                             </div>
-                        </div>
-                    </div></form>
+                        </div></form>
                 </div>
             </div>
             <form id="formUser" name="user" method="post">		
@@ -343,11 +553,11 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" id="punto_partida"
-                                                   name="punto_partida" value="" pattern="[A-Za-z]{50}">
+                                                   name="punto_partida" value="CIUDAD DE MEXICO" readonly>
                                         </div>
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" id="punto_llegada"
-                                                   name="punto_llegada" value="" onclick="pasaOmviFecha()" onkeyup="pasaOmviFecha()">
+                                                   name="punto_llegada" value="" onclick="pasaOmviFecha()" onkeyup="pasaValorLugar()" required>
                                         </div>
                                     </div>
                                     <br>
@@ -520,7 +730,7 @@
                                 <div class="panel-heading text-center">MOTIVO DE LA COMISION</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <textarea class="form-control" id="motivo_comis_anexo2" name="motivo_comis_anexo2" rows="5"></textarea>
+                                        <textarea class="form-control" id="motivo_comis_anexo2" name="motivo_comis_anexo2" rows="5" readonly></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -528,7 +738,7 @@
                                 <div class="panel-heading text-center">OBSERVACIONES</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <textarea class="form-control" id="observ_anexo2" name="observ_anexo2" rows="5"></textarea>
+                                        <textarea class="form-control" id="observ_anexo2" name="observ_anexo2" rows="5" readonly></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -701,7 +911,7 @@
                             <div class="panel panel-default col-md-6">
                                 <div class="panel-heading">COMISION O TRABAJO A DESARROLLAR</div>
                                 <div class="panel-body">
-                                    <textarea class="form-control" id="motivoComisCOMPERCO" name="motivoComisCOMPERCO" rows="5"></textarea>
+                                    <textarea class="form-control" id="motivoComisCOMPERCO" name="motivoComisCOMPERCO" rows="5" readonly></textarea>
                                 </div>
                             </div>
                             <div class="panel panel-default col-md-6">
@@ -750,33 +960,33 @@
                                         <tbody>
                                             <tr>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""></td>
+                                                           id="" name="" value="11" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""></td>
+                                                           id="" name="" value="600" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""></td>
+                                                           id="" name="" value="2" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""></td>
+                                                           id="" name="" value="5" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""></td>
+                                                           id="" name="" value="02" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""></td>
+                                                           id="" name="" value="00" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""></td>
+                                                           id="" name="" value="004" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""></td>
+                                                           id="" name="" value="U006" readonly></td>
+                                                <td><!--<input type="text" class="form-control col-md-1"
+                                                           id="" name="" value="">--> 
+                                                    <select id="selectDC" name="selectDC" class="form-control col-md-1" height="30px" line-height="30px">
+                                                                <option value="26104">26104</option>
+                                                                <option value="26103">26103</option>
+                                                    </select></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""> <!--                                                <select class="form-control col-md-1">
-                       <option value=""></option>
-                       <option value="26104">26104</option>
-                       <option value="26103">26103</option>
-                   </select>--></td>
+                                                           id="" name="" value="7" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""></td>
+                                                           id="" name="" value="1" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""></td>
-                                                <td><input type="text" class="form-control col-md-1"
-                                                           id="" name="" value=""></td>
+                                                           id="importeDocCont" name="importeDocCont" value="" readonly></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -887,7 +1097,7 @@
                     <div class="row">
                         <label class="control-label col-md-1">OC/OMVI No.</label>
                         <div class="col-md-2">
-                            <input class="form-control" type="text" id="omviCompViaicos" name="omviCompViaicos">
+                            <input class="form-control" type="text" id="omviCompViaicos" name="omviCompViaicos" readonly>
                         </div>
                     </div>
                     <div class="row">

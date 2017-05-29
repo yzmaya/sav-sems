@@ -30,16 +30,6 @@ public class UsuarioComisionado implements Serializable{
     private String Area_Adscripcion;
     @Column
     private String Direccion_Area_Adscripcion;
-    @Column
-    private String Clave_SAV;
-
-    public String getClave_SAV() {
-        return Clave_SAV;
-    }
-
-    public void setClave_SAV(String Clave_SAV) {
-        this.Clave_SAV = Clave_SAV;
-    }
 
     public String getAp_Materno() {
         return Ap_Materno;

@@ -163,12 +163,12 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
+		<td class="t"><input type="text" id="" name="" value="11" size="4" disabled></td>
+		<td class="t"><input type="text" id="" name="" value="600" size="4" disabled></td>
+		<td class="t"><input type="text" id="" name="" value="2" size="4" disabled></td>
+		<td class="t"><input type="text" id="" name="" value="5" size="4" disabled></td>
+		<td class="t"><input type="text" id="" name="" value="02" size="4" disabled></td>
+		<td class="t"><input type="text" id="" name="" value="00" size="4" disabled></td>
 		<td class="e"></td>
 		
 	</tr>
@@ -183,11 +183,11 @@
 	</tr>
 
 	<tr>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
+		<td class="t"><input type="text" id="" name="" value="004" size="4" disabled></td>
+		<td class="t"><input type="text" id="" name="" value="U006" size="4" disabled></td>
 		<td class="t" colspan="2"><input type="text" id="" name="" value="" size="13" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="4" disabled></td>
+		<td class="t"><input type="text" id="" name="" value="7" size="4" disabled></td>
+		<td class="t"><input type="text" id="" name="" value="1" size="4" disabled></td>
 		
 		<td class="e"></td>
 		

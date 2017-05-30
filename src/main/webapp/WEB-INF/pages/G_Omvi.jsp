@@ -105,6 +105,7 @@
                 $("#fecha2Itinerario").datepicker();
                 //$("#datepicker2").datepicker();
             });
+            
             function inicio(){
                 //alert(document.getElementById("ultOmvi").value);
                 
@@ -116,7 +117,7 @@
                 }
                                 
                 var datosOMVI = $('#formOMVI').serialize();
-                if ($(":text#omvi").attr("value").match(/^[0-9]+$/)) {
+                if (omvi.value.match(/^[0-9]+$/)) {
                     $.ajax({
                         type:"POST",
                         url:"setIdOMVI",
@@ -126,6 +127,18 @@
                         }});
                 }
             }
+            
+            function validaDecimal(num){
+                
+                if(num != ""){
+                    if(!num.value.match(/^[0-9]+(\.[0-9]{1,2})?$/)){                        
+                        alert('El campo solo acepta numeros enteros y decimales.');
+                        num.value="";
+                    }
+                }
+                
+            }
+            
             function pasaOmviFecha(){
                 omviOficioComision.value = omvi.value;
                 datepicker2.value = datepicker.value;
@@ -417,14 +430,13 @@
 <!-- -------------------------------------------------------- -->
         <div id='modalOmviOk' class='modal'>
             <div class='modal-content'>
-                <span id="spOmviOk" class='close'>&times;</span>
                 <p><strong>Se genero correctamente el OMVI.</strong></p><br>
                 <center><a href="omvi" class="btn btn-info">Aceptar</a></center>
             </div>
         </div>
 <!-- -------------------------------------------------------- -->
         <input type="hidden" id="ultOmvi" name="ultOmvi" value="${ultOmvi}">
-        <button class="btn btn-danger" onclick="ir()">Cancelar</button>
+        
         <!-- <form id="generaOmvi" name="generaOmvi" method="post"> -->
         <div class="container">
             <h2>Generación de Viaticos</h2>
@@ -632,49 +644,37 @@
                                             <th>OG</th>
                                             <th>TG</th>
                                             <th>FF</th>
-                                            <th>IMPORTE</th>
+                                            <th>IMPORTE LIQUIDO</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1RS" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1UR" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1GF" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1FN" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1SF" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1RG" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1AI" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1PP" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1OG" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1TG" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1FF" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-                                                       id="dc1Importe" name="" value=""></td>
+                                            <td><input type="text" class="form-control col-md-1" id="rs" name="" value="11" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="ur" name="" value="600" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="gf" name="" value="2" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="fn" name="" value="5" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="sf" name="" value="02" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="rg" name="" value="00" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="ai" name="" value="004" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="pp" name="" value="U006" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="og" name="" value=""></td>
+                                            <td><input type="text" class="form-control col-md-1" id="tg" name="" value="7" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="ff" name="" value="1" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="importeLiq" name="" value="" readonly></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">IMPORTE LIQUIDO</div>
                             <div class="panel-body">
                                 <input type="text" class="form-control" id="dc1IL" name="" disabled>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
 
                 <div id="menu1" class="tab-pane fade">
@@ -996,7 +996,7 @@
 
                         <div class="row">
                             <div class="panel panel-default">
-                                <div class="panel-heading">ITINERARIO</div>
+                                <div class="panel-heading text-center">ITINERARIO</div>
                                 <div class="panel-body">
                                     <table class="table table-hover">
                                         <thead>
@@ -1010,23 +1010,23 @@
                                         <tbody>
                                             <tr>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="fecha1Itinerario" name="fecha1Itinerario" value=""></td>
+                                                           id="fecha1Itinerario" name="fecha1Itinerario" value="" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
                                                            id="de1Itinerario" name="de1Itinerario" value=""></td>
                                                 <td><input type="text" class="form-control col-md-1"
                                                            id="a1Itinerario" name="a1Itinerario" value=""></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="km1Itinerario" name="km1Itinerario" value=""></td>
+                                                           id="km1Itinerario" name="km1Itinerario" value="" onblur="validaDecimal(km1Itinerario)"></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="fecha2Itinerario" name="fecha2Itinerario" value=""></td>
+                                                           id="fecha2Itinerario" name="fecha2Itinerario" value="" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
                                                            id="de2Itinerario" name="de2Itinerario" value=""></td>
                                                 <td><input type="text" class="form-control col-md-1"
                                                            id="a2Itinerario" name="a2Itinerario" value=""></td>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="km2Itinerario" name="km2Itinerario" value=""></td>
+                                                           id="km2Itinerario" name="km2Itinerario" value="" onblur="validaDecimal(km2Itinerario)"></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -1035,13 +1035,14 @@
                         </div>
                         <div class="row">
                             <div class="panel panel-default col-md-2">
-                                <div class="panel-heading">PRECIO VIGENTE DEL LITRO DE
+                                <div class="panel-heading text-center">PRECIO VIGENTE DEL LITRO DE
                                     GASOLINA</div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <label class="control-label col-md-2">$</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" id="precioVigenteGasolina1" name="precioVigenteGasolina1" onkeyup="realizaCalculosCOMPERCO()">
+                                            <input type="text" class="form-control" id="precioVigenteGasolina1" name="precioVigenteGasolina1" onblur="validaDecimal(precioVigenteGasolina1)" 
+                                                   onkeyup="realizaCalculosCOMPERCO()">
                                         </div>
                                     </div>
 
@@ -1049,7 +1050,7 @@
                                 </div>
                             </div>
                             <div class="panel panel-default col-md-4">
-                                <div class="panel-heading">LITROS DE GASOLINA (KM/5)</div>
+                                <div class="panel-heading text-center">LITROS DE GASOLINA (KM/5)</div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <label class="control-label col-md-6 text-center">KM
@@ -1067,7 +1068,7 @@
                                 </div>
                             </div>
                             <div class="panel panel-default col-md-6">
-                                <div class="panel-heading">IMPORTE</div>
+                                <div class="panel-heading text-center">IMPORTE</div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <label class="control-label col-md-4 text-center">LTS.
@@ -1492,9 +1493,19 @@
         <div class="form-group">
             <div class="col-md-offset-1 ">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <button id="btn_GeneraOmvi" name="btn_GeneraOmvi" onClick="generaOmvi()" class="btn btn-success">Generar Omvi</button>
-                <!--<a href="#menu1" class="btn btn-primary btn-info" data-toggle="pill">Siguiente</a>-->
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <button class="btn btn-danger" onclick="ir()">Cancelar</button>
             </div>
         </div>
 

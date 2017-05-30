@@ -74,6 +74,7 @@
 					<th>MOTIVO DE COMISION</th>
 					<th>IMPORTE</th>
 					<th>ACCIONES</th>
+                                        <th>IMPRIMIR</th>
 				</tr>
 			</thead>
 			<tbody class="buscar">
@@ -84,8 +85,21 @@
 					<td>${omvi.ap_Paterno} ${omvi.ap_Materno} ${omvi.nombre_s}</td>
 					<td>${omvi.area_Adscripcion}</td>
 					<td>${omvi.motivo_Comision}</td>
-					<td>${omvi.total_Importe}</td>
-					<td><a href="editOmvi?id=${omvi.id_OMVI}">Modificar</a></td>
+					<td>$ ${omvi.total_Importe}</td>
+                                        <td><a href="editOmvi?id=${omvi.id_OMVI}">Modificar</a></td>
+                                        <td> 
+                                            <div class="dropdown">
+                                                <button class="btn btn-info dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Imprimir
+                                                    <span class="caret"></span></button>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="lPasajes?id=${omvi.id_OMVI}" target="_blank">Pasajes Nacionales</a></li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="lViaticos?id=${omvi.id_OMVI}" target="_blank">Viaticos Nacionales</a></li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="lComperco?id=${omvi.id_OMVI}" target="_blank">Comperco</a></li>
+                                                    <li role="presentation" class="divider"></li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="lComprobante?id=${omvi.id_OMVI}" target="_blank">Comprobación de Viaticos</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
 				</tr>
 			</c:forEach>
                                 

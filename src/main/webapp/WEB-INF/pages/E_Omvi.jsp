@@ -4,6 +4,57 @@
 <html lang="en">
     <head>
         <title>OMVI</title>
+        
+        <style>
+            #selectDC{
+                width:90px;
+            }
+            #importeDocCont{
+                width:120px;
+            }
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0,0.4);
+            }
+
+            .modal-content {
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 40%;
+            }
+            
+            .modal-footer{
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 40%;
+            }
+
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -24,7 +75,7 @@
         </script>
 
         <script type="text/javascript">
-       
+            
             jQuery(function($){
                 $.datepicker.regional['es'] = {
                     closeText: 'Cerrar',
@@ -50,50 +101,52 @@
             $(document).ready(function() {
                 $("#datepicker").datepicker();
                 $("#datepicker2").datepicker();
+                $("#fecha1Itinerario").datepicker();
+                $("#fecha2Itinerario").datepicker();
             });
             
-        window.addEventListener("load", inicio);
-    
-        function inicio(){
-            var x = document.getElementById("selectClase");
-            var optionEc = document.createElement("option");
+            window.addEventListener("load", inicio);
+            
+            function inicio(){
+                var x = document.getElementById("selectClase");
+                var optionEc = document.createElement("option");
                 var optionTe = document.createElement("option");
                 optionEc.text = "Economico";
                 optionTe.text = "Terrestre";
-
-            if(claseServ.value == "Economico"){
-                x.add(optionEc);
-                x.add(optionTe);
-            }
-            
-            if(claseServ.value == "Terrestre"){
-                x.add(optionTe);
-                x.add(optionEc);
-            }
-            
-            if(caractViat.value == "Zona-Marginada"){
-            document.getElementById("Caracteristicas_Viat1").checked = true;
-            }
-            if(caractViat.value == "J-hasta-G"){
-            document.getElementById("Caracteristicas_Viat2").checked = true;
-            }
-            if(caractViat.value == "P-hasta-K"){
-            document.getElementById("Caracteristicas_Viat3").checked = true;
-            }
-            if(caractViat.value == "Personal-Operativo"){
-            document.getElementById("Caracteristicas_Viat4").checked = true;
-            }
-            
-            
+                
+                if(claseServ.value == "Economico"){
+                    x.add(optionEc);
+                    x.add(optionTe);
+                }
+                
+                if(claseServ.value == "Terrestre"){
+                    x.add(optionTe);
+                    x.add(optionEc);
+                }
+                
+                if(caractViat.value == "Zona-Marginada"){
+                    document.getElementById("Caracteristicas_Viat1").checked = true;
+                }
+                if(caractViat.value == "J-hasta-G"){
+                    document.getElementById("Caracteristicas_Viat2").checked = true;
+                }
+                if(caractViat.value == "P-hasta-K"){
+                    document.getElementById("Caracteristicas_Viat3").checked = true;
+                }
+                if(caractViat.value == "Personal-Operativo"){
+                    document.getElementById("Caracteristicas_Viat4").checked = true;
+                }
+                
+                
                 if(idCOMPERCO.value == null || idCOMPERCO.value == ""){
-                   
+                    
                     var fields = document.getElementById("formCOMPERCO").getElementsByTagName('*');
                     for(var i = 0; i < fields.length; i++)
                     {
                         fields[i].disabled = true;
                         fields[i].value="";
                     }
-                    omviOficioComision.value="";
+                    omviOficioComision.value=""; 
                     datepicker2.value="";
                 }else if(idCOMPERCO.value != "" || idCOMPERCO.value != null){
                     
@@ -103,32 +156,30 @@
                         fields[i].disabled = false;
                     }
                 }
-        }
-        
-        function desactivaCOMPERCO(){
-            var sel = document.getElementById("selectClase");
+            }
+            
+            function desactivaCOMPERCO(){
+                var sel = document.getElementById("selectClase");
+                var fields = document.getElementById("formCOMPERCO").getElementsByTagName('*');
                 if(sel.value == "Economico"){
-                    var fields = document.getElementById("formCOMPERCO").getElementsByTagName('*');
-                    for(var i = 0; i < fields.length; i++)
-                    {
+                    
+                    for(var i = 0; i < fields.length; i++){
                         fields[i].disabled = true;
                         fields[i].value="";
                     }
                 }else if(sel.value == "Terrestre"){
-                    var fields = document.getElementById("formCOMPERCO").getElementsByTagName('*');
-                    for(var i = 0; i < fields.length; i++)
-                    {
+                    for(var i = 0; i < fields.length; i++){
                         fields[i].disabled = false;
                     }
-                   location.reload(true);
+                    //location.reload(true);
                 }
-        }
+            }
             
             function pasaOmviFecha(){
                 omviOficioComision.value = omvi.value;
                 datepicker2.value = datepicker.value;
             }
-
+            
             function pasaValorMotivo(){
                 motivo_comis_anexo2.value = Motivo_Comision.value;
                 motivoComisCOMPERCO.value = Motivo_Comision.value;
@@ -142,7 +193,7 @@
                 Importe.value = parseFloat(Cuota_Diaria.value) * parseFloat(Dias.value);
                 Total_Importe.value = Importe.value;
             }
-
+            
             function realizaCalculosCOMPERCO(){
                 var km1 =km1Itinerario.value;
                 var km2 = km2Itinerario.value;
@@ -175,108 +226,248 @@
                 });
             }
             
-            function updateOMVI(){
-
-                var datosDestinoOrdSer = $('#formDestinoOrdSer').serialize();
-                var datosObjComision = $('#formObjComision').serialize();
-                var datosDestViatNac = $('#formDestinos_Viat_Nac').serialize();
-                var datosCOMPERCO = $('#formCOMPERCO').serialize();
-                var datosOMVI = $('#formOMVI').serialize();
-                
-                $.ajax({
-                    type: "POST",
-                    url: "updateDestinoOrdSer",
-                    data: datosDestinoOrdSer,
-                    success: function() {
-                        alert('succes');
-                        //alert('Datos serializados: '+datosDestinoOrdSer);
-                    }
-                });
-                
-                $.ajax({
-                    type: "POST",
-                    url: "updateObjComision",
-                    data: datosObjComision,
-                    success: function() {
-                        alert('succes');
-                        //alert('Datos serializados: '+datosObjComision);
-                    }
-                });
-                
-                $.ajax({
-                    type: "POST",
-                    url: "updateDestViatNac",
-                    data: datosDestViatNac,
-                    success: function() {
-                        alert('succes');
-                        //alert('Datos serializados: '+datosDestViatNac);
-                    }
-                });
-                
-                $.ajax({
-                    type:"POST",
-                    url:"updateCOMPERCO",
-                    data: datosCOMPERCO,
-                    success: function(){
-                        alert('succes');
-                    }
-                });
-                
-                $.ajax({
-                    type: "POST",
-                    url: "updateOMVI",
-                    data: datosOMVI,
-                    success: function() {
-                        alert('succes');
-                        //alert('Datos serializados: '+datosOMVI);
-                    }/*,error: function(err){
+function updateOMVI(){
+  
+  var datosDestinoOrdSer = $('#formDestinoOrdSer').serialize();
+  var datosObjComision = $('#formObjComision').serialize();
+  var datosDestViatNac = $('#formDestinos_Viat_Nac').serialize();
+  var datosCOMPERCO = $('#formCOMPERCO').serialize();
+  var datosOMVI = $('#formOMVI').serialize();
+  
+  var modalDestino = document.getElementById('modalDestOrdSer');
+  var modalObjCom = document.getElementById('modalObjetoComision');
+  var modalViatNac= document.getElementById('modalDestViatNac');
+  var modalComperco = document.getElementById('modalCOMPERCO');
+  var modalOmvi = document.getElementById('modalOMVI');
+  var modalSel = document.getElementById('modalSelect');
+  var modalOmviOk = document.getElementById('modalOmviOk');
+  
+  //Validacion de datos de destino
+  if(punto_llegada.value == "" || punto_llegada.value ==  null || selectClase.value == "" || selectClase.value == null){
+      modalDestino.style.display = "block";
+      spOrdSer.onclick = function() {
+          modalDestino.style.display = "none";
+      }
+      window.onclick = function(event) {
+          if (event.target == modalDestino) {
+              modalDestino.style.display = "none";
+          }
+      }
+      return;
+  }else{
+      console.log('Va a enviar datos de destinoOrdSer');
+      $.ajax({
+          type: "POST",
+          url: "updateDestinoOrdSer",
+          data: datosDestinoOrdSer,
+          success: function() {
+              alert('succes');
+              //alert('Datos serializados: '+datosDestinoOrdSer);
+          }
+      });
+  }
+  
+  if(Motivo_Comision.value == ""){
+      modalObjCom.style.display = "block";
+      spObjCom.onclick = function() {
+          modalObjCom.style.display = "none";
+      }
+      window.onclick = function(event) {
+          if (event.target == modalObjCom) {
+              modalObjCom.style.display = "none";
+          }
+      }
+      return;
+  }else{
+      $.ajax({
+          type: "POST",
+          url: "updateObjComision",
+          data: datosObjComision,
+          success: function() {
+              alert('succes');
+              //alert('Datos serializados: '+datosObjComision);
+          }
+      });
+  }
+  
+  var fields = document.getElementById("formDestinos_Viat_Nac").getElementsByTagName('*');
+  var ind=0;
+  for(var i = 0; i < parseInt(fields.length)-parseInt(1); i++){
+      if(fields[i].value==""){
+          ind+=1;
+      }
+  }
+  
+  if(ind > 0){
+      modalViatNac.style.display = "block";
+      spViatNac.onclick = function() {
+          modalViatNac.style.display = "none";
+      }
+      window.onclick = function(event) {
+          if (event.target == modalViatNac) {
+              modalViatNac.style.display = "none";
+          }
+      }
+      return;
+  }
+  if(Caracteristicas_Viat1.checked == false && Caracteristicas_Viat2.checked == false && Caracteristicas_Viat3.checked == false && Caracteristicas_Viat4.checked == false){
+      
+      modalSel.style.display = "block";
+      spSelect.onclick = function() {
+          modalSel.style.display = "none";
+      }
+      window.onclick = function(event) {
+          if (event.target == modalSel) {
+              modalSel.style.display = "none";
+          }
+      }
+      return;
+  }else{
+      $.ajax({
+          type: "POST",
+          url: "updateDestViatNac",
+          data: datosDestViatNac,
+          success: function() {
+              alert('succes');
+              //alert('Datos serializados: '+datosDestViatNac);
+          }
+      });
+  }
+  
+  
+  if(selectClase.value == "Terrestre"){
+      //alert('Va a validar comperco');
+      
+      var fieldsComperco = document.getElementById("formCOMPERCO").getElementsByTagName('*');
+      var indCom=0;
+      for(var i = 0; i < parseInt(fieldsComperco.length); i++){
+          if(fieldsComperco[i].value==""){
+              console.log(fieldsComperco[i].name+": "+fieldsComperco[i].value);
+              indCom+=1;
+          }
+      }
+      console.log("Indice comperco: "+indCom);
+      
+      if(indCom > 0){
+          console.log("Entro en if de indCom > 0: "+indCom);
+          modalComperco.style.display = "block";
+          spComperco.onclick = function() {
+              modalComperco.style.display = "none";
+          }
+          window.onclick = function(event) {
+              if (event.target == modalComperco) {
+                  modalComperco.style.display = "none";
+              }
+          }
+          return;
+      }else{
+          $.ajax({
+              type:"POST",
+              url:"updateCOMPERCO",
+              data: datosCOMPERCO,
+              success: function(){
+                  alert('succes');
+              }
+          });
+      }
+  }
+  
+  if(omvi.value=="" || datepicker.value == ""){
+      
+      modalOmvi.style.display = "block";
+      spOmvi.onclick = function() {
+          modalOmvi.style.display = "none";
+      }
+      window.onclick = function(event) {
+          if (event.target == modalOmvi) {
+              modalOmvi.style.display = "none";
+          }
+      }
+      return;
+  }else{
+      $.ajax({
+          type: "POST",
+          url: "updateOMVI",
+          data: datosOMVI,
+          success: function() {
+              alert('succes');
+              //alert('Datos serializados: '+datosOMVI);
+          }/*,error: function(err){
                         alert(err.responseText);
                         alert('Datos: '+datosOMVI);
                     }*/
-                });
-                
-                alert("OMVI Actualizado");
-                location.href ="omvi";
-            }
+      });
+  }
+
+  modalOmviOk.style.display="block";
+  //location.href ="omvi";
+}
             
         </script>
     </head>
 <body>
-
+<!-- -------------------------------------------------------- -->
+        <div id='modalDestOrdSer' class='modal'>
+            <div class='modal-content'>
+                <span id='spOrdSer' class='close'>&times;</span>
+                <p>Datos incompletos en <strong>"Orden de servicio para Pasajes Nacionales"</strong>.</p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalObjetoComision' class='modal'>
+            <div class='modal-content'>
+                <span id='spObjCom' class='close'>&times;</span>
+                <p>Falta Objeto de la Comision.</p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalDestViatNac' class='modal'>
+            <div class='modal-content'>
+                <span id="spViatNac" class='close'>&times;</span>
+                <p>Datos incompletos en <strong>"Oficio de Comision/Orden de Ministracion de Viaticos Nacionales"</strong>.</p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalCOMPERCO' class='modal'>
+            <div class='modal-content'>
+                <span id="spComperco" class='close'>&times;</span>
+                <p>Datos incompletos en <strong>"Gastos de Combustible para el Personal Comisionado"</strong>.</p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalOMVI' class='modal'>
+            <div class='modal-content'>
+                <span id="spOmvi" class='close'>&times;</span>
+                <p><strong>Ingresa fecha del OMVI.</strong></p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalSelect' class='modal'>
+            <div class='modal-content'>
+                <span id="spSelect" class='close'>&times;</span>
+                <p><strong>Elige caracteristicas de los Viaticos.</strong></p>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
+        <div id='modalOmviOk' class='modal'>
+            <div class='modal-content'>
+                <p><strong>Se actualizo correctamente el OMVI.</strong></p><br>
+                <center><a href="omvi" class="btn btn-info">Aceptar</a></center>
+            </div>
+        </div>
+<!-- -------------------------------------------------------- -->
 	<input type="hidden" name="caractViat" id="caractViat" value="${viatNac.caracteristicas_Viat}">
         <input type="hidden" name="claseServ" id="claseServ" value="${destOrdSer.clase_Servicio}">
         <input type="hidden" name="idCOMPERCO" id="idCOMPERCO" value="${omvi.id_COMPERCO}">
         
-        
-        <!--Lo siguiente contiene el menu desplegable-->
-      
-                                      
-  <div class="dropdown">
-      <!-- boton para cancelar-->
-        <button class="btn btn-danger" onclick="ir()">Cancelar</button>
-      <!---->
-    <button class="btn btn-info dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Imprimir
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="lComperco?id=${omvi.id_OMVI}" target="_blank">Comperco</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="lPasajes?id=${omvi.id_OMVI}" target="_blank">Pasajes Nacionales</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="lViaticos?id=${omvi.id_OMVI}" target="_blank">Viaticos Nacionales</a></li>
-      <li role="presentation" class="divider"></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="lComprobante?id=${omvi.id_OMVI}" target="_blank">Comprobante de Viaticos</a></li>
-    </ul>
-  </div>
         <!--aqui empieza el contenedor de pesta�as-->
         <div class="container">
 		<h2>Modificar Viaticos</h2>
             <ul class="nav nav-pills">
-                <li class="active"><a data-toggle="pill" href="#comisionado">Orden
-                        de Servicio para Pasajes Nacionales</a></li>
-                <li><a data-toggle="pill" href="#menuViatNac">Orden de
-                        Ministracion de Viaticos Nacionales</a></li>
-                <li><a data-toggle="pill" href="#menu2">Gastos de
-                        Combustible</a></li>
-                <li><a data-toggle="pill" href="#menu3">Comprobacion de
-                        Viaticos</a></li>
+                <li class="active"><a data-toggle="pill" href="#comisionado">Orden de Servicio para Pasajes Nacionales</a></li>
+                <li><a data-toggle="pill" href="#menuViatNac">Oficio de Comision/Orden de Ministracion de Viaticos Nacionales</a></li>
+                <li><a data-toggle="pill" href="#menu2">Gastos de Combustible para el Personal Comisionado</a></li>
+                <li><a data-toggle="pill" href="#menu3">Comprobacion de Viaticos</a></li>
             </ul>
             <br> <br> <br>
             <div class="row">
@@ -311,10 +502,10 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="omvi" name="omvi" value="${omvi.id_OMVI}">
+                                <input type="text" class="form-control" id="omvi" name="omvi" value="${omvi.id_OMVI}" readonly>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="datepicker" name="datepicker" readonly="readonly" value="${omvi.fecha_OMVI}">
+                                <input type="text" class="form-control" id="datepicker" name="datepicker" readonly value="${omvi.fecha_OMVI}">
                             </div>
                         </div>
                         </div>
@@ -336,15 +527,15 @@
                             <div class="row">
                                 <div class="col-md-4">
 							<input type="text" class="form-control" id="nombre" name="nombre"
-                                           value="${user.ap_Paterno} ${user.ap_Materno} ${user.nombre_s}" disabled>
+                                           value="${user.ap_Paterno} ${user.ap_Materno} ${user.nombre_s}" readonly>
                                 </div>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" id="rfc" name="rfc"
-                                           value="${user.RFC}" disabled>
+                                           value="${user.RFC}" readonly>
                                 </div>
                                 <div class="col-md-4">
 							<input type="text" class="form-control" id="puesto" name="puesto"
-                                           value="${puesto.denominacion_Puesto}" disabled>
+                                           value="${puesto.denominacion_Puesto}" readonly>
                                 </div>
                             </div>
                             <br>
@@ -356,12 +547,12 @@
                             <div class="row">
                                 <div class="col-md-4">
 							<input type="text" class="form-control" id="clave" name="clave"
-                                           value="${puesto.cve_Nivel_Puesto}" disabled>
+                                           value="${puesto.cve_Nivel_Puesto}" readonly>
                                 </div>
                                 <div class="col-md-8">
 							<input type="text" class="form-control" id="area_adsc"
 								name="area_adsc"
-                                           value="${user.area_Adscripcion}" disabled>
+                                           value="${user.area_Adscripcion}" readonly>
                                 </div>
                             </div>
                             <br>
@@ -371,13 +562,12 @@
                                 </div>
                                 <div class="col-md-11">
 							<input type="text" class="form-control" id="domAA" name=""
-                                           value="${user.direccion_Area_Adscripcion}" disabled>
+                                           value="${user.direccion_Area_Adscripcion}" readonly>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
 
             <div class="tab-content">
                 <!--INICIA CONTENEDOR PRINCIPAL-->
@@ -395,7 +585,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" id="punto_partida"
-                                                   name="punto_partida" value="${destOrdSer.punto_Partida}">
+                                                   name="punto_partida" value="${destOrdSer.punto_Partida}" readonly>
                                         </div>
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" id="punto_llegada"
@@ -471,49 +661,37 @@
                                             <th>OG</th>
                                             <th>TG</th>
                                             <th>FF</th>
-                                            <th>IMPORTE</th>
+                                            <th>IMPORTE LIQUIDO</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
-                                            <td><input type="text" class="form-control col-md-1"
-											id="" name="" value=""></td>
+                                            <td><input type="text" class="form-control col-md-1" id="rs" name="" value="11" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="ur" name="" value="600" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="gf" name="" value="2" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="fn" name="" value="5" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="sf" name="" value="02" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="rg" name="" value="00" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="ai" name="" value="004" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="pp" name="" value="U006" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="og" name="" value=""></td>
+                                            <td><input type="text" class="form-control col-md-1" id="tg" name="" value="7" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="ff" name="" value="1" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="importeLiq" name="" value="" readonly></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">IMPORTE LIQUIDO</div>
                             <div class="panel-body">
 							<input type="text" class="form-control" id="" name="" disabled>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
 
                 <div id="menuViatNac" class="tab-pane fade">
@@ -835,7 +1013,7 @@
 
                         <div class="row">
                             <div class="panel panel-default">
-                                <div class="panel-heading">ITINERARIO</div>
+                                <div class="panel-heading text-center">ITINERARIO</div>
                                 <div class="panel-body">
                                     <table class="table table-hover">
                                         <thead>
@@ -849,7 +1027,7 @@
                                         <tbody>
                                             <tr>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="fecha1Itinerario" name="fecha1Itinerario" value="${itinerario1.fecha_Itinerario}"></td>
+                                                           id="fecha1Itinerario" name="fecha1Itinerario" value="${itinerario1.fecha_Itinerario}" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
                                                            id="de1Itinerario" name="de1Itinerario" value="${itinerario1.origenDe}"></td>
                                                 <td><input type="text" class="form-control col-md-1"
@@ -859,7 +1037,7 @@
                                             </tr>
                                             <tr>
                                                 <td><input type="text" class="form-control col-md-1"
-                                                           id="fecha2Itinerario" name="fecha2Itinerario" value="${itinerario2.fecha_Itinerario}"></td>
+                                                           id="fecha2Itinerario" name="fecha2Itinerario" value="${itinerario2.fecha_Itinerario}" readonly></td>
                                                 <td><input type="text" class="form-control col-md-1"
                                                            id="de2Itinerario" name="de2Itinerario" value="${itinerario2.origenDe}"></td>
                                                 <td><input type="text" class="form-control col-md-1"
@@ -874,7 +1052,7 @@
                         </div>
                         <div class="row">
                             <div class="panel panel-default col-md-2">
-                                <div class="panel-heading">PRECIO VIGENTE DEL LITRO DE
+                                <div class="panel-heading text-center">PRECIO VIGENTE DEL LITRO DE
                                     GASOLINA</div>
                                 <div class="panel-body">
                                     <div class="row">
@@ -888,7 +1066,7 @@
                                 </div>
                             </div>
                             <div class="panel panel-default col-md-4">
-                                <div class="panel-heading">LITROS DE GASOLINA (KM/5)</div>
+                                <div class="panel-heading text-center">LITROS DE GASOLINA (KM/5)</div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <label class="control-label col-md-6 text-center">KM
@@ -906,7 +1084,7 @@
                                 </div>
                             </div>
                             <div class="panel panel-default col-md-6">
-                                <div class="panel-heading">IMPORTE</div>
+                                <div class="panel-heading text-center">IMPORTE</div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <label class="control-label col-md-4 text-center">LTS.
@@ -1331,9 +1509,18 @@
         <div class="form-group">
             <div class="col-md-offset-1 ">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <button id="btn_updateOmvi" name="btn_updateOmvi" onClick="updateOMVI()" class="btn btn-success">Actualiza Omvi</button>
-                <!--<a href="#menu1" class="btn btn-primary btn-info" data-toggle="pill">Siguiente</a>-->
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-danger" onclick="ir()">Cancelar</button>
             </div>
         </div>
 

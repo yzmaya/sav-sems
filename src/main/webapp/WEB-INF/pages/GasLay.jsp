@@ -141,18 +141,18 @@
 	
 	</tr>
 	<tr>
-		<td class="t"><input type="text" id="" name="" value="" size="2" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="2" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="2" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="2" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="2" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="2" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="2" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="2" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="2" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="2" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="2" disabled></td>
-		<td class="t"><input type="text" id="" name="" value="" size="29" disabled></td>
+		<td class="t"><input type="text" id="rs" name="" value="11" size="2" disabled></td>
+		<td class="t"><input type="text" id="ur" name="" value="600" size="2" disabled></td>
+		<td class="t"><input type="text" id="gf" name="" value="2" size="2" disabled></td>
+		<td class="t"><input type="text" id="fn" name="" value="5" size="2" disabled></td>
+		<td class="t"><input type="text" id="sf" name="" value="02" size="2" disabled></td>
+		<td class="t"><input type="text" id="rg" name="" value="00" size="2" disabled></td>
+		<td class="t"><input type="text" id="ai" name="" value="004" size="2" disabled></td>
+		<td class="t"><input type="text" id="pp" name="" value="U600" size="2" disabled></td>
+		<td class="t"><input type="text" id="og" name="" value="" size="2" disabled></td>
+		<td class="t"><input type="text" id="tg" name="" value="7" size="2" disabled></td>
+		<td class="t"><input type="text" id="ff" name="" value="1" size="2" disabled></td>
+		<td class="t"><input type="text" id="importeDC" name="" value="${comperco.importe_Gasolina}" size="29" disabled></td>
 	</tr>
 </table>
 
@@ -192,12 +192,7 @@
 		<td class="t"><input type="text" id="a4" name="" value="" size="35" disabled></td>
 		<td class="t"><input type="text" id="distKM4" name="" value="" size="11" disabled></td>
 	</tr>
-	<tr>
-		<td class="t"><input type="text" id="fecha5" name="" value="" size="11" disabled></td>
-		<td class="t"><input type="text" id="de5" name="" value="" size="35" disabled></td>
-		<td class="t"><input type="text" id="a5" name="" value="" size="35" disabled></td>
-		<td class="t"><input type="text" id="distKM5" name="" value="" size="11" disabled></td>
-	</tr>
+	
 		<tr>
 		<td class="e" colspan="2"></td>
 		<td style="text-align: right;" class="e"><strong>TOTAL</strong></td>

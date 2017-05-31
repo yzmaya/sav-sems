@@ -5,7 +5,7 @@
     <head>
         <title>OMVI</title>
         <style>
-            #selectDC{
+            #selectDC,#selectDCPasNac{
                 width:90px;
             }
             #importeDocCont{
@@ -139,9 +139,12 @@
                 
             }
             
-            function pasaOmviFecha(){
+            function pasaOmvi(){
                 omviOficioComision.value = omvi.value;
-                datepicker2.value = datepicker.value;
+            }
+            
+            function pasaFecha(fecha){
+                datepicker2.value = fecha;
             }
             
             function pasaValorLugar(){
@@ -180,6 +183,33 @@
                     {
                         fields[i].disabled = false;
                     }
+                }
+            }
+            
+            function activaOpcionesDC(){
+                console.log('Se van a agregar las opciones al select...');
+                var sel = document.getElementById("selectClase");
+                var x = document.getElementById("selectDCPasNac");
+                var option1 = document.createElement("option");
+                var option2 = document.createElement("option");
+                
+                
+                if(sel.value == "Economico"){
+                    x.remove(option1);
+                    x.remove(option2);
+                    option1.text = "37104";
+                    option2.text = "37101";
+                    x.add(option1);
+                    x.add(option2);
+                }
+                
+                if(sel.value == "Terrestre"){
+                    x.remove(option1);
+                    x.remove(option2);
+                    option1.text = "37204";
+                    option2.text = "37201";
+                    x.add(option1);
+                    x.add(option2);
                 }
             }
             
@@ -485,7 +515,7 @@
                                     <input type="text" class="form-control" id="omvi" name="omvi" readonly>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="datepicker" name="datepicker" readonly="readonly">
+                                    <input type="text" class="form-control" id="datepicker" name="datepicker" onclick="pasaOmvi()" onchange="pasaFecha(datepicker.value)" readonly>
                                 </div>
                             </div>
                         </div></form>
@@ -569,7 +599,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" id="punto_llegada"
-                                                   name="punto_llegada" value="" onclick="pasaOmviFecha()" onkeyup="pasaValorLugar()" required>
+                                                   name="punto_llegada" value="" onkeyup="pasaValorLugar()" required>
                                         </div>
                                     </div>
                                     <br>
@@ -582,7 +612,7 @@
                                             <input type="text" class="form-control" id="otro_destino" name="otro_destino" value="">
                                         </div>
                                         <div class="col-md-6">
-                                            <select class="form-control" id="selectClase" name="selectClase" onchange="desactivaCOMPERCO()">
+                                            <select class="form-control" id="selectClase" name="selectClase" onchange="desactivaCOMPERCO()" onblur="activaOpcionesDC()">
                                                 <option value=""></option>
                                                 <option value="Economico">Economico</option>
                                                 <option value="Terrestre">Terrestre</option>
@@ -657,7 +687,7 @@
                                             <td><input type="text" class="form-control col-md-1" id="rg" name="" value="00" readonly></td>
                                             <td><input type="text" class="form-control col-md-1" id="ai" name="" value="004" readonly></td>
                                             <td><input type="text" class="form-control col-md-1" id="pp" name="" value="U006" readonly></td>
-                                            <td><input type="text" class="form-control col-md-1" id="og" name="" value=""></td>
+                                            <td><select class="form-control" id="selectDCPasNac" name="selectDCPasNac"></select></td>
                                             <td><input type="text" class="form-control col-md-1" id="tg" name="" value="7" readonly></td>
                                             <td><input type="text" class="form-control col-md-1" id="ff" name="" value="1" readonly></td>
                                             <td><input type="text" class="form-control col-md-1" id="importeLiq" name="" value="" readonly></td>
@@ -920,7 +950,7 @@
                                     <div class="panel panel-default col-md-6">
                                         <div class="panel-heading">NUMERO</div>
                                         <div class="panel-body">
-                                            <input type="text" class="form-control" id="omviOficioComision" name="omviOficioComision">
+                                            <input type="text" class="form-control" id="omviOficioComision" name="omviOficioComision" readonly>
                                         </div>
                                     </div>
                                     <div class="panel panel-default col-md-6">

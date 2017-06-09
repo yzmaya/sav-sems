@@ -413,6 +413,8 @@
             }
     }
         </script>
+        
+           
     </head>
     <body>
 <!-- -------------------------------------------------------- -->
@@ -475,10 +477,7 @@
                         de Servicio para Pasajes Nacionales</a></li>
                 <li><a data-toggle="pill" href="#menu1">Oficio de Comision/Orden de
                         Ministracion de Viaticos Nacionales</a></li>
-                <li><a data-toggle="pill" href="#menu2">Gastos de
-                        Combustible para el Personal Comisionado</a></li>
-                <li><a data-toggle="pill" href="#menu3">Comprobacion de
-                        Viaticos</a></li>
+                <li><a data-toggle="pill" href="#menu2">COMPERCO</a></li>
             </ul>
             <br> <br> <br>
             <div class="row">
@@ -679,17 +678,36 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><input type="text" class="form-control col-md-1" id="rs" name="" value="11" readonly></td>
-                                            <td><input type="text" class="form-control col-md-1" id="ur" name="" value="600" readonly></td>
-                                            <td><input type="text" class="form-control col-md-1" id="gf" name="" value="2" readonly></td>
-                                            <td><input type="text" class="form-control col-md-1" id="fn" name="" value="5" readonly></td>
-                                            <td><input type="text" class="form-control col-md-1" id="sf" name="" value="02" readonly></td>
-                                            <td><input type="text" class="form-control col-md-1" id="rg" name="" value="00" readonly></td>
-                                            <td><input type="text" class="form-control col-md-1" id="ai" name="" value="004" readonly></td>
-                                            <td><input type="text" class="form-control col-md-1" id="pp" name="" value="U006" readonly></td>
-                                            <td><select class="form-control" id="selectDCPasNac" name="selectDCPasNac"></select></td>
-                                            <td><input type="text" class="form-control col-md-1" id="tg" name="" value="7" readonly></td>
-                                            <td><input type="text" class="form-control col-md-1" id="ff" name="" value="1" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="rs1"  readonly ></td>
+                                            <td><input type="text" class="form-control col-md-1" id="ur1"   readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="gf1"  readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="fn1" readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="sf1"  readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="rg1"  readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="ai1"  readonly></td>
+                                           <td class="col-lg-1">
+                                               
+                                             <div class="form-group">
+  <select class="form-control" id="og">
+      <option onclick="secc1()" id="">U079</option>
+    <option onclick="secc1()">U006</option>
+    <option onclick="secc2()">P001</option>
+  </select>
+</div> 
+                                           </td>
+                                            <td class="col-XS-2">
+
+     <div class="form-group" >
+  <select class="form-control" id="pp" >
+      <option>37504</option>
+    <option>26104</option>
+    <option>39202</option>
+    <option>37204</option>
+  </select>
+</div>   
+    </td>
+                                            <td><input type="text" class="form-control col-md-1" id="tg1"  readonly></td>
+                                            <td><input type="text" class="form-control col-md-1" id="ff1"  readonly></td>
                                             <td><input type="text" class="form-control col-md-1" id="importeLiq" name="" value="" readonly></td>
                                         </tr>
                                     </tbody>
@@ -825,27 +843,27 @@
                                     <tbody>
                                         <tr>
                                             <td><input type="text" class="form-control col-md-1"
-                                                       id="dc2-1" name="" value=""></td>
+                                                       id="rs2" name="" value=""></td>
                                             <td><input type="text" class="form-control col-md-1"
-                                                       id="dc2-2" name="" value=""></td>
+                                                       id="ur2" name="" value=""></td>
                                             <td><input type="text" class="form-control col-md-1"
-                                                       id="dc2-3" name="" value=""></td>
+                                                       id="gf2" name="" value=""></td>
                                             <td><input type="text" class="form-control col-md-1"
-                                                       id="dc2-4" name="" value=""></td>
+                                                       id="fn2" name="" value=""></td>
                                             <td><input type="text" class="form-control col-md-1"
-                                                       id="dc2-5" name="" value=""></td>
+                                                       id="sf2" name="" value=""></td>
                                             <td><input type="text" class="form-control col-md-1"
-                                                       id="dc2-6" name="" value=""></td>
+                                                       id="rg2" name="" value=""></td>
                                             <td><input type="text" class="form-control col-md-1"
-                                                       id="dc2-7" name="" value=""></td>
+                                                       id="ai2" name="" value=""></td>
                                             <td><input type="text" class="form-control col-md-1"
-                                                       id="dc2-8" name="" value=""></td>
+                                                       id="pp2" name="" value=""></td>
                                             <td><input type="text" class="form-control col-md-1"
-                                                       id="dc2-9" name="" value=""></td>
+                                                       id="og2" name="" value=""></td>
                                             <td><input type="text" class="form-control col-md-1"
-                                                       id="dc2-10" name="" value=""></td>
+                                                       id="tg2" name="" value=""></td>
                                             <td><input type="text" class="form-control col-md-1"
-                                                       id="dc2-11" name="" value=""></td>
+                                                       id="ff2" name="" value=""></td>
                                             <td><input type="text" class="form-control col-md-1"
                                                        id="dc2-12" name="" value=""></td>
                                         </tr>
@@ -1539,5 +1557,52 @@
             </div>
         </div>
 
+     <script type="text/javascript">
+	
+
+var text = '{"contabilizador":[' +
+'{"RS":"11","UR":"600","GF":"2","FN":"5","SF":"02","RG":"00","AI":"004","TG":"7","FF":"1" },' +
+'{"SF":"06","AI":"010","TG":"1" }]}';
+
+
+function secc1(){
+obj = JSON.parse(text);
+document.getElementById("rs1").value = obj.contabilizador[0].RS;
+document.getElementById("ur1").value = obj.contabilizador[0].UR;
+document.getElementById("gf1").value = obj.contabilizador[0].GF;
+document.getElementById("fn1").value = obj.contabilizador[0].FN;
+document.getElementById("sf1").value = obj.contabilizador[0].SF;
+document.getElementById("rg1").value = obj.contabilizador[0].RG;
+document.getElementById("ai1").value = obj.contabilizador[0].AI;
+document.getElementById("tg1").value = obj.contabilizador[0].TG;
+document.getElementById("ff1").value = obj.contabilizador[0].FF;
+
+//se duplica en oficio de comision/orden de ministracion
+
+document.getElementById("rs2").value = obj.contabilizador[0].RS;
+document.getElementById("ur2").value = obj.contabilizador[0].UR;
+document.getElementById("gf2").value = obj.contabilizador[0].GF;
+document.getElementById("fn2").value = obj.contabilizador[0].FN;
+document.getElementById("sf2").value = obj.contabilizador[0].SF;
+document.getElementById("rg2").value = obj.contabilizador[0].RG;
+document.getElementById("ai2").value = obj.contabilizador[0].AI;
+document.getElementById("pp2").value = document.getElementById("pp").value;
+document.getElementById("og2").value = document.getElementById("og").value;
+document.getElementById("tg2").value = obj.contabilizador[0].TG;
+document.getElementById("ff2").value = obj.contabilizador[0].FF;
+
+
+}
+
+function secc2(){
+document.getElementById("sf1").value = obj.contabilizador[1].SF;
+document.getElementById("ai1").value = obj.contabilizador[1].AI;
+document.getElementById("tg1").value = obj.contabilizador[1].TG;
+}
+
+  
+    
+</script>
+<script src="http://code.jquery.com/jquery-1.0.4.js"></script>
     </body>
 </html>

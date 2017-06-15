@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import sep.gob.mx.sems.DAO.UsersDAO;
+import sep.gob.mx.sems.Model.ListaTablaConciliacion;
 import sep.gob.mx.sems.Model.UsuarioComisionado;
 
 @Repository
@@ -42,5 +43,10 @@ public class UsersDAOImpl implements UsersDAO {
         UsuarioComisionado user = (UsuarioComisionado)sessionFactory.getCurrentSession().load(UsuarioComisionado.class, idUser);
         if(null != user)this.sessionFactory.getCurrentSession().delete(user);
         return "Se borro Usuario";
+    }
+
+    @Override
+    public List<ListaTablaConciliacion> getTablaConciliacion() throws Exception {
+        return sessionFactory.getCurrentSession().createSQLQuery("select distinct nombre_s, ap_paterno, ap_materno from usuariocomisionado order by nombre_s").list();
     }
 }

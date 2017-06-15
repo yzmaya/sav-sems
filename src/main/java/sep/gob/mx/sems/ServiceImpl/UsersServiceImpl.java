@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import sep.gob.mx.sems.DAO.UsersDAO;
+import sep.gob.mx.sems.Model.ListaTablaConciliacion;
 import sep.gob.mx.sems.Model.UsuarioComisionado;
 import sep.gob.mx.sems.Service.UsersService;
 
@@ -43,5 +44,11 @@ public class UsersServiceImpl implements UsersService {
     @Transactional
     public String deleteUsuario(Integer idUser) throws Exception {
         return usersDAO.deleteUsuario(idUser);
+    }
+
+    @Override
+    @Transactional
+    public List<ListaTablaConciliacion> getTablaConciliacion() throws Exception {
+        return usersDAO.getTablaConciliacion();
     }
 }

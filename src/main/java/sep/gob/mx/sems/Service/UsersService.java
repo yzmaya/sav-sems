@@ -1,6 +1,7 @@
 package sep.gob.mx.sems.Service;
 
 import java.util.List;
+import sep.gob.mx.sems.Model.ListaTablaConciliacion;
 import sep.gob.mx.sems.Model.UsuarioComisionado;
 
 public interface UsersService {
@@ -10,5 +11,6 @@ public interface UsersService {
 	public UsuarioComisionado getUsuario(Integer idUser)throws Exception;
 	public String saveUsuario(UsuarioComisionado user)throws Exception;
 	public String deleteUsuario(Integer idUser)throws Exception;
+        public List<ListaTablaConciliacion> getTablaConciliacion()throws Exception;
 
 }

@@ -12,22 +12,45 @@
         <title>CONCILIACION</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat"
-              rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lato"
-              rel="stylesheet" type="text/css">
-        <script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="resources/css/web.css"/>
+        <script>
+            function ir(){
+                window.location='/SAV/tablaConciliacion';
+            }
+        </script>
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar"
           data-offset="60">
-        <h1>Conciliación de : ${nombres} ${paterno} ${materno} </h1><br>
+        <h1><strong>Conciliación de : ${nombres} ${paterno} ${materno}</strong></h1><br>
         <table class="table table-hover">
+            <thead>
+                <tr bgcolor="#33d6ff">
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>ANTICIPO CHEQUE</th>
+                    <th>ANTICIPO CHEQUE</th>
+                    <th>ANTICIPO CHEQUE</th>
+                    <th>ANTICIPO CHEQUE</th>
+                    <th>ANTICIPO CHEQUE</th>
+                    <th>DEVENGADO</th>
+                    <th>DEVENGADO</th>
+                    <th>DEVENGADO</th>
+                    <th>DEVENGADO</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
             <thead>
                 <tr class="info">
                     <th>No.</th>
@@ -100,35 +123,15 @@
                     </tr>
                 </c:forEach>
             </tbody>
-            <!--<tfoot>
-                <tr class="info">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tfoot>-->
+            
         </table>
     <center>
         <p>Para descargar la informacion en formato Excel, da click en el siguiente boton:</p>
         <br>
         <c:url value="download/xls" var="downloadXls"/>
-        <button><a href="${downloadXls}">Descargar Excel</a></button>
+        <button><a href="${downloadXls}">Descargar Excel</a></button><br><br>
+        <button class="btn btn-danger" onclick="ir()">Salir</button>
         <br>
     </center>
-        
-    </body>
+</body>
 </html>

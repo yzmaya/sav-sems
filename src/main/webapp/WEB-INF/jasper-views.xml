@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <bean id="xlsReport" class="org.springframework.web.servlet.view.jasperreports.JasperReportsXlsView">
-        <property name="url" value="classpath:concilacionHorizontal.jrxml"></property>
+        <property name="url" value="classpath:conciliacion.jrxml"></property>
         <property name="reportDataKey" value="datasource"> </property>
     </bean>
 		

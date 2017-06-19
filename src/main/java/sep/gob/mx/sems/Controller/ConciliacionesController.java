@@ -26,11 +26,11 @@ public class ConciliacionesController {
 
     @Autowired
     ConciliacionesService conciliacionServ;
-    List<Conciliacion> listaConciliacion;
+    private List<Conciliacion> listaConciliacion;
 
     @RequestMapping(value = "/generaConciliacion")
     public ModelAndView generaConciliacion(HttpServletRequest request) {
-        
+
         String paterno = request.getParameter("pat");
         String materno = request.getParameter("mat");
         String nombre = request.getParameter("nom");
@@ -40,25 +40,31 @@ public class ConciliacionesController {
         model.addObject("paterno", paterno);
         model.addObject("materno", materno);
         model.setViewName("archivo");
-        
+
         return model;
     }
 
     @RequestMapping(value = "/generarExcelConciliacion", method = RequestMethod.POST)
     protected ModelAndView leerArchivo(@RequestParam("file") MultipartFile file, @RequestParam("nombre") String nombre, @RequestParam("paterno") String paterno, @RequestParam("materno") String materno, HttpServletRequest request) {
-        
+
         listaConciliacion = new ArrayList<Conciliacion>();
-        
+
         try {
             String fileRuta = request.getSession().getServletContext().getRealPath("/ficheros/") + "/";
             listaConciliacion = conciliacionServ.leerArchivo(file, nombre, paterno, materno, fileRuta);
         } catch (Exception ex) {
-            System.out.println("Error en leer archivo controller: "+ex.getMessage());
+            System.out.println("Error en leer archivo controller: " + ex.getMessage());
         }
 
-        String nombres = listaConciliacion.get(0).getNombre_s();
-        String paternoObj = listaConciliacion.get(0).getApPaterno();
-        String maternoObj = listaConciliacion.get(0).getApMaterno();
+        String nombres = "";
+        String paternoObj = "";
+        String maternoObj = "";
+
+        if (listaConciliacion.size() > 0) {
+            nombres = listaConciliacion.get(0).getNombre_s();
+            paternoObj = listaConciliacion.get(0).getApPaterno();
+            maternoObj = listaConciliacion.get(0).getApMaterno();
+        }
 
         ModelAndView model = new ModelAndView();
         model.addObject("nombres", nombres);
@@ -66,12 +72,12 @@ public class ConciliacionesController {
         model.addObject("materno", maternoObj);
         model.addObject("valConc", listaConciliacion);
         model.setViewName("Conciliacion");
-        
+
         return model;
     }
 
     @RequestMapping(value = "/download/xls", method = RequestMethod.GET)
-    public ModelAndView doSalesReportXLS(ModelAndView modelAndView) {
+    public ModelAndView conciliacionXLSx(ModelAndView modelAndView) {
 
         JRDataSource datasource = new JRBeanCollectionDataSource(listaConciliacion);
 

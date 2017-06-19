@@ -7,19 +7,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="es">
     <head>
-        <title>SAV</title>
+        <title>CONCILIACION</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat"
-              rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lato"
-              rel="stylesheet" type="text/css">
-        <script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="resources/css/web.css"/>
 
         <script>
@@ -61,15 +56,15 @@
             <h2>COMISIONADOS</h2>
             <!--Aqui tenemos el buscador-->
             <div class="input-group">
-                <span class="input-group-addon"> <i
-                        class="glyphicon glyphicon-user"></i> Buscar
-                </span> <input id="filtrar" type="text" class="form-control"
-                               placeholder="Ingresa la palabra clave a buscar">
+                <span class="input-group-addon"> 
+                    <i class="glyphicon glyphicon-user"></i> Buscar
+                </span> 
+                <input id="filtrar" type="text" class="form-control" placeholder="Ingresa la palabra clave a buscar">
             </div>
             <table class="table table-hover">
                 <thead>
                     <tr class="info">
-                        <th>NOMBRE COMPLETO</th>
+                        <th>NOMBRE</th>
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
@@ -85,14 +80,11 @@
 
         </div>
 
-
-
         <footer class="container-fluid text-center">
             <a href="#myPage" title="To Top"> <span
                     class="glyphicon glyphicon-chevron-up"></span>
             </a>
         </footer>
-
 
         <script>
 

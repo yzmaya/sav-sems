@@ -3,11 +3,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
+        <script>
+            function ir(){
+                window.location='/SAV/tablaConciliacion';
+            }
+            window.addEventListener("load",inicio);
+            function inicio(){
+                document.getElementById("file").required = true;
+            }
+        </script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 
         <title>GENERAR CONCILIACION</title>
     </head>
@@ -36,17 +45,23 @@
                                     <div class="panel panel-default col-md-8 col-md-offset-2">
                                         <div class="panel-heading">DATOS PARA GENERAR LA CONCILIACIÓN</div>
                                         <div class="panel-body">
-                                            <input type="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/><br><br>
+                                            <input type="file" id="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/><br><br>
                                             <label class="control-label">Usted va a generar la conciliacion correspondiente a: ${nombre} ${paterno} ${materno}</label><br><br><br>
-                                            <input type="submit" value="Generar" />
+                                            <input class="btn btn-info" type="submit" value="Generar" />
+
                                         </div>
                                     </div>
                                 </form>
+
                             </center>
+                        </div>
+                        <div class="row">
+                            <center><button class="btn btn-danger" onclick="ir()">Cancelar</button></center>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </body>
 </html>

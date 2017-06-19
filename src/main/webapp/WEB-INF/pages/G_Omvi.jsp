@@ -3,7 +3,7 @@
 
 <html lang="en">
     <head>
-        <title>OMVI</title>
+        <title>GENERAR OMVI</title>
         <style>
             #selectDC,#selectDCPasNac{
                 width:90px;

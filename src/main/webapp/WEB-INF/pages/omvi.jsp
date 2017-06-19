@@ -2,10 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="es">
 <head>
-<?php
-  include('connect.php');
 
-  ?>
 <script>
     function modificar(code){
        document.getElementById("aqui").innerHTML = code;
@@ -13,7 +10,7 @@
 
   </script>
 
-<title>SAV</title>
+<title>OMVI</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"

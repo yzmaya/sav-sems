@@ -47,9 +47,9 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                     FileInputStream fis = null;
                     try {
 
-                        
-                        validaArchivo(ficheroDestino,ruta);
-                        fis = new FileInputStream(ruta+"archivoNuevo.xlsx");
+
+                        validaArchivo(ficheroDestino, ruta);
+                        fis = new FileInputStream(ruta + "archivoNuevo.xlsx");
                         XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
                         XSSFSheet sheet = workbook.getSheetAt(0);
@@ -68,13 +68,12 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                         }
                     } catch (IOException e) {
                         System.out.println("Error IOException en leer archivo Service Implement: " + e.getMessage());
-                    }
-                    finally {
+                    } finally {
                         if (fis != null) {
                             fis.close();
                         }
                     }
-                    
+
                     conciliacion = acomodaDatos(sheetData, nombre, paterno, materno);
 
                 } catch (IllegalStateException e) {
@@ -172,13 +171,16 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
 
                 if (j == 19) {
                     noCheque = (String) filas.get(j).toString();
-                    conciliacion.setNumCheque(noCheque);
+                    if (!noCheque.equals("-")) {
+                        String[] num = noCheque.split("\\.");
+                        conciliacion.setNumCheque(Integer.parseInt(num[0]));
+                    }
+
                 }
 
                 if (j == 38) {
                     paisPoblacion = (String) filas.get(j).toString();
                     conciliacion.setPoblacion(paisPoblacion);
-                    System.out.println("Poblacion: "+conciliacion.getPoblacion());
                 }
 
                 if (j == 41) {
@@ -422,11 +424,11 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
     }
 
     public FileInputStream validaArchivo(File excelfile, String ruta) throws Exception {
-//        File excelfile = new File("C:/Users/brayan.padilla/Documents/Base de Datos Norma y Conciliacion/BASE-VIATICOS-2017-19-ABRIL-ULTIMA-NO-BORRAR-test.xlsx");
-        File excelNewFile = new File(ruta+"archivoNuevo.xlsx");
+
+        File excelNewFile = new File(ruta + "archivoNuevo.xlsx");
         FileInputStream a = null;
         try {
-            //excelStream = fis
+
             FileInputStream excelStream = new FileInputStream(excelfile);
 
             OutputStream excelNewOutputStream = new FileOutputStream(excelNewFile);
@@ -459,7 +461,7 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                                 : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_BLANK) ? "-"
                                 : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_FORMULA) ? xssfRow.getCell(c).toString()
                                 : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_ERROR) ? "" : "";
-//                        System.out.print("[Celda " + c + ": " + cellValue + "] ");
+//                        System.out.print("[Celda " + c + ": " + valorCelda + "] ");
                         cellNew = xssfRowNew.createCell(c);
                         cellNew.setCellType(XSSFCell.CELL_TYPE_STRING);
                         cellNew.setCellValue(valorCelda);
@@ -469,16 +471,11 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
             }
             xssfWorkbookNew.write(excelNewOutputStream);
             System.out.println("¡Archivo generado!");
-            
+
 //            excelNewOutputStream.close();
             a = new FileInputStream(excelNewFile);
-//            XSSFWorkbook xssfWorkbookA = new XSSFWorkbook(a);
-//
-//            XSSFSheet xssfSheetA = xssfWorkbookA.getSheetAt(0);
-//
-//            System.out.println("Primer celda: " + xssfSheetA.getRow(2).getCell(0).toString());
 
-            
+
         } catch (FileNotFoundException ex) {
             System.out.println("Error FileNotFoundException Pasar Archivo: " + ex.getMessage());
         } catch (IOException ex) {

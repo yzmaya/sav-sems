@@ -13,7 +13,7 @@ public class Conciliacion {
     private String poblacion;
     private String del;
     private String al;
-    private String numCheque;
+    private Integer numCheque;
     private Double viaticosCheq;
     private Double gasolinaCheq;
     private Double peajeCheq;
@@ -170,11 +170,11 @@ public class Conciliacion {
         this.nombre_s = nombre_s;
     }
 
-    public String getNumCheque() {
+    public Integer getNumCheque() {
         return numCheque;
     }
 
-    public void setNumCheque(String numCheque) {
+    public void setNumCheque(Integer numCheque) {
         this.numCheque = numCheque;
     }
 

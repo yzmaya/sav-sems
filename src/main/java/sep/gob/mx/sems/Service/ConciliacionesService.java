@@ -14,5 +14,6 @@ import sep.gob.mx.sems.Model.Conciliacion;
  */
 public interface ConciliacionesService {
 
-    public List<Conciliacion> leerArchivo(MultipartFile file, String nombre, String paterno, String materno, String ruta) throws Exception;
+    public List<Conciliacion> leerArchivo(String nombre, String paterno, String materno, String ruta) throws Exception;
+    public String cargaArchivoExcel(MultipartFile file, String ruta)throws Exception;
 }

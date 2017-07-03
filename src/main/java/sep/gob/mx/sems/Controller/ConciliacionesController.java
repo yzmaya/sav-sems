@@ -27,49 +27,86 @@ public class ConciliacionesController {
     @Autowired
     ConciliacionesService conciliacionServ;
     private List<Conciliacion> listaConciliacion;
+    String result = "";
 
-    @RequestMapping(value = "/generaConciliacion")
-    public ModelAndView generaConciliacion(HttpServletRequest request) {
+    @RequestMapping(value = "/opcionesConciliaciones")
+    public ModelAndView opcionesConciliaciones(HttpServletRequest request) {
 
-        String paterno = request.getParameter("pat");
-        String materno = request.getParameter("mat");
-        String nombre = request.getParameter("nom");
-
+        result = "NINGUN ARCHIVO CARGADO";
         ModelAndView model = new ModelAndView();
-        model.addObject("nombre", nombre);
-        model.addObject("paterno", paterno);
-        model.addObject("materno", materno);
-        model.setViewName("archivo");
+
+        model.addObject("respuesta", result);
+        model.setViewName("opcionesConciliaciones");
 
         return model;
     }
 
-    @RequestMapping(value = "/generarExcelConciliacion", method = RequestMethod.POST)
-    protected ModelAndView leerArchivo(@RequestParam("file") MultipartFile file, @RequestParam("nombre") String nombre, @RequestParam("paterno") String paterno, @RequestParam("materno") String materno, HttpServletRequest request) {
+//    @RequestMapping(value = "/generaConciliacion")
+//    public ModelAndView generaConciliacion(HttpServletRequest request) {
+//
+//        String paterno = request.getParameter("pat");
+//        String materno = request.getParameter("mat");
+//        String nombre = request.getParameter("nom");
+//
+//        ModelAndView model = new ModelAndView();
+//        model.addObject("nombre", nombre);
+//        model.addObject("paterno", paterno);
+//        model.addObject("materno", materno);
+//        model.setViewName("archivo");
+//
+//        return model;
+//    }
+    @RequestMapping(value = "/cargarArchivoExcel")
+    public ModelAndView cargaArchivoExcel(@RequestParam("file") MultipartFile file, HttpServletRequest request) throws Exception {
+        String fileRuta = request.getSession().getServletContext().getRealPath("/ficheros/") + "/";
+        result = conciliacionServ.cargaArchivoExcel(file, fileRuta);
+        ModelAndView model = new ModelAndView();
+
+        model.addObject("respuesta", result);
+        model.setViewName("opcionesConciliaciones");
+
+        return model;
+    }
+
+    @RequestMapping(value = "/generarExcelConciliacion", method = RequestMethod.GET)
+    protected ModelAndView leerArchivo(HttpServletRequest request) {
 
         listaConciliacion = new ArrayList<Conciliacion>();
 
+        String nombre = request.getParameter("nom");
+        String paterno = request.getParameter("pat");
+        String materno = request.getParameter("mat");
         try {
+
+            nombre = request.getParameter("nom");
+            paterno = request.getParameter("pat");
+            materno = request.getParameter("mat");
             String fileRuta = request.getSession().getServletContext().getRealPath("/ficheros/") + "/";
-            listaConciliacion = conciliacionServ.leerArchivo(file, nombre, paterno, materno, fileRuta);
+
+//            System.out.println("Nombre: " + nombre);
+//            System.out.println("Paterno: " + paterno);
+//            System.out.println("Materno: " + materno);
+//            System.out.println("Ruta: " + fileRuta);
+
+            listaConciliacion = conciliacionServ.leerArchivo(nombre, paterno, materno, fileRuta);
         } catch (Exception ex) {
             System.out.println("Error en leer archivo controller: " + ex.getMessage());
         }
 
-        String nombres = "";
-        String paternoObj = "";
-        String maternoObj = "";
-
-        if (listaConciliacion.size() > 0) {
-            nombres = listaConciliacion.get(0).getNombre_s();
-            paternoObj = listaConciliacion.get(0).getApPaterno();
-            maternoObj = listaConciliacion.get(0).getApMaterno();
-        }
+//        String nombres = "";
+//        String paternoObj = "";
+//        String maternoObj = "";
+//
+//        if (listaConciliacion.size() > 0) {
+//            nombres = listaConciliacion.get(0).getNombre_s();
+//            paternoObj = listaConciliacion.get(0).getApPaterno();
+//            maternoObj = listaConciliacion.get(0).getApMaterno();
+//        }
 
         ModelAndView model = new ModelAndView();
-        model.addObject("nombres", nombres);
-        model.addObject("paterno", paternoObj);
-        model.addObject("materno", maternoObj);
+        model.addObject("nombres", nombre);
+        model.addObject("paterno", paterno);
+        model.addObject("materno", materno);
         model.addObject("valConc", listaConciliacion);
         model.setViewName("Conciliacion");
 

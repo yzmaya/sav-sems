@@ -18,7 +18,6 @@ import sep.gob.mx.sems.Service.*;
 @Controller
 public class SavOmviController {
 
-//    private static final Logger logger = Logger.getLogger(Sav_omvi.class);
     public SavOmviController() {
         System.out.println("Sav Omvi Controller()");
     }
@@ -52,7 +51,6 @@ public class SavOmviController {
     @RequestMapping(value = "/")
     public ModelAndView showInicio(HttpServletRequest request)
             throws IOException {
-//        logger.info("Entro en SaOmviController-showInicio-INDEX");
         return new ModelAndView("index");
     }
 
@@ -68,7 +66,6 @@ public class SavOmviController {
         List<TablaOmvi> listaTablaOmvi = new ArrayList<TablaOmvi>();
         try {
             listaTablaOmvi = omviServ.listaTablaOmvi();
-//            System.out.println("Tamaño lista TRY: " + listaTablaOmvi.size());
         } catch (Exception e) {
             System.out.println("Error OMVI controller: " + e.getMessage());
             System.out.println("Tamaño lista CATCH: " + listaTablaOmvi.size());
@@ -80,7 +77,6 @@ public class SavOmviController {
         List<TablaOmvi> newTab = new ArrayList<TablaOmvi>();
         TablaOmvi tab;
 
-//        System.out.println("Cargando info...");
         while (itr.hasNext()) {
             Object[] obj = (Object[]) itr.next();
 
@@ -96,10 +92,6 @@ public class SavOmviController {
 
         }
 
-        int a = newTab.size();
-//        System.out.println("Tamaño newTab " + a);
-//
-//        System.out.println("Info cargada...");
         model.addObject("tablaOmvi", newTab);
         model.setViewName("omvi");
 
@@ -118,7 +110,6 @@ public class SavOmviController {
 			user = usrServ.getUsuario(idUser);
                         omvi.setId_UsrCom(idUser);
                         idUltOmvi = omviServ.getUltimoOmvi();
-                        //if(idUltOmvi == null)idUltOmvi = 1;
                         puesto = catServ.getPuestoById(user.getPuesto());
 		}catch(Exception e){
 			System.out.println("Error en GeneraOmvi: "+e.getMessage());
@@ -137,21 +128,14 @@ public class SavOmviController {
                                    @RequestParam("otro_destino") String otro_destino, 
                                    @RequestParam("selectClase") String selectClase) {
         System.out.println("***********************addDestinoOrdSer");
-        
-//        destinoOrdSer.setId_Destino_ORDSER(200);
+
         destinoOrdSer.setId_OMVI(omvi.getId_OMVI());
         destinoOrdSer.setPunto_Partida(punto_partida);
         destinoOrdSer.setPunto_Llegada(punto_llegada);
         destinoOrdSer.setOtro_Destino(otro_destino);
         destinoOrdSer.setClase_Servicio(selectClase);
-//        System.out.println("destino ordser: "+destinoOrdSer.getId_Destino_ORDSER());
-//        try {
-//            OSPN1Serv.saveDestinoOrdser(destinoOrdSer);
-//        } catch (Exception ex) {
-//            System.out.println("error: "+ex.getMessage());
-//        }
       
-        return "Se guardo Destino Orden de Servicio correctamente";
+        return "Se hizo set de Destino Orden de Servicio";
     }
     
     
@@ -161,18 +145,11 @@ public class SavOmviController {
         
         System.out.println("*******************addObjComision");
 
-//        objCom.setId_Obj_Comision(200);
         objCom.setId_OMVI(omvi.getId_OMVI());
         objCom.setMotivo_Comision(Motivo_Comision);
         objCom.setObservaciones(Observaciones);
-
-//        try {
-//            OSPN1Serv.saveObjetoComision(objCom);
-//        } catch (Exception ex) {
-//            System.out.println("Error addObjComision: "+ex.getMessage());
-//        }
         
-        return "Se guardo Objeto Comision correctamente";
+        return "Se hizo set de Objeto Comision";
     }
     
     
@@ -188,34 +165,57 @@ public class SavOmviController {
         
         System.out.println("***********************addDestViatNac");
 
-//        destViatNac.setId_Destino(200);
         destViatNac.setLugar(Lugar);
         destViatNac.setPeriodo(Periodo);
         destViatNac.setCuota_Diaria(Cuota_Diaria);
         destViatNac.setDias(Dias);
         destViatNac.setImporte(Importe);
         
-//        viatNac.setId_Viaticos(200);
         viatNac.setTotal_Importe(Total_Importe);
         viatNac.setCaracteristicas_Viat(Caracteristicas_Viat);
         
-//        viatDestNac.setId_Viat_Dest_Nac(200);
         viatDestNac.setId_OMVI(omvi.getId_OMVI());
         viatDestNac.setId_Destino(destViatNac.getId_Destino());
         viatDestNac.setId_Viaticos(viatNac.getId_Viaticos());
         
-//        try{
-//            MVN2Service.saveDestViatNac(destViatNac);
-//            MVN2Service.saveViaticos_nacionales(viatNac);
-//            MVN2Service.saveViaticos_Destinos_Nacionales(viatDestNac);
-//        }catch(Exception e){
-//            System.out.println("Error Destinos Viat Nac: "+e.getMessage());
-//        }
         
-        return "Se guardo Destinos viaticos Nacionales correctamente";
+        return "Se hizo set de Destinos viaticos Nacionales";
     }
     
-     
+    @RequestMapping(value="/addDocumentoContabilizador", method= RequestMethod.POST)
+    public String addDocumentoContabilizador(@RequestParam("pp2")String ppOrdServ,
+                                             @RequestParam("og2")Integer ogOrdServ,
+                                             @RequestParam("importeDC2")Double importeDCOrdServ,
+                                             @RequestParam("pp3")String ppCOMPERCO,
+                                             @RequestParam("og3")Integer ogCOMPERCO,
+                                             @RequestParam("importeDC3")Double importeDCCOMPERCO,
+                                             @RequestParam("pp4")String ppViatNac,
+                                             @RequestParam("og4")Integer ogViatNac,
+                                             @RequestParam("importeDC4")Double importeDCViatNac){
+        
+        System.out.println("********************************************addDocumentoContabilizador");
+        
+        viatDestNac.setPP_Ord_Serv(ppOrdServ);
+        System.out.println("ppOrdServ: "+ppOrdServ);
+        viatDestNac.setOG_Ord_Serv(ogOrdServ);
+        System.out.println("ogOrdServ: "+ogOrdServ);
+        viatDestNac.setImporteDC_Ord_Serv(importeDCOrdServ);
+        System.out.println("importeDCOrdServ: "+importeDCOrdServ);
+        viatDestNac.setPP_COMPERCO(ppCOMPERCO);
+        System.out.println("ppCOMPERCO: "+ppCOMPERCO);
+        viatDestNac.setOG_COMPERCO(ogCOMPERCO);
+        System.out.println("ogCOMPERCO: "+ogCOMPERCO);
+        viatDestNac.setImporteDC_COMPERCO(importeDCCOMPERCO);
+        System.out.println("importeDCCOMPERCO: "+importeDCCOMPERCO);
+        viatDestNac.setPP_Viat_Nac(ppViatNac);
+        System.out.println("ppViatNac"+ppViatNac);
+        viatDestNac.setOG_Viat_Nac(ogViatNac);
+        System.out.println("ogViatNac: "+ogViatNac);
+        viatDestNac.setImporteDC_Viat_Nac(importeDCViatNac);
+        System.out.println("importeDCViatNac: "+importeDCViatNac);
+        
+        return "Se hizo set de Documento Contabilizador";
+    }
     
     @RequestMapping(value="/addCOMPERCO", method= RequestMethod.POST)
     public String addCOMPERCO(@RequestParam("fecha1Itinerario") String fecha1Itinerario,
@@ -235,152 +235,103 @@ public class SavOmviController {
                               @RequestParam("datepicker2") String datepicker2){
         System.out.println("********************************************addCOMPERCO");
 
-//        comperco.setId_COMPERCO(200);
         comperco.setFecha_COMPERCO(datepicker2);
         comperco.setImporte_Gasolina(importeTotalGas);
         comperco.setLitros_Gasolina(litrosGas1);
         comperco.setPrecio_Vigente_Gasolina(precioVigenteGasolina1);
         
-//        itinerario1.setId_Itinerario(200);
         itinerario1.setFecha_Itinerario(fecha1Itinerario);
         itinerario1.setOrigenDe(de1Itinerario);
         itinerario1.setDestinoA(a1Itinerario);
         itinerario1.setDistancia_Km(km1Itinerario);
         
-//        itinerario2.setId_Itinerario(201);
         itinerario2.setFecha_Itinerario(fecha2Itinerario);
         itinerario2.setOrigenDe(de2Itinerario);
         itinerario2.setDestinoA(a2Itinerario);
         itinerario2.setDistancia_Km(km2Itinerario);
         
-//        compItin1.setId_COMPERCO(comperco.getId_COMPERCO());
         compItin1.setId_OMVI(omvi.getId_OMVI());
         
-//        compItin2.setId_COMPERCO(comperco.getId_COMPERCO());
         compItin2.setId_OMVI(omvi.getId_OMVI());
-
-//        try {
-//            compServ.saveCOMPERCO(comperco);
-//            compServ.saveItinerario(itinerario1);
-//            compServ.saveItinerario(itinerario2);
-//            compServ.saveCompercoItinerario(compItin1);
-//            compServ.saveCompercoItinerario(compItin2);
-//        } catch (Exception ex) {
-//            System.out.println("Error al guardar COMPERCO: "+ex.getMessage());
-//        }
         
-        
-    return "Se guardo COMPERCO correctamente";
+    return "Se hizo set de COMPERCO";
     }
     
-    @RequestMapping(value="/addOMVI", method= RequestMethod.POST)
+    @RequestMapping(value = "/addOMVI", method = RequestMethod.POST)
     public String addOMVI(@RequestParam("omvi") Integer omviV,
-                          @RequestParam("datepicker") String datepicker, HttpServletRequest request){
-        
+                          @RequestParam("datepicker") String datepicker, HttpServletRequest request) {
+
         System.out.println("**********************addOMVI");
-        
+
         Destino_ordser destOrdSer2 = new Destino_ordser();
         Objeto_comision objComision2 = new Objeto_comision();
         List<Viaticos_Destinos_Nacionales> listViatDN2 = new ArrayList<Viaticos_Destinos_Nacionales>();
         CompercoItinerario compItin22 = new CompercoItinerario();
         Viaticos_Destinos_Nacionales vdn = new Viaticos_Destinos_Nacionales();
-        boolean guardaCOMPERCO=false;
-           try{
-               
-                System.out.println("1");
-                OSPN1Serv.saveDestinoOrdser(destinoOrdSer);
-                System.out.println("2");
-                OSPN1Serv.saveObjetoComision(objCom);
-                System.out.println("3");
-                MVN2Service.saveDestViatNac(destViatNac);
-                System.out.println("4");
-                MVN2Service.saveViaticos_nacionales(viatNac);
-                System.out.println("5");
-                viatDestNac.setId_Destino(destViatNac.getId_Destino());
-                System.out.println("6");
-                viatDestNac.setId_Viaticos(viatNac.getId_Viaticos());
-                System.out.println("7");
-                MVN2Service.saveViaticos_Destinos_Nacionales(viatDestNac);
-                System.out.println("8");
-                
-                System.out.println("getImporte_Gasolina: "+comperco.getImporte_Gasolina());
-                System.out.println("getLitros_Gasolina: "+comperco.getLitros_Gasolina());
-                System.out.println("getPrecio_Vigente_Gasolina: "+comperco.getPrecio_Vigente_Gasolina());
-                System.out.println("getFecha_COMPERCO: "+comperco.getFecha_COMPERCO());
-                
-                if(comperco.getFecha_COMPERCO()!= null){
-                    guardaCOMPERCO = true;
-                    System.out.println("Va a guardar comperco");
-                    compServ.saveCOMPERCO(comperco);
-                    System.out.println("9");
-                    compServ.saveItinerario(itinerario1);
-                    System.out.println("10");
-                    compServ.saveItinerario(itinerario2);
-                    System.out.println("11");
-                    //System.out.println("Id comperco: "+comperco.getId_COMPERCO());
-                    compItin1.setId_COMPERCO(comperco.getId_COMPERCO());
-                    //System.out.println("setIdCOMPERCO compItin1");
-                    compItin1.setID_Itinerario(itinerario1.getId_Itinerario());
-                    //System.out.println("setIdItinerario compItin1");
-                    compServ.saveCompercoItinerario(compItin1);
-                    System.out.println("12");
-                    compItin2.setId_COMPERCO(comperco.getId_COMPERCO());
-                    //System.out.println("setIdCOMPERCO compItin2");
-                    compItin2.setID_Itinerario(itinerario2.getId_Itinerario());
-                    //System.out.println("setIdItinerario compItin2");
-                    compServ.saveCompercoItinerario(compItin2);
-                    System.out.println("13");
-                }
-            
-           }catch(Exception e){
-               System.out.println("Error al guardar un objeto: "+e.getMessage());
-               System.out.println("Detalle: "+e.getStackTrace());
-           }
-           
-           
-            try {
-                if(guardaCOMPERCO){
-                    System.out.println("Va a traer Comperco Itinerario...");
-                    compItin22 = compServ.getCompercoItinerarioByIdOMVI(omvi.getId_OMVI()).get(0);
-                }
-            
-            //System.out.println("id comperco save omvi: "+compItin22.getId_COMPERCOItinerario());
-            //System.out.println("2");
+        boolean guardaCOMPERCO = false;
+        try {
+
+            OSPN1Serv.saveDestinoOrdser(destinoOrdSer);
+            OSPN1Serv.saveObjetoComision(objCom);
+            MVN2Service.saveDestViatNac(destViatNac);
+            MVN2Service.saveViaticos_nacionales(viatNac);
+            viatDestNac.setId_Destino(destViatNac.getId_Destino());
+            viatDestNac.setId_Viaticos(viatNac.getId_Viaticos());
+            MVN2Service.saveViaticos_Destinos_Nacionales(viatDestNac);
+
+            System.out.println("getImporte_Gasolina: " + comperco.getImporte_Gasolina());
+            System.out.println("getLitros_Gasolina: " + comperco.getLitros_Gasolina());
+            System.out.println("getPrecio_Vigente_Gasolina: " + comperco.getPrecio_Vigente_Gasolina());
+            System.out.println("getFecha_COMPERCO: " + comperco.getFecha_COMPERCO());
+
+            if (comperco.getFecha_COMPERCO() != null) {
+                guardaCOMPERCO = true;
+                compServ.saveCOMPERCO(comperco);
+                compServ.saveItinerario(itinerario1);
+                compServ.saveItinerario(itinerario2);
+                compItin1.setId_COMPERCO(comperco.getId_COMPERCO());
+                compItin1.setID_Itinerario(itinerario1.getId_Itinerario());
+                compServ.saveCompercoItinerario(compItin1);
+                compItin2.setId_COMPERCO(comperco.getId_COMPERCO());
+                compItin2.setID_Itinerario(itinerario2.getId_Itinerario());
+                compServ.saveCompercoItinerario(compItin2);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al guardar un objeto: " + e.getMessage());
+            System.out.println("StackTrace: " + e.getStackTrace());
+        }
+
+        try {
+            if (guardaCOMPERCO) {
+                System.out.println("Va a traer Comperco Itinerario...");
+                compItin22 = compServ.getCompercoItinerarioByIdOMVI(omvi.getId_OMVI()).get(0);
+            }
+
             destOrdSer2 = OSPN1Serv.getDestinoOrdserByIdOMVI(omvi.getId_OMVI());
-            //System.out.println("3");
             objComision2 = OSPN1Serv.getObjetoComisionByIdOMVI(omvi.getId_OMVI());
-            //System.out.println("4");
             listViatDN2 = MVN2Service.getListViaticos_Destinos_NacionalesByIdOMVI(omvi.getId_OMVI());
-            //System.out.println("5");
+
             vdn = listViatDN2.get(0);
-            
+
             omvi.setFecha_OMVI(String.valueOf(datepicker));
             omvi.setId_Destino_OrdSer(destOrdSer2.getId_Destino_ORDSER());
             omvi.setId_UR(1);
             omvi.setId_Obj_Comision(objComision2.getId_Obj_Comision());
             omvi.setId_Viaticos_Destino(vdn.getId_Viat_Dest_Nac());
             omvi.setId_COMPERCO(compItin22.getId_COMPERCOItinerario());
-            
-//            System.out.println("id omvi: "+omvi.getId_OMVI());
-//            System.out.println("fecha: "+omvi.getFecha_OMVI());
-//            System.out.println("usuario: "+omvi.getId_UsrCom());
-//            System.out.println("destino ordser: "+omvi.getId_Destino_OrdSer());
-//            System.out.println("ur: "+omvi.getId_UR());
-//            System.out.println("obj comision: "+omvi.getId_Obj_Comision());
-//            System.out.println("viat dest: "+omvi.getId_Viaticos_Destino());
-//            System.out.println("comperco: "+omvi.getId_COMPERCO());
-            
             omviServ.saveOMVI(omvi);
+            
             System.out.println("Se genero correctamente el MOVI...");
+            
         } catch (Exception ex) {
-            System.out.println("Error al guardar OMVI : "+ex.getMessage());
+            System.out.println("Error al guardar OMVI : " + ex.getMessage());
         }
         return "Se guardo OMVI correctamente";
     }
     
     @RequestMapping(value="/setIdOMVI", method= RequestMethod.POST)
     public void setIdOMVI(@RequestParam("omvi")Integer omviV){
-        //System.out.println(omviV);
         omvi.setId_OMVI(omviV);
         System.out.println("OMVI a guardar: "+omvi.getId_OMVI());
     }

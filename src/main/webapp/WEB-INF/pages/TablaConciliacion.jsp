@@ -40,7 +40,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="index.html">INICIO</a></li>
-                        <li><a href="tablaConciliacion">CONCILIACIONES</a></li>
+                        <li><a href="opcionesConciliaciones">CONCILIACIONES</a></li>
                         <li><a href="comissioner">COMISIONADOS</a></li>
                         <li><a href="omvi">OMVI</a></li>
                         <li><a href="#"><span class="glyphicon glyphicon-user"></span>
@@ -72,7 +72,7 @@
                     <c:forEach var="user" items="${listaUsersConciliacion}">
                         <tr>
                             <td>${user.nombre_s} ${user.ap_Paterno} ${user.ap_Materno} </td>
-                            <td><a href="generaConciliacion?pat=${user.ap_Paterno}&mat=${user.ap_Materno}&nom=${user.nombre_s}">Generar Conciliacion</a></td>
+                            <td><a href="generarExcelConciliacion?pat=${user.ap_Paterno}&mat=${user.ap_Materno}&nom=${user.nombre_s}">Generar Conciliacion</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

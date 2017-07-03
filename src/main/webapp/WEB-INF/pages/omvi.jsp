@@ -41,7 +41,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="index">INICIO</a></li>
-                                        <li><a href="tablaConciliacion">CONCILIACIONES</a></li>
+                                        <li><a href="opcionesConciliaciones">CONCILIACIONES</a></li>
 					<li><a href="comissioner">COMISIONADOS</a></li>
 					<li><a href="omvi">OMVI</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-user"></span>

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sep.gob.mx.sems.ServiceImpl;
 
 import java.io.*;
@@ -26,74 +22,68 @@ import sep.gob.mx.sems.Service.ConciliacionesService;
 public class ConciliacionesServiceImpl implements ConciliacionesService {
 
     @Override
-    public List<Conciliacion> leerArchivo(MultipartFile file, String nombre, String paterno, String materno, String ruta) throws Exception {
-
-        List<Conciliacion> conciliacion = new ArrayList<Conciliacion>();
+    public String cargaArchivoExcel(MultipartFile file, String ruta) throws Exception {
         if (null != file) {
-
             if (!file.isEmpty()) {
-
                 String nombreOriginalArchivo = file.getOriginalFilename();
                 File ficheroDestino = new File(ruta + nombreOriginalArchivo);
                 ficheroDestino.mkdirs();
+                file.transferTo(ficheroDestino);
+                System.out.println("Se transfirio el archivo");
 
-                try {
+                validaArchivo(ficheroDestino, ruta);
 
-                    file.transferTo(ficheroDestino);
-                    System.out.println("Se transfirio el archivo");
+            }
+        }
+        return "ARCHIVO CARGADO";
+    }
 
-                    List sheetData = new ArrayList();
+    @Override
+    public List<Conciliacion> leerArchivo(String nombre, String paterno, String materno, String ruta) throws Exception {
 
-                    FileInputStream fis = null;
-                    try {
+        List<Conciliacion> conciliacion = new ArrayList<Conciliacion>();
 
+        try {
 
-                        validaArchivo(ficheroDestino, ruta);
-                        fis = new FileInputStream(ruta + "archivoNuevo.xlsx");
-                        XSSFWorkbook workbook = new XSSFWorkbook(fis);
+            List sheetData = new ArrayList();
 
-                        XSSFSheet sheet = workbook.getSheetAt(0);
+            FileInputStream fis = null;
 
-                        Iterator rows = sheet.rowIterator();
-                        while (rows.hasNext()) {
-                            XSSFRow row = (XSSFRow) rows.next();
+            try {
 
-                            Iterator cells = row.cellIterator();
-                            List data = new ArrayList();
-                            while (cells.hasNext()) {
-                                XSSFCell cell = (XSSFCell) cells.next();
-                                data.add(cell);
-                            }
-                            sheetData.add(data);
-                        }
-                    } catch (IOException e) {
-                        System.out.println("Error IOException en leer archivo Service Implement: " + e.getMessage());
-                    } finally {
-                        if (fis != null) {
-                            fis.close();
-                        }
+                fis = new FileInputStream(ruta + "archivoNuevo.xlsx");
+                XSSFWorkbook workbook = new XSSFWorkbook(fis);
+
+                XSSFSheet sheet = workbook.getSheetAt(0);
+
+                Iterator rows = sheet.rowIterator();
+                while (rows.hasNext()) {
+                    XSSFRow row = (XSSFRow) rows.next();
+
+                    Iterator cells = row.cellIterator();
+                    List data = new ArrayList();
+                    while (cells.hasNext()) {
+                        XSSFCell cell = (XSSFCell) cells.next();
+                        data.add(cell);
                     }
-
-                    conciliacion = acomodaDatos(sheetData, nombre, paterno, materno);
-
-                } catch (IllegalStateException e) {
-                    System.out.println("Error IllegalStateException: " + e.getMessage());
-                } catch (IOException e) {
-                    System.out.println("Error IOException: " + e.getMessage());
+                    sheetData.add(data);
                 }
-                if (ficheroDestino.delete()) {
-                    System.out.println("Se borro el archivo...");
+            } catch (IOException e) {
+                System.out.println("Error IOException en leer archivo Service Implement: " + e.getMessage());
+            } finally {
+                if (fis != null) {
+                    fis.close();
                 }
-            } else {
-                conciliacion = null;
-                return conciliacion;
-            }  //fin del if
-            return conciliacion;
-        } else {
-            conciliacion = null;
-            return conciliacion;
-        }//fin del if,hay elementos seleccionados  
+            }
 
+            conciliacion = acomodaDatos(sheetData, nombre, paterno, materno);
+
+        } catch (IllegalStateException e) {
+            System.out.println("Error IllegalStateException: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Error IOException: " + e.getMessage());
+        }
+        return conciliacion;
     }
 
     private static List<Conciliacion> acomodaDatos(List sheetData, String nombre, String paterno, String materno) {
@@ -455,11 +445,11 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                     for (int c = 0; c < xssfRow.getLastCellNum(); c++) {
 
                         valorCelda = xssfRow.getCell(c) == null ? "-"
-                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_STRING) ? xssfRow.getCell(c).toString()
-                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_NUMERIC) ? xssfRow.getCell(c).toString()
-                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_BOOLEAN) ? xssfRow.getCell(c).toString()
+                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_STRING) ? xssfRow.getCell(c).toString().trim()
+                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_NUMERIC) ? xssfRow.getCell(c).toString().trim()
+                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_BOOLEAN) ? xssfRow.getCell(c).toString().trim()
                                 : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_BLANK) ? "-"
-                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_FORMULA) ? xssfRow.getCell(c).toString()
+                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_FORMULA) ? xssfRow.getCell(c).toString().trim()
                                 : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_ERROR) ? "" : "";
 //                        System.out.print("[Celda " + c + ": " + valorCelda + "] ");
                         cellNew = xssfRowNew.createCell(c);
@@ -470,7 +460,6 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                 }
             }
             xssfWorkbookNew.write(excelNewOutputStream);
-            System.out.println("¡Archivo generado!");
 
 //            excelNewOutputStream.close();
             a = new FileInputStream(excelNewFile);

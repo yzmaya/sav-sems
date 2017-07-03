@@ -1,32 +1,116 @@
 package sep.gob.mx.sems.Model;
 
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
 import java.io.Serializable;
 import javax.persistence.*;
+
 /**
  *
  * @author brayan.padilla
  */
 @Entity
-@Table(name="viaticos_destinos_nacionales")
-public class Viaticos_Destinos_Nacionales implements Serializable{
-    
+@Table(name = "viaticos_destinos_nacionales")
+public class Viaticos_Destinos_Nacionales implements Serializable {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer Id_Viat_Dest_Nac;
-    
     @Column
     private Integer Id_OMVI;
-    
     @Column
     private Integer Id_Viaticos;
-    
     @Column
     private Integer Id_Destino;
+    @Column
+    private String PP_Ord_Serv;
+    @Column
+    private Integer OG_Ord_Serv;
+    @Column
+    private String PP_COMPERCO;
+    @Column
+    private Integer OG_COMPERCO;
+    @Column
+    private String PP_Viat_Nac;
+    @Column
+    private Integer OG_Viat_Nac;
+    @Column
+    private Double ImporteDC_Ord_Serv;
+    @Column
+    private Double ImporteDC_COMPERCO;
+    @Column
+    private Double ImporteDC_Viat_Nac;
+
+    public Double getImporteDC_COMPERCO() {
+        return ImporteDC_COMPERCO;
+    }
+
+    public void setImporteDC_COMPERCO(Double ImporteDC_COMPERCO) {
+        this.ImporteDC_COMPERCO = ImporteDC_COMPERCO;
+    }
+
+    public Double getImporteDC_Ord_Serv() {
+        return ImporteDC_Ord_Serv;
+    }
+
+    public void setImporteDC_Ord_Serv(Double ImporteDC_Ord_Serv) {
+        this.ImporteDC_Ord_Serv = ImporteDC_Ord_Serv;
+    }
+
+    public Double getImporteDC_Viat_Nac() {
+        return ImporteDC_Viat_Nac;
+    }
+
+    public void setImporteDC_Viat_Nac(Double ImporteDC_Viat_Nac) {
+        this.ImporteDC_Viat_Nac = ImporteDC_Viat_Nac;
+    }
+
+    public Integer getOG_COMPERCO() {
+        return OG_COMPERCO;
+    }
+
+    public void setOG_COMPERCO(Integer OG_COMPERCO) {
+        this.OG_COMPERCO = OG_COMPERCO;
+    }
+
+    public Integer getOG_Ord_Serv() {
+        return OG_Ord_Serv;
+    }
+
+    public void setOG_Ord_Serv(Integer OG_Ord_Serv) {
+        this.OG_Ord_Serv = OG_Ord_Serv;
+    }
+
+    public Integer getOG_Viat_Nac() {
+        return OG_Viat_Nac;
+    }
+
+    public void setOG_Viat_Nac(Integer OG_Viat_Nac) {
+        this.OG_Viat_Nac = OG_Viat_Nac;
+    }
+
+    public String getPP_COMPERCO() {
+        return PP_COMPERCO;
+    }
+
+    public void setPP_COMPERCO(String PP_COMPERCO) {
+        this.PP_COMPERCO = PP_COMPERCO;
+    }
+
+    public String getPP_Ord_Serv() {
+        return PP_Ord_Serv;
+    }
+
+    public void setPP_Ord_Serv(String PP_Ord_Serv) {
+        this.PP_Ord_Serv = PP_Ord_Serv;
+    }
+
+    public String getPP_Viat_Nac() {
+        return PP_Viat_Nac;
+    }
+
+    public void setPP_Viat_Nac(String PP_Viat_Nac) {
+        this.PP_Viat_Nac = PP_Viat_Nac;
+    }
 
     public Integer getId_Destino() {
         return Id_Destino;
@@ -59,6 +143,4 @@ public class Viaticos_Destinos_Nacionales implements Serializable{
     public void setId_Viaticos(Integer Id_Viaticos) {
         this.Id_Viaticos = Id_Viaticos;
     }
-    
-    
 }

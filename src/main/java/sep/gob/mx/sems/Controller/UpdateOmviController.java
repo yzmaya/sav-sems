@@ -107,6 +107,10 @@ public class UpdateOmviController {
                                                     //al JSP y los layouts para visualizar los datos. Por ahora solo muestra el primer registro 
                                                     //de la tabla, correspondiente al numero de omvi que se este modificando
         //------------------------------------------------------------------------------------------------------------------------------------------------
+        
+        //DE AQUI SE VAN A EXTRAER LOS VALORES PARA LOS DC DE LOS FORMULARIOS CUANDO SE EDITA EL OMVI
+        model.addObject("viatDestNac",listViaticos_Destinos_Nacionales.get(0));
+        
         model.addObject("itinerario1", itinerario1);
         model.addObject("itinerario2", itinerario2);
 

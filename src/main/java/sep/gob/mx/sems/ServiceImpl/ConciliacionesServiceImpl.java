@@ -462,6 +462,7 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
             xssfWorkbookNew.write(excelNewOutputStream);
 
 //            excelNewOutputStream.close();
+            if(excelfile.delete())System.out.println("Archivo eliminado");
             a = new FileInputStream(excelNewFile);
 
 

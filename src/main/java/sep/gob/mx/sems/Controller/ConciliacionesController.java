@@ -78,14 +78,14 @@ public class ConciliacionesController {
         String materno = request.getParameter("mat");
         try {
 
-            nombre = request.getParameter("nom");
-            paterno = request.getParameter("pat");
-            materno = request.getParameter("mat");
+//            nombre = request.getParameter("nom");
+//            paterno = request.getParameter("pat");
+//            materno = request.getParameter("mat");
             String fileRuta = request.getSession().getServletContext().getRealPath("/ficheros/") + "/";
 
-//            System.out.println("Nombre: " + nombre);
-//            System.out.println("Paterno: " + paterno);
-//            System.out.println("Materno: " + materno);
+            System.out.println("Nombre: " + nombre);
+            System.out.println("Paterno: " + paterno);
+            System.out.println("Materno: " + materno);
 //            System.out.println("Ruta: " + fileRuta);
 
             listaConciliacion = conciliacionServ.leerArchivo(nombre, paterno, materno, fileRuta);

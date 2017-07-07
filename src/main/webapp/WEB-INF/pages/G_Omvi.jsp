@@ -99,13 +99,32 @@
                 $.datepicker.setDefaults($.datepicker.regional['es']);
             });    
             
-            $(document).ready(function() {
-                $("#datepicker").datepicker();
-                $("#fecha1Itinerario").datepicker();
-                $("#fecha2Itinerario").datepicker();
-                //$("#datepicker2").datepicker();
-            });
-            
+    $(document).ready(function() {
+        $("#datepicker").datepicker();
+        $("#fecha1Itinerario").datepicker();
+        $("#fecha2Itinerario").datepicker();
+        //$("#datepicker2").datepicker();
+        
+        /*$("#formDestinoOrdSer").validate({
+            rules: {
+                punto_llegada: { required: true, minlength: 2}
+                //lastname: { required: true, minlength: 2},
+                //email: { required:true, email: true},
+                //phone: { minlength: 2, maxlength: 15},
+                //years: { required: true},
+                //message: { required:true, minlength: 2}
+            },
+            messages: {
+                punto_llegada: "Debe introducir su nombre."
+                //lastname: "Debe introducir su apellido.",
+                //email : "Debe introducir un email válido.",
+                //phone : "El número de teléfono introducido no es correcto.",
+                //years : "Debe introducir solo números.",
+                //message : "El campo Mensaje es obligatorio."
+            }
+        });*/
+    });
+    
             function inicio(){
                 //alert(document.getElementById("ultOmvi").value);
                 
@@ -195,8 +214,7 @@
 
                 }else if(sel.value == "Terrestre"){
                     var fields = document.getElementById("formCOMPERCO").getElementsByTagName('*');
-                    for(var i = 0; i < fields.length; i++)
-                    {
+                    for(var i = 0; i < fields.length; i++){
                         fields[i].disabled = false;
                     }
                 }

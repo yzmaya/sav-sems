@@ -21,13 +21,16 @@
             function modificar(code){
                 document.getElementById("aqui").innerHTML = code;
             }
-
+            
+            function ir(){
+                window.location='/SAV';
+            }
         </script>
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar"
           data-offset="60">
 
-        <nav class="navbar navbar-default navbar-fixed-top">
+    <!--    <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -50,9 +53,10 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav>-->
 
         <div class="container-fluid">
+            <center><button class="btn btn-danger" onclick="ir()">Cancelar</button></center>
             <h2>COMISIONADOS</h2>
             <!--Aqui tenemos el buscador-->
             <div class="input-group">
@@ -85,7 +89,7 @@
                     class="glyphicon glyphicon-chevron-up"></span>
             </a>
         </footer>
-
+<center><button class="btn btn-danger" onclick="ir()">Cancelar</button></center>
         <script>
 
             //buscar en la tabla

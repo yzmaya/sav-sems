@@ -1,10 +1,11 @@
 package sep.gob.mx.sems.ServiceImpl;
 
 import java.io.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -86,8 +87,8 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
         return conciliacion;
     }
 
-    private static List<Conciliacion> acomodaDatos(List sheetData, String nombre, String paterno, String materno) {
-
+    private static List<Conciliacion> acomodaDatos(List sheetData, String nombre, String paterno, String materno) throws Exception {
+        DecimalFormat formato = new DecimalFormat("###,###.##");
         int cont = 0;
         List listas = new ArrayList();
         for (int i = 4; i < sheetData.size(); i++) {
@@ -151,7 +152,7 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
             conciliacion.setIdViaje(i + 1);
 
             List filas = (List) listas.get(i);
-
+            
             for (int j = 0; j < filas.size(); j++) {
 
                 if (j == 9) {
@@ -163,7 +164,7 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                     noCheque = (String) filas.get(j).toString();
                     if (!noCheque.equals("-")) {
                         String[] num = noCheque.split("\\.");
-                        conciliacion.setNumCheque(Integer.parseInt(num[0]));
+                        conciliacion.setNumCheque(num[0]);
                     }
 
                 }
@@ -184,59 +185,76 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                 }
 //--------------------Viaticos anticipo cheque------------------------------------------------------------
                 if (j == 46) {
+
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticos += Double.valueOf(viaticosS);
+
                     }
                 }
 
                 if (j == 47) {
+
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticos += Double.valueOf(viaticosS);
+
                     }
                 }
 
                 if (j == 48) {
+
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticos += Double.valueOf(viaticosS);
+
                     }
                 }
 
                 if (j == 49) {
+
                     viaticosS = (String) filas.get(j).toString();
+
                     if (!viaticosS.toString().equals("-")) {
+
                         viaticos += Double.valueOf(viaticosS);
+
                     }
                     if (viaticos != 0) {
-                        conciliacion.setViaticosCheq(viaticos);
+
+                        conciliacion.setViaticosCheq(formato.format(viaticos));
+
                     }
+
                 }
 //----------------------------Pasajes terrestres anticipo cheque--------------------------------
                 if (j == 50) {
+
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
                         pasajTerr += Double.valueOf(pasajTerrS);
                     }
                 }
                 if (j == 54) {
+
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
                         pasajTerr += Double.valueOf(pasajTerrS);
                     }
                 }
                 if (j == 55) {
+
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
                         pasajTerr += Double.valueOf(pasajTerrS);
                     }
                     if (pasajTerr != 0) {
-                        conciliacion.setPasajesTerrCheq(pasajTerr);
+                        conciliacion.setPasajesTerrCheq(formato.format(pasajTerr));
                     }
                 }
 //----------------------------Gasolina anticipo cheque------------------------------------------
                 if (j == 51) {
+
                     gasolinaS = (String) filas.get(j).toString();
                     if (!gasolinaS.toString().equals("-")) {
                         gasolina += Double.valueOf(gasolinaS);
@@ -244,16 +262,18 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                 }
 
                 if (j == 52) {
+
                     gasolinaS = (String) filas.get(j).toString();
                     if (!gasolinaS.toString().equals("-")) {
                         gasolina += Double.valueOf(gasolinaS);
                     }
                     if (gasolina != 0) {
-                        conciliacion.setGasolinaCheq(gasolina);
+                        conciliacion.setGasolinaCheq(formato.format(gasolina));
                     }
                 }
 //----------------------------Peaje anticipo cheque------------------------------------------
                 if (j == 53) {
+
                     peaje = (String) filas.get(j).toString();
                     if (peaje.toString().equals("-")) {
                         peajeCheq = 0.0;
@@ -261,20 +281,22 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                         peajeCheq = Double.valueOf(peaje);
                     }
                     if (peajeCheq != 0) {
-                        conciliacion.setPeajeCheq(peajeCheq);
+                        conciliacion.setPeajeCheq(formato.format(peajeCheq));
                     }
                 }
 //----------------------------Total anticipo cheque------------------------------------------
                 if (j == 57) {
+
                     totalCheq = 0.0;
                     totalCheq = viaticos + gasolina + peajeCheq;
                     if (totalCheq != 0) {
-                        conciliacion.setTotalCheq(totalCheq);
+                        conciliacion.setTotalCheq(formato.format(totalCheq));
                     }
                 }
 //----------------------------Viaticos devengado------------------------------------------
 
                 if (j == 102) {
+
 
                     viaticosS = "";
                     viaticosS = (String) filas.get(j).toString();
@@ -284,6 +306,7 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                 }
 
                 if (j == 103) {
+
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticosDev += Double.valueOf(viaticosS);
@@ -291,6 +314,7 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                 }
 
                 if (j == 104) {
+
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticosDev += Double.valueOf(viaticosS);
@@ -298,17 +322,19 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                 }
 
                 if (j == 105) {
+
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticosDev += Double.valueOf(viaticosS);
                     }
                     if (viaticosDev != 0) {
-                        conciliacion.setViaticosDev(viaticosDev);
+                        conciliacion.setViaticosDev(formato.format(viaticosDev));
                     }
                 }
 //----------------------------Pasajes terrestres devengado--------------------------------
 
                 if (j == 106) {
+
                     pasajTerrS = "";
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
@@ -316,22 +342,25 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                     }
                 }
                 if (j == 110) {
+
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
                         pasajTerrDev += Double.valueOf(pasajTerrS);
                     }
                 }
                 if (j == 111) {
+
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
                         pasajTerrDev += Double.valueOf(pasajTerrS);
                     }
                     if (pasajTerrDev != 0) {
-                        conciliacion.setPasajesTerrDev(pasajTerrDev);
+                        conciliacion.setPasajesTerrDev(formato.format(pasajTerrDev));
                     }
                 }
 //----------------------------Gasolina devengado-------------------------------- 
                 if (j == 107) {
+
                     gasolinaS = "";
                     gasolinaS = (String) filas.get(j).toString();
                     if (!gasolinaS.toString().equals("-")) {
@@ -339,16 +368,18 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                     }
                 }
                 if (j == 108) {
+
                     gasolinaS = (String) filas.get(j).toString();
                     if (!gasolinaS.toString().equals("-")) {
                         gasolinaDev += Double.valueOf(gasolinaS);
                     }
                     if (gasolinaDev != 0) {
-                        conciliacion.setGasolinaDev(gasolinaDev);
+                        conciliacion.setGasolinaDev(formato.format(gasolinaDev));
                     }
                 }
 //----------------------------Peaje devengado------------------------------------------
                 if (j == 109) {
+
                     peaje = (String) filas.get(j).toString();
                     if (peaje.toString().equals("-")) {
                         peajeDev = 0.0;
@@ -356,36 +387,40 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                         peajeDev = Double.valueOf(peaje);
                     }
                     if (peajeDev != 0) {
-                        conciliacion.setPeajeDev(peajeDev);
+                        conciliacion.setPeajeDev(formato.format(peajeDev));
                     }
                 }
-//----------------------------Monto viaticos devengados------------------------------------------
+//----------------------------Monto viaticos devengados------------------------------------------(Total devengados)
 
                 if (viaticosDev != 0 || pasajTerrDev != 0 || gasolinaDev != 0 || peajeDev != 0) {
+
                     totalDev = 0.0;
                     totalDev = viaticosDev + pasajTerrDev + gasolinaDev + peajeDev;
                     if (totalDev != 0) {
-                        conciliacion.setMontoViatDev(totalDev);
+                        conciliacion.setMontoViatDev(formato.format(totalDev));
                     }
                 }
 //----------------------------Saldo a reintegrar------------------------------------------
                 saldoReint = totalCheq - totalDev;
                 if (saldoReint == 0.0) {
+
                     conciliacion.setSaldoAReintegrar(null);
                 } else {
-                    conciliacion.setSaldoAReintegrar(saldoReint);
+                    conciliacion.setSaldoAReintegrar(formato.format(saldoReint));
                 }
 //----------------------------Saldo a pagar devengado------------------------------------------
                 if (j == 154) {
+
                     String saldoPagarDev = (String) filas.get(j).toString();
                     if (saldoPagarDev.equals("-")) {
                         saldoPagarDev = "0.0";
                     }
                     if (Double.valueOf(saldoPagarDev) != 0) {
-                        conciliacion.setSaldoPagarDevengado(Double.valueOf(saldoPagarDev));
+
+                        conciliacion.setSaldoPagarDevengado(formato.format(Double.valueOf(saldoPagarDev)));
                     }
                 }
-//----------------------------Observaciones------------------------------------------
+//----------------------------Observaciones---------------------------------------------------
                 if (j == 145) {
                     observaciones = (String) filas.get(j).toString();
                     conciliacion.setObservaciones(observaciones);
@@ -413,64 +448,106 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
 
     }
 
-    public FileInputStream validaArchivo(File excelfile, String ruta) throws Exception {
+    public void validaArchivo(File excelfile, String ruta) throws Exception {
 
         File excelNewFile = new File(ruta + "archivoNuevo.xlsx");
-        FileInputStream a = null;
+
         try {
 
             FileInputStream excelStream = new FileInputStream(excelfile);
 
             OutputStream excelNewOutputStream = new FileOutputStream(excelNewFile);
 
-            XSSFWorkbook xssfWorkbook = new XSSFWorkbook(excelStream);
+            Workbook workbook = new XSSFWorkbook(excelStream);
             XSSFWorkbook xssfWorkbookNew = new XSSFWorkbook();
 
-            XSSFSheet xssfSheet = xssfWorkbook.getSheetAt(0);
+            Sheet sheet = workbook.getSheetAt(0);
             XSSFSheet xssfSheetNew = xssfWorkbookNew.createSheet("OMVIS");
 
-            XSSFRow xssfRow;
+            Row row;
             XSSFRow xssfRowNew;
 
             XSSFCell cellNew;
 
-            String valorCelda;
-            for (int i = 0; i < xssfSheet.getLastRowNum(); i++) {
-                xssfRow = xssfSheet.getRow(i);
-                if (xssfRow == null) {
+            String valorCelda = "";
+
+            FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
+
+
+            for (int i = 0; i < sheet.getLastRowNum(); i++) {
+                row = sheet.getRow(i);
+                if (row == null) {
                     break;
                 } else {
-//                    System.out.println("Fila: "+i);
                     xssfRowNew = xssfSheetNew.createRow(i);
-                    for (int c = 0; c < xssfRow.getLastCellNum(); c++) {
+                    for (int c = 0; c < row.getLastCellNum(); c++) {
 
-                        valorCelda = xssfRow.getCell(c) == null ? "-"
-                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_STRING) ? xssfRow.getCell(c).toString().trim()
-                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_NUMERIC) ? xssfRow.getCell(c).toString().trim()
-                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_BOOLEAN) ? xssfRow.getCell(c).toString().trim()
-                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_BLANK) ? "-"
-                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_FORMULA) ? xssfRow.getCell(c).toString().trim()
-                                : (xssfRow.getCell(c).getCellType() == Cell.CELL_TYPE_ERROR) ? "" : "";
-//                        System.out.print("[Celda " + c + ": " + valorCelda + "] ");
+                        if (row.getCell(c) != null && !"".equals(row.getCell(c).toString()) && c > 42) {
+                            CellValue cellValue = evaluator.evaluate(row.getCell(c));
+                            //Aqui va validacion por tipo de dato de la celda
+                            switch (cellValue.getCellType()) {
+                                case Cell.CELL_TYPE_BOOLEAN:
+                                    valorCelda = cellValue.toString();
+                                    cellNew = xssfRowNew.createCell(c);
+                                    cellNew.setCellType(XSSFCell.CELL_TYPE_STRING);
+                                    cellNew.setCellValue(valorCelda);
+                                    break;
+                                case Cell.CELL_TYPE_NUMERIC:
+                                    valorCelda = String.valueOf(cellValue.getNumberValue());
+                                    cellNew = xssfRowNew.createCell(c);
+                                    cellNew.setCellType(XSSFCell.CELL_TYPE_NUMERIC);
+                                    cellNew.setCellValue(Double.valueOf(valorCelda));
+                                    break;
+                                case Cell.CELL_TYPE_STRING:
+                                    valorCelda = cellValue.getStringValue();
+                                    cellNew = xssfRowNew.createCell(c);
+                                    cellNew.setCellType(XSSFCell.CELL_TYPE_STRING);
+                                    cellNew.setCellValue(valorCelda);
+                                    break;
+                                case Cell.CELL_TYPE_BLANK:
+                                    valorCelda = "-";
+                                    cellNew = xssfRowNew.createCell(c);
+                                    cellNew.setCellType(XSSFCell.CELL_TYPE_STRING);
+                                    cellNew.setCellValue(valorCelda);
+                                    break;
+                                case Cell.CELL_TYPE_ERROR:
+                                    valorCelda = "-";
+                                    cellNew = xssfRowNew.createCell(c);
+                                    cellNew.setCellType(XSSFCell.CELL_TYPE_STRING);
+                                    cellNew.setCellValue(valorCelda);
+                                    break;
+
+                                // CELL_TYPE_FORMULA will never happen
+                                case Cell.CELL_TYPE_FORMULA:
+                                    break;
+                            }
+                        } else {
+                            valorCelda = row.getCell(c) == null ? "-"
+                                    : (row.getCell(c).getCellType() == Cell.CELL_TYPE_STRING) ? row.getCell(c).toString().trim()
+                                    : (row.getCell(c).getCellType() == Cell.CELL_TYPE_NUMERIC) ? row.getCell(c).toString().trim()
+                                    : (row.getCell(c).getCellType() == Cell.CELL_TYPE_BOOLEAN) ? row.getCell(c).toString().trim()
+                                    : (row.getCell(c).getCellType() == Cell.CELL_TYPE_BLANK) ? "-"
+                                    : (row.getCell(c).getCellType() == Cell.CELL_TYPE_FORMULA) ? row.getCell(c).toString().trim()
+                                    : (row.getCell(c).getCellType() == Cell.CELL_TYPE_ERROR) ? "-" : "-";
+                        }
+
                         cellNew = xssfRowNew.createCell(c);
                         cellNew.setCellType(XSSFCell.CELL_TYPE_STRING);
                         cellNew.setCellValue(valorCelda);
                     }
-//                    System.out.println();
                 }
             }
             xssfWorkbookNew.write(excelNewOutputStream);
 
 //            excelNewOutputStream.close();
-            if(excelfile.delete())System.out.println("Archivo eliminado");
-            a = new FileInputStream(excelNewFile);
-
+            if (excelfile.delete()) {
+                System.out.println("Archivo eliminado");
+            }
 
         } catch (FileNotFoundException ex) {
             System.out.println("Error FileNotFoundException Pasar Archivo: " + ex.getMessage());
         } catch (IOException ex) {
             System.out.println("Error IOException Pasar Archivo: " + ex.getMessage());
         }
-        return a;
     }
 }

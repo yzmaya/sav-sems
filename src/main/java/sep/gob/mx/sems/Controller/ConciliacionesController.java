@@ -78,9 +78,6 @@ public class ConciliacionesController {
         String materno = request.getParameter("mat");
         try {
 
-//            nombre = request.getParameter("nom");
-//            paterno = request.getParameter("pat");
-//            materno = request.getParameter("mat");
             String fileRuta = request.getSession().getServletContext().getRealPath("/ficheros/") + "/";
 
             System.out.println("Nombre: " + nombre);
@@ -90,18 +87,8 @@ public class ConciliacionesController {
 
             listaConciliacion = conciliacionServ.leerArchivo(nombre, paterno, materno, fileRuta);
         } catch (Exception ex) {
-            System.out.println("Error en leer archivo controller: " + ex.getMessage());
+            System.out.println("Error en leer archivo controller: " + ex.getMessage()+" | "+ex.getLocalizedMessage());
         }
-
-//        String nombres = "";
-//        String paternoObj = "";
-//        String maternoObj = "";
-//
-//        if (listaConciliacion.size() > 0) {
-//            nombres = listaConciliacion.get(0).getNombre_s();
-//            paternoObj = listaConciliacion.get(0).getApPaterno();
-//            maternoObj = listaConciliacion.get(0).getApMaterno();
-//        }
 
         ModelAndView model = new ModelAndView();
         model.addObject("nombres", nombre);

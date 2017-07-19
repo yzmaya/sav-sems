@@ -13,42 +13,34 @@ public class Conciliacion {
     private String poblacion;
     private String del;
     private String al;
-    private Integer numCheque;
-    private Double viaticosCheq;
-    private Double gasolinaCheq;
-    private Double peajeCheq;
-    private Double pasajesTerrCheq;
-    private Double totalCheq;
-    private Double viaticosDev;
-    private Double gasolinaDev;
-    private Double peajeDev;
-    private Double pasajesTerrDev;
-    private Double montoViatDev;
-    private Double viaticosReint;
-    private Double gasolinaReint;
-    private Double peajeReint;
-    private Double pasajesTerrReint;
+    private String numCheque;
+    private String viaticosCheq;
+    private String gasolinaCheq;
+    private String peajeCheq;
+    private String pasajesTerrCheq;
+    private String totalCheq;
+    private String viaticosDev;
+    private String gasolinaDev;
+    private String peajeDev;
+    private String pasajesTerrDev;
+    private String montoViatDev;
+    private String viaticosReint;
+    private String gasolinaReint;
+    private String peajeReint;
+    private String pasajesTerrReint;
     private String chequeCancelado;
-    private Double retiroDGPyRF;
-    private Double totalReintegrado;
-    private Double saldoAReintegrar;
-    private Double saldoPagarDevengado;
-    private Double cheque1;
-    private Double cheque2;
-    private Double cheque3;
-    private Double saldo;
+    private String retiroDGPyRF;
+    private String totalReintegrado;
+    private String saldoAReintegrar;
+    private String saldoPagarDevengado;
+    private String cheque1;
+    private String cheque2;
+    private String cheque3;
+    private String saldo;
     private String observaciones;
     private String omvi;
     private String horas;
     private String fecha;
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
 
     public String getAl() {
         return al;
@@ -74,27 +66,27 @@ public class Conciliacion {
         this.apPaterno = apPaterno;
     }
 
-    public Double getCheque1() {
+    public String getCheque1() {
         return cheque1;
     }
 
-    public void setCheque1(Double cheque1) {
+    public void setCheque1(String cheque1) {
         this.cheque1 = cheque1;
     }
 
-    public Double getCheque2() {
+    public String getCheque2() {
         return cheque2;
     }
 
-    public void setCheque2(Double cheque2) {
+    public void setCheque2(String cheque2) {
         this.cheque2 = cheque2;
     }
 
-    public Double getCheque3() {
+    public String getCheque3() {
         return cheque3;
     }
 
-    public void setCheque3(Double cheque3) {
+    public void setCheque3(String cheque3) {
         this.cheque3 = cheque3;
     }
 
@@ -114,27 +106,35 @@ public class Conciliacion {
         this.del = del;
     }
 
-    public Double getGasolinaCheq() {
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getGasolinaCheq() {
         return gasolinaCheq;
     }
 
-    public void setGasolinaCheq(Double gasolinaCheq) {
+    public void setGasolinaCheq(String gasolinaCheq) {
         this.gasolinaCheq = gasolinaCheq;
     }
 
-    public Double getGasolinaDev() {
+    public String getGasolinaDev() {
         return gasolinaDev;
     }
 
-    public void setGasolinaDev(Double gasolinaDev) {
+    public void setGasolinaDev(String gasolinaDev) {
         this.gasolinaDev = gasolinaDev;
     }
 
-    public Double getGasolinaReint() {
+    public String getGasolinaReint() {
         return gasolinaReint;
     }
 
-    public void setGasolinaReint(Double gasolinaReint) {
+    public void setGasolinaReint(String gasolinaReint) {
         this.gasolinaReint = gasolinaReint;
     }
 
@@ -154,11 +154,11 @@ public class Conciliacion {
         this.idViaje = idViaje;
     }
 
-    public Double getMontoViatDev() {
+    public String getMontoViatDev() {
         return montoViatDev;
     }
 
-    public void setMontoViatDev(Double montoViatDev) {
+    public void setMontoViatDev(String montoViatDev) {
         this.montoViatDev = montoViatDev;
     }
 
@@ -170,11 +170,11 @@ public class Conciliacion {
         this.nombre_s = nombre_s;
     }
 
-    public Integer getNumCheque() {
+    public String getNumCheque() {
         return numCheque;
     }
 
-    public void setNumCheque(Integer numCheque) {
+    public void setNumCheque(String numCheque) {
         this.numCheque = numCheque;
     }
 
@@ -194,51 +194,51 @@ public class Conciliacion {
         this.omvi = omvi;
     }
 
-    public Double getPasajesTerrCheq() {
+    public String getPasajesTerrCheq() {
         return pasajesTerrCheq;
     }
 
-    public void setPasajesTerrCheq(Double pasajesTerrCheq) {
+    public void setPasajesTerrCheq(String pasajesTerrCheq) {
         this.pasajesTerrCheq = pasajesTerrCheq;
     }
 
-    public Double getPasajesTerrDev() {
+    public String getPasajesTerrDev() {
         return pasajesTerrDev;
     }
 
-    public void setPasajesTerrDev(Double pasajesTerrDev) {
+    public void setPasajesTerrDev(String pasajesTerrDev) {
         this.pasajesTerrDev = pasajesTerrDev;
     }
 
-    public Double getPasajesTerrReint() {
+    public String getPasajesTerrReint() {
         return pasajesTerrReint;
     }
 
-    public void setPasajesTerrReint(Double pasajesTerrReint) {
+    public void setPasajesTerrReint(String pasajesTerrReint) {
         this.pasajesTerrReint = pasajesTerrReint;
     }
 
-    public Double getPeajeCheq() {
+    public String getPeajeCheq() {
         return peajeCheq;
     }
 
-    public void setPeajeCheq(Double peajeCheq) {
+    public void setPeajeCheq(String peajeCheq) {
         this.peajeCheq = peajeCheq;
     }
 
-    public Double getPeajeDev() {
+    public String getPeajeDev() {
         return peajeDev;
     }
 
-    public void setPeajeDev(Double peajeDev) {
+    public void setPeajeDev(String peajeDev) {
         this.peajeDev = peajeDev;
     }
 
-    public Double getPeajeReint() {
+    public String getPeajeReint() {
         return peajeReint;
     }
 
-    public void setPeajeReint(Double peajeReint) {
+    public void setPeajeReint(String peajeReint) {
         this.peajeReint = peajeReint;
     }
 
@@ -250,75 +250,75 @@ public class Conciliacion {
         this.poblacion = poblacion;
     }
 
-    public Double getRetiroDGPyRF() {
+    public String getRetiroDGPyRF() {
         return retiroDGPyRF;
     }
 
-    public void setRetiroDGPyRF(Double retiroDGPyRF) {
+    public void setRetiroDGPyRF(String retiroDGPyRF) {
         this.retiroDGPyRF = retiroDGPyRF;
     }
 
-    public Double getSaldo() {
+    public String getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(Double saldo) {
+    public void setSaldo(String saldo) {
         this.saldo = saldo;
     }
 
-    public Double getSaldoAReintegrar() {
+    public String getSaldoAReintegrar() {
         return saldoAReintegrar;
     }
 
-    public void setSaldoAReintegrar(Double saldoAReintegrar) {
+    public void setSaldoAReintegrar(String saldoAReintegrar) {
         this.saldoAReintegrar = saldoAReintegrar;
     }
 
-    public Double getSaldoPagarDevengado() {
+    public String getSaldoPagarDevengado() {
         return saldoPagarDevengado;
     }
 
-    public void setSaldoPagarDevengado(Double saldoPagarDevengado) {
+    public void setSaldoPagarDevengado(String saldoPagarDevengado) {
         this.saldoPagarDevengado = saldoPagarDevengado;
     }
 
-    public Double getTotalCheq() {
+    public String getTotalCheq() {
         return totalCheq;
     }
 
-    public void setTotalCheq(Double totalCheq) {
+    public void setTotalCheq(String totalCheq) {
         this.totalCheq = totalCheq;
     }
 
-    public Double getTotalReintegrado() {
+    public String getTotalReintegrado() {
         return totalReintegrado;
     }
 
-    public void setTotalReintegrado(Double totalReintegrado) {
+    public void setTotalReintegrado(String totalReintegrado) {
         this.totalReintegrado = totalReintegrado;
     }
 
-    public Double getViaticosCheq() {
+    public String getViaticosCheq() {
         return viaticosCheq;
     }
 
-    public void setViaticosCheq(Double viaticosCheq) {
+    public void setViaticosCheq(String viaticosCheq) {
         this.viaticosCheq = viaticosCheq;
     }
 
-    public Double getViaticosDev() {
+    public String getViaticosDev() {
         return viaticosDev;
     }
 
-    public void setViaticosDev(Double viaticosDev) {
+    public void setViaticosDev(String viaticosDev) {
         this.viaticosDev = viaticosDev;
     }
 
-    public Double getViaticosReint() {
+    public String getViaticosReint() {
         return viaticosReint;
     }
 
-    public void setViaticosReint(Double viaticosReint) {
+    public void setViaticosReint(String viaticosReint) {
         this.viaticosReint = viaticosReint;
     }
 

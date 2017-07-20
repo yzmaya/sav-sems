@@ -41,6 +41,206 @@ public class Conciliacion {
     private String omvi;
     private String horas;
     private String fecha;
+    //TOTALES DE TODAS LAS COLUMNAS QUE VAN EN EL EXCEL
+    private String PTPtotalViatCheq;
+    private String PTtotalGasCheq;
+    private String PTtotalPeajeCheq;
+    private String PTtotalPasTerrCheq;
+    private String PTtotTotalCheq;
+    private String PTtotalViatDev;
+    private String PTtotalGasDev;
+    private String PTtotalPeajeDev;
+    private String PTtotalPasTerRDev;
+    private String PTmontoTotalViatDev;
+    private String PTtotalViatReint;
+    private String PTtotalGasReint;
+    private String PTtotalPeajeReint;
+    private String PTtotalPasTerrReint;
+    private String PTtotalRetDGPyRFReint;
+    private String PTtotalTotReintegrado;
+    private String PTtotalSaldoReintegrar;
+    private String PTtotalSaldoPagarDev;
+    private String PTtotalCheq1;
+    private String PTtotalCheq2;
+    private String PTtotalCheq3;
+    private String PTtotalsaldo;
+
+    public String getPTPtotalViatCheq() {
+        return PTPtotalViatCheq;
+    }
+
+    public void setPTPtotalViatCheq(String PTPtotalViatCheq) {
+        this.PTPtotalViatCheq = PTPtotalViatCheq;
+    }
+
+    public String getPTmontoTotalViatDev() {
+        return PTmontoTotalViatDev;
+    }
+
+    public void setPTmontoTotalViatDev(String PTmontoTotalViatDev) {
+        this.PTmontoTotalViatDev = PTmontoTotalViatDev;
+    }
+
+    public String getPTtotTotalCheq() {
+        return PTtotTotalCheq;
+    }
+
+    public void setPTtotTotalCheq(String PTtotTotalCheq) {
+        this.PTtotTotalCheq = PTtotTotalCheq;
+    }
+
+    public String getPTtotalCheq1() {
+        return PTtotalCheq1;
+    }
+
+    public void setPTtotalCheq1(String PTtotalCheq1) {
+        this.PTtotalCheq1 = PTtotalCheq1;
+    }
+
+    public String getPTtotalCheq2() {
+        return PTtotalCheq2;
+    }
+
+    public void setPTtotalCheq2(String PTtotalCheq2) {
+        this.PTtotalCheq2 = PTtotalCheq2;
+    }
+
+    public String getPTtotalCheq3() {
+        return PTtotalCheq3;
+    }
+
+    public void setPTtotalCheq3(String PTtotalCheq3) {
+        this.PTtotalCheq3 = PTtotalCheq3;
+    }
+
+    public String getPTtotalGasCheq() {
+        return PTtotalGasCheq;
+    }
+
+    public void setPTtotalGasCheq(String PTtotalGasCheq) {
+        this.PTtotalGasCheq = PTtotalGasCheq;
+    }
+
+    public String getPTtotalGasDev() {
+        return PTtotalGasDev;
+    }
+
+    public void setPTtotalGasDev(String PTtotalGasDev) {
+        this.PTtotalGasDev = PTtotalGasDev;
+    }
+
+    public String getPTtotalGasReint() {
+        return PTtotalGasReint;
+    }
+
+    public void setPTtotalGasReint(String PTtotalGasReint) {
+        this.PTtotalGasReint = PTtotalGasReint;
+    }
+
+    public String getPTtotalPasTerRDev() {
+        return PTtotalPasTerRDev;
+    }
+
+    public void setPTtotalPasTerRDev(String PTtotalPasTerRDev) {
+        this.PTtotalPasTerRDev = PTtotalPasTerRDev;
+    }
+
+    public String getPTtotalPasTerrCheq() {
+        return PTtotalPasTerrCheq;
+    }
+
+    public void setPTtotalPasTerrCheq(String PTtotalPasTerrCheq) {
+        this.PTtotalPasTerrCheq = PTtotalPasTerrCheq;
+    }
+
+    public String getPTtotalPasTerrReint() {
+        return PTtotalPasTerrReint;
+    }
+
+    public void setPTtotalPasTerrReint(String PTtotalPasTerrReint) {
+        this.PTtotalPasTerrReint = PTtotalPasTerrReint;
+    }
+
+    public String getPTtotalPeajeCheq() {
+        return PTtotalPeajeCheq;
+    }
+
+    public void setPTtotalPeajeCheq(String PTtotalPeajeCheq) {
+        this.PTtotalPeajeCheq = PTtotalPeajeCheq;
+    }
+
+    public String getPTtotalPeajeDev() {
+        return PTtotalPeajeDev;
+    }
+
+    public void setPTtotalPeajeDev(String PTtotalPeajeDev) {
+        this.PTtotalPeajeDev = PTtotalPeajeDev;
+    }
+
+    public String getPTtotalPeajeReint() {
+        return PTtotalPeajeReint;
+    }
+
+    public void setPTtotalPeajeReint(String PTtotalPeajeReint) {
+        this.PTtotalPeajeReint = PTtotalPeajeReint;
+    }
+
+    public String getPTtotalRetDGPyRFReint() {
+        return PTtotalRetDGPyRFReint;
+    }
+
+    public void setPTtotalRetDGPyRFReint(String PTtotalRetDGPyRFReint) {
+        this.PTtotalRetDGPyRFReint = PTtotalRetDGPyRFReint;
+    }
+
+    public String getPTtotalSaldoPagarDev() {
+        return PTtotalSaldoPagarDev;
+    }
+
+    public void setPTtotalSaldoPagarDev(String PTtotalSaldoPagarDev) {
+        this.PTtotalSaldoPagarDev = PTtotalSaldoPagarDev;
+    }
+
+    public String getPTtotalSaldoReintegrar() {
+        return PTtotalSaldoReintegrar;
+    }
+
+    public void setPTtotalSaldoReintegrar(String PTtotalSaldoReintegrar) {
+        this.PTtotalSaldoReintegrar = PTtotalSaldoReintegrar;
+    }
+
+    public String getPTtotalTotReintegrado() {
+        return PTtotalTotReintegrado;
+    }
+
+    public void setPTtotalTotReintegrado(String PTtotalTotReintegrado) {
+        this.PTtotalTotReintegrado = PTtotalTotReintegrado;
+    }
+
+    public String getPTtotalViatDev() {
+        return PTtotalViatDev;
+    }
+
+    public void setPTtotalViatDev(String PTtotalViatDev) {
+        this.PTtotalViatDev = PTtotalViatDev;
+    }
+
+    public String getPTtotalViatReint() {
+        return PTtotalViatReint;
+    }
+
+    public void setPTtotalViatReint(String PTtotalViatReint) {
+        this.PTtotalViatReint = PTtotalViatReint;
+    }
+
+    public String getPTtotalsaldo() {
+        return PTtotalsaldo;
+    }
+
+    public void setPTtotalsaldo(String PTtotalsaldo) {
+        this.PTtotalsaldo = PTtotalsaldo;
+    }
+    
 
     public String getAl() {
         return al;

@@ -52,7 +52,7 @@
 
                             <center>
                                 <label>${respuesta}</label>
-                                <input type="file" id="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/><br>
+                                <input required type="file" id="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/><br>
                                 <input class="btn btn-info" type="submit" value="Cargar Archivo"/>
                             </center>
                         </div>

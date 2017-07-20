@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2017-07-12T18:47:30 -->
+<!-- 2017-07-20T12:15:42 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Concilacion" pageWidth="1820" pageHeight="612" orientation="Landscape" columnWidth="1820" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" isIgnorePagination="true" uuid="206916a3-9f90-479c-aa84-92072dd13b74">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -19,103 +19,56 @@
 	<field name="poblacion" class="java.lang.String"/>
 	<field name="del" class="java.lang.String"/>
 	<field name="al" class="java.lang.String"/>
-	<field name="numCheque" class="java.lang.Integer"/>
-	<field name="viaticosCheq" class="java.lang.Double"/>
-	<field name="gasolinaCheq" class="java.lang.Double"/>
-	<field name="peajeCheq" class="java.lang.Double"/>
-	<field name="pasajesTerrCheq" class="java.lang.Double"/>
-	<field name="totalCheq" class="java.lang.Double"/>
-	<field name="viaticosDev" class="java.lang.Double"/>
-	<field name="gasolinaDev" class="java.lang.Double"/>
-	<field name="peajeDev" class="java.lang.Double"/>
-	<field name="pasajesTerrDev" class="java.lang.Double"/>
-	<field name="montoViatDev" class="java.lang.Double"/>
-	<field name="viaticosReint" class="java.lang.Double"/>
-	<field name="gasolinaReint" class="java.lang.Double"/>
-	<field name="peajeReint" class="java.lang.Double"/>
-	<field name="pasajesTerrReint" class="java.lang.Double"/>
+	<field name="numCheque" class="java.lang.String"/>
+	<field name="viaticosCheq" class="java.lang.String"/>
+	<field name="gasolinaCheq" class="java.lang.String"/>
+	<field name="peajeCheq" class="java.lang.String"/>
+	<field name="pasajesTerrCheq" class="java.lang.String"/>
+	<field name="totalCheq" class="java.lang.String"/>
+	<field name="viaticosDev" class="java.lang.String"/>
+	<field name="gasolinaDev" class="java.lang.String"/>
+	<field name="peajeDev" class="java.lang.String"/>
+	<field name="pasajesTerrDev" class="java.lang.String"/>
+	<field name="montoViatDev" class="java.lang.String"/>
+	<field name="viaticosReint" class="java.lang.String"/>
+	<field name="gasolinaReint" class="java.lang.String"/>
+	<field name="peajeReint" class="java.lang.String"/>
+	<field name="pasajesTerrReint" class="java.lang.String"/>
 	<field name="chequeCancelado" class="java.lang.String"/>
-	<field name="retiroDGPyRF" class="java.lang.Double"/>
-	<field name="totalReintegrado" class="java.lang.Double"/>
-	<field name="saldoAReintegrar" class="java.lang.Double"/>
-	<field name="saldoPagarDevengado" class="java.lang.Double"/>
-	<field name="cheque1" class="java.lang.Double"/>
-	<field name="cheque2" class="java.lang.Double"/>
-	<field name="cheque3" class="java.lang.Double"/>
-	<field name="saldo" class="java.lang.Double"/>
+	<field name="retiroDGPyRF" class="java.lang.String"/>
+	<field name="totalReintegrado" class="java.lang.String"/>
+	<field name="saldoAReintegrar" class="java.lang.String"/>
+	<field name="saldoPagarDevengado" class="java.lang.String"/>
+	<field name="cheque1" class="java.lang.String"/>
+	<field name="cheque2" class="java.lang.String"/>
+	<field name="cheque3" class="java.lang.String"/>
+	<field name="saldo" class="java.lang.String"/>
 	<field name="observaciones" class="java.lang.String"/>
 	<field name="omvi" class="java.lang.String"/>
 	<field name="horas" class="java.lang.String"/>
 	<field name="fecha" class="java.util.Date"/>
-	<variable name="viaticosCheq1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{viaticosCheq}]]></variableExpression>
-	</variable>
-	<variable name="gasolinaCheq1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{gasolinaCheq}]]></variableExpression>
-	</variable>
-	<variable name="peajeCheq1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{peajeCheq}]]></variableExpression>
-	</variable>
-	<variable name="pasajesTerrCheq1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{pasajesTerrCheq}]]></variableExpression>
-	</variable>
-	<variable name="totalCheq1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{totalCheq}]]></variableExpression>
-	</variable>
-	<variable name="viaticosDev1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{viaticosDev}]]></variableExpression>
-	</variable>
-	<variable name="gasolinaDev1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{gasolinaDev}]]></variableExpression>
-	</variable>
-	<variable name="peajeDev1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{peajeDev}]]></variableExpression>
-	</variable>
-	<variable name="pasajesTerrDev1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{pasajesTerrDev}]]></variableExpression>
-	</variable>
-	<variable name="montoViatDev1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{montoViatDev}]]></variableExpression>
-	</variable>
-	<variable name="viaticosReint1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{viaticosReint}]]></variableExpression>
-	</variable>
-	<variable name="gasolinaReint1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{gasolinaReint}]]></variableExpression>
-	</variable>
-	<variable name="peajeReint1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{peajeReint}]]></variableExpression>
-	</variable>
-	<variable name="pasajesTerrReint1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{pasajesTerrReint}]]></variableExpression>
-	</variable>
-	<variable name="retiroDGPyRF1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{retiroDGPyRF}]]></variableExpression>
-	</variable>
-	<variable name="totalReintegrado1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{totalReintegrado}]]></variableExpression>
-	</variable>
-	<variable name="saldoAReintegrar1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{saldoAReintegrar}]]></variableExpression>
-	</variable>
-	<variable name="saldoPagarDevengado1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{saldoPagarDevengado}]]></variableExpression>
-	</variable>
-	<variable name="cheque11" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{cheque1}]]></variableExpression>
-	</variable>
-	<variable name="cheque21" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{cheque2}]]></variableExpression>
-	</variable>
-	<variable name="cheque31" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{cheque3}]]></variableExpression>
-	</variable>
-	<variable name="saldo1" class="java.lang.Double" resetType="Page" calculation="Sum">
-		<variableExpression><![CDATA[$F{saldo}]]></variableExpression>
-	</variable>
-	<variable name="test" class="java.lang.Double">
-		<variableExpression><![CDATA[new Double(new Double($V{montoViatDev1}.doubleValue())+new Double($V{totalReintegrado1}.doubleValue()))]]></variableExpression>
-	</variable>
+	<field name="PTPtotalViatCheq" class="java.lang.String"/>
+	<field name="PTtotalGasCheq" class="java.lang.String"/>
+	<field name="PTtotalPeajeCheq" class="java.lang.String"/>
+	<field name="PTtotalPasTerrCheq" class="java.lang.String"/>
+	<field name="PTtotTotalCheq" class="java.lang.String"/>
+	<field name="PTtotalViatDev" class="java.lang.String"/>
+	<field name="PTtotalGasDev" class="java.lang.String"/>
+	<field name="PTtotalPeajeDev" class="java.lang.String"/>
+	<field name="PTtotalPasTerRDev" class="java.lang.String"/>
+	<field name="PTmontoTotalViatDev" class="java.lang.String"/>
+	<field name="PTtotalViatReint" class="java.lang.String"/>
+	<field name="PTtotalGasReint" class="java.lang.String"/>
+	<field name="PTtotalPeajeReint" class="java.lang.String"/>
+	<field name="PTtotalPasTerrReint" class="java.lang.String"/>
+	<field name="PTtotalRetDGPyRFReint" class="java.lang.String"/>
+	<field name="PTtotalTotReintegrado" class="java.lang.String"/>
+	<field name="PTtotalSaldoReintegrar" class="java.lang.String"/>
+	<field name="PTtotalSaldoPagarDev" class="java.lang.String"/>
+	<field name="PTtotalCheq1" class="java.lang.String"/>
+	<field name="PTtotalCheq2" class="java.lang.String"/>
+	<field name="PTtotalCheq3" class="java.lang.String"/>
+	<field name="PTtotalsaldo" class="java.lang.String"/>
 	<title>
 		<band height="83" splitType="Stretch">
 			<image>
@@ -532,7 +485,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
 					<font fontName="Arial Narrow" size="8"/>
 				</textElement>
-				<text><![CDATA[No. DE CHEQUE/TRANSFERENCIA]]></text>
+				<text><![CDATA[No. DE CHEQUE]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="175" y="28" width="55" height="28" forecolor="#000000" backcolor="#C5D9F1" uuid="e4849bfb-3201-4eaf-934b-6d648a24e2fe"/>
@@ -844,7 +797,6 @@
 			<textField pattern="####.##" isBlankWhenNull="true">
 				<reportElement x="290" y="0" width="60" height="15" uuid="ab085b0c-5612-4903-93ad-2cd272b142a9">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-                                        <property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/> 
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1221,22 +1173,7 @@
 	</detail>
 	<pageFooter>
 		<band height="15">
-			<textField pattern="" isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="290" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="26fa0cf0-e4cd-4912-820b-4142cda65d1e">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{viaticosCheq1}]]></textFieldExpression>
-			</textField>
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="0" width="290" height="15" backcolor="#C5D9F1" uuid="48e2f863-cce2-497f-b30f-4f8efd27dfd2">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
@@ -1252,213 +1189,6 @@
 				</textElement>
 				<text><![CDATA[TOTALES]]></text>
 			</staticText>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="350" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="091fec97-641a-4984-b8e2-d8374d21f264">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{gasolinaCheq1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="410" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="a23fa932-a619-40b9-acd7-fbf659db347a">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{peajeCheq1}]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="470" y="0" width="70" height="15" backcolor="#C5D9F1" uuid="f800885b-ad90-40f8-92de-020f698bc859">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{pasajesTerrCheq1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="540" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="3910f304-4c3d-4fe5-8320-1140cc9af7d2">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{totalCheq1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="600" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="81b6afe5-4d22-4ad7-864f-97b8f9da50de">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{viaticosDev1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="660" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="4f9dc655-eb3b-4272-a1d2-54f24841b99d">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{gasolinaDev1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="720" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="e51c6245-fbb3-44b4-897b-0f0c75bbc8c3">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{peajeDev1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="780" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="a0bdcbc7-36ae-4e06-b72c-969b9da46538">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{pasajesTerrDev1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="840" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="8aac83ff-d548-4bc3-86b5-08d01fc773dc">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{montoViatDev1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="900" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="7b50ae9c-2f25-49d1-a6fa-b0518637325b">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{viaticosReint1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="960" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="d77fee37-79d5-4690-a8d1-59f1ce814618">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{gasolinaReint1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="1020" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="0ffd1d22-aba5-4de0-8e99-e7ae7845c636">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{peajeReint1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="1080" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="951cf9a8-9b4e-4fb1-911a-199ead8339bb">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{pasajesTerrReint1}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="1140" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="0e1d0357-4beb-4a81-9f24-6cf7eaa01254">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
@@ -1475,127 +1205,6 @@
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="1200" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="610acba5-c963-4fe2-a6b7-fd10368b2bb0">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{retiroDGPyRF1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="1260" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="0269b982-ca97-497f-a8de-aba8ce066e92">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{totalReintegrado1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="1320" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="7746fcb8-8c32-4c1e-a2c1-940dfb611067">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{saldoAReintegrar1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="1370" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="6dc0ad17-dda8-4697-bbb1-91ebb6204e18">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{saldoPagarDevengado1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="1420" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="380df1b3-528c-4d13-b6d9-6e3c5258fca5">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{cheque11}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="1470" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="c245a8af-59d5-47fa-98c6-1c1d9a3b69af"/>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{cheque21}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="1520" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="dd765f0c-d8e7-4553-aa27-d5d7d043cda4"/>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{cheque31}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="1570" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="88ffc92a-7642-459c-9b5d-cb2fc81e0966">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{saldo1}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="1620" y="0" width="100" height="15" backcolor="#C5D9F1" uuid="f6be640d-c03a-4563-83ce-6213cf797feb">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
@@ -1644,6 +1253,321 @@
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="290" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="dce1d1df-f089-40c1-a902-82f8f6d01543">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTPtotalViatCheq}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="350" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="663d1d70-d6fb-4780-af19-22324b033105">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalGasCheq}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="410" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="d2292710-d652-4a98-bc27-5e492f2d71c1">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalPeajeCheq}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="470" y="0" width="70" height="15" backcolor="#C5D9F1" uuid="36db70aa-03fe-469d-9b8a-10ef58b98736">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalPasTerrCheq}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="540" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="d70f729f-6c14-4868-a7ff-7c36cef7721e"/>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotTotalCheq}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="600" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="ccaa5374-ca69-4120-86d7-03afa63340dc">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalViatDev}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="660" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="82b63482-5264-4622-8068-da7e5baebb09"/>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalGasDev}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="720" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="a14fb142-606c-4e83-9461-1a4d7d85367a"/>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalPeajeDev}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="780" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="904c0852-912f-4f56-8b02-f24f26844052"/>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalPasTerRDev}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="840" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="26cfca89-677f-4a25-8a19-6f5a05ec8ff7"/>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTmontoTotalViatDev}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="900" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="85beb27c-7387-49d0-95e3-93bf5383500d"/>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalViatReint}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="960" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="ba9cb45d-8281-4b0d-936f-b00adc3e7b57"/>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalGasReint}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1020" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="da91edf2-4149-438f-b78f-bead2ef23c71"/>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalPeajeReint}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1080" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="a3066629-540b-41b7-9af3-c7b7db96c2f4">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalPasTerrReint}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1200" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="59529c56-13e5-4f95-98da-dee11ad41ae0"/>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalRetDGPyRFReint}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1260" y="0" width="60" height="15" backcolor="#C5D9F1" uuid="a52294d4-796f-4b8e-ab2e-d3ce745ff21d"/>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalTotReintegrado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1320" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="c873e732-6812-4968-8332-924d2aba531e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalSaldoReintegrar}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1370" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="469639eb-7580-480c-a01c-321f7ce9a60a">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalSaldoPagarDev}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1420" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="afabb4d3-ded5-4c16-b644-6235a51e1901">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalCheq1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1470" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="ad057a9a-224f-4020-b13b-907306d83ae6">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalCheq2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1520" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="e778e383-720c-4bd0-9d46-32f2145a6068">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalCheq3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1570" y="0" width="50" height="15" backcolor="#C5D9F1" uuid="89fa5525-5768-465b-9168-4b6564a44c82">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PTtotalsaldo}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageFooter>
 </jasperReport>

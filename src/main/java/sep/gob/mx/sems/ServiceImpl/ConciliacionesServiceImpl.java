@@ -125,6 +125,23 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
         Conciliacion conciliacion;
         List<Conciliacion> listaConciliacion = new ArrayList<Conciliacion>();
         Double saldoReint = 0.0;
+
+        //VARIABLES DE TOTALES---------------------------------------
+        Double PTPtotalViatCheq = 0.0;
+        Double PTtotalGasCheq = 0.0;
+        Double PTtotalPeajeCheq = 0.0;
+        Double PTtotalPasTerrCheq = 0.0;
+        Double PTtotTotalCheq = 0.0;
+        Double PTtotalViatDev = 0.0;
+        Double PTtotalGasDev = 0.0;
+        Double PTtotalPeajeDev = 0.0;
+        Double PTtotalPasTerRDev = 0.0;
+        Double PTmontoTotalViatDev = 0.0;
+        Double PTtotalTotReintegrado = 0.0;
+        Double PTtotalSaldoReintegrar = 0.0;
+        Double PTtotalSaldoPagarDev = 0.0;
+        //VARIABLES DE TOTALES---------------------------------------
+
         for (int i = 0; i < listas.size(); i++) {
 
             String peaje = "";
@@ -146,13 +163,15 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
             Double totalCheq = 0.0;
             Double totalDev = 0.0;
 
+            String saldoPagarDev = "";
+
 
             conciliacion = new Conciliacion();
 
             conciliacion.setIdViaje(i + 1);
 
             List filas = (List) listas.get(i);
-            
+
             for (int j = 0; j < filas.size(); j++) {
 
                 if (j == 9) {
@@ -183,67 +202,49 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                     al = (String) filas.get(j).toString();
                     conciliacion.setAl(al);
                 }
+//++++++++++++++++++++++++++++++++++++++++++++SECCION DE DONDE SALDRAN LAS SUMATORIAS PARA LOS TOTALES AL FINAL DE LA TABLA+++++++++++++++++++++++++++
 //--------------------Viaticos anticipo cheque------------------------------------------------------------
                 if (j == 46) {
-
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticos += Double.valueOf(viaticosS);
-
                     }
                 }
-
                 if (j == 47) {
-
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticos += Double.valueOf(viaticosS);
-
                     }
                 }
-
                 if (j == 48) {
-
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticos += Double.valueOf(viaticosS);
-
                     }
                 }
-
                 if (j == 49) {
-
                     viaticosS = (String) filas.get(j).toString();
-
                     if (!viaticosS.toString().equals("-")) {
-
                         viaticos += Double.valueOf(viaticosS);
-
                     }
                     if (viaticos != 0) {
-
                         conciliacion.setViaticosCheq(formato.format(viaticos));
-
                     }
-
                 }
 //----------------------------Pasajes terrestres anticipo cheque--------------------------------
                 if (j == 50) {
-
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
                         pasajTerr += Double.valueOf(pasajTerrS);
                     }
                 }
                 if (j == 54) {
-
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
                         pasajTerr += Double.valueOf(pasajTerrS);
                     }
                 }
                 if (j == 55) {
-
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
                         pasajTerr += Double.valueOf(pasajTerrS);
@@ -254,15 +255,12 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                 }
 //----------------------------Gasolina anticipo cheque------------------------------------------
                 if (j == 51) {
-
                     gasolinaS = (String) filas.get(j).toString();
                     if (!gasolinaS.toString().equals("-")) {
                         gasolina += Double.valueOf(gasolinaS);
                     }
                 }
-
                 if (j == 52) {
-
                     gasolinaS = (String) filas.get(j).toString();
                     if (!gasolinaS.toString().equals("-")) {
                         gasolina += Double.valueOf(gasolinaS);
@@ -273,7 +271,6 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                 }
 //----------------------------Peaje anticipo cheque------------------------------------------
                 if (j == 53) {
-
                     peaje = (String) filas.get(j).toString();
                     if (peaje.toString().equals("-")) {
                         peajeCheq = 0.0;
@@ -286,7 +283,6 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                 }
 //----------------------------Total anticipo cheque------------------------------------------
                 if (j == 57) {
-
                     totalCheq = 0.0;
                     totalCheq = viaticos + gasolina + peajeCheq;
                     if (totalCheq != 0) {
@@ -294,35 +290,26 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                     }
                 }
 //----------------------------Viaticos devengado------------------------------------------
-
                 if (j == 102) {
-
-
                     viaticosS = "";
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticosDev += Double.valueOf(viaticosS);
                     }
                 }
-
                 if (j == 103) {
-
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticosDev += Double.valueOf(viaticosS);
                     }
                 }
-
                 if (j == 104) {
-
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticosDev += Double.valueOf(viaticosS);
                     }
                 }
-
                 if (j == 105) {
-
                     viaticosS = (String) filas.get(j).toString();
                     if (!viaticosS.toString().equals("-")) {
                         viaticosDev += Double.valueOf(viaticosS);
@@ -332,9 +319,7 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                     }
                 }
 //----------------------------Pasajes terrestres devengado--------------------------------
-
                 if (j == 106) {
-
                     pasajTerrS = "";
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
@@ -342,14 +327,12 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                     }
                 }
                 if (j == 110) {
-
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
                         pasajTerrDev += Double.valueOf(pasajTerrS);
                     }
                 }
                 if (j == 111) {
-
                     pasajTerrS = (String) filas.get(j).toString();
                     if (!pasajTerrS.toString().equals("-")) {
                         pasajTerrDev += Double.valueOf(pasajTerrS);
@@ -360,7 +343,6 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                 }
 //----------------------------Gasolina devengado-------------------------------- 
                 if (j == 107) {
-
                     gasolinaS = "";
                     gasolinaS = (String) filas.get(j).toString();
                     if (!gasolinaS.toString().equals("-")) {
@@ -391,7 +373,6 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                     }
                 }
 //----------------------------Monto viaticos devengados------------------------------------------(Total devengados)
-
                 if (viaticosDev != 0 || pasajTerrDev != 0 || gasolinaDev != 0 || peajeDev != 0) {
 
                     totalDev = 0.0;
@@ -411,7 +392,7 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
 //----------------------------Saldo a pagar devengado------------------------------------------
                 if (j == 154) {
 
-                    String saldoPagarDev = (String) filas.get(j).toString();
+                    saldoPagarDev = (String) filas.get(j).toString();
                     if (saldoPagarDev.equals("-")) {
                         saldoPagarDev = "0.0";
                     }
@@ -420,6 +401,8 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                         conciliacion.setSaldoPagarDevengado(formato.format(Double.valueOf(saldoPagarDev)));
                     }
                 }
+//+++++++++++++++++++++++++++++++++++++++++++SECCION DE DONDE SALDRAN LAS SUMATORIAS PARA LOS TOTALES AL FINAL DE LA TABLA+++++++++++++++++++++++++++
+
 //----------------------------Observaciones---------------------------------------------------
                 if (j == 145) {
                     observaciones = (String) filas.get(j).toString();
@@ -441,6 +424,49 @@ public class ConciliacionesServiceImpl implements ConciliacionesService {
                     conciliacion.setApMaterno(val);
                 }
             }
+
+            PTPtotalViatCheq += viaticos;
+            PTtotalGasCheq += gasolina;
+            PTtotalPeajeCheq += peajeCheq;
+            PTtotalPasTerrCheq += pasajTerr;
+            PTtotTotalCheq += totalCheq;
+            PTtotalViatDev += viaticosDev;
+            PTtotalGasDev += gasolinaDev;
+            PTtotalPeajeDev += peajeDev;
+            PTtotalPasTerRDev += pasajTerrDev;
+            PTmontoTotalViatDev += totalDev;
+
+            PTtotalSaldoReintegrar += saldoReint;
+            PTtotalSaldoPagarDev += Double.valueOf(saldoPagarDev);
+
+            //SUMATORIAS DE TOTALES DE TODAS LAS COLUMNAS Y SET DE LOS VALORES AL OBJETO
+
+            if (i == (listas.size() - 1)) {
+                //SETEAR LOS VALORES DE LAS SUMATORIAS
+
+                conciliacion.setPTPtotalViatCheq(formato.format(PTPtotalViatCheq));
+                conciliacion.setPTtotalGasCheq(formato.format(PTtotalGasCheq));
+                conciliacion.setPTtotalPeajeCheq(formato.format(PTtotalPeajeCheq));
+                conciliacion.setPTtotalPasTerrCheq(formato.format(PTtotalPasTerrCheq));
+                conciliacion.setPTtotTotalCheq(formato.format(PTtotTotalCheq));
+                conciliacion.setPTtotalViatDev(formato.format(PTtotalViatDev));
+                conciliacion.setPTtotalGasDev(formato.format(PTtotalGasDev));
+                conciliacion.setPTtotalPeajeDev(formato.format(PTtotalPeajeDev));
+                conciliacion.setPTtotalPasTerRDev(formato.format(PTtotalPasTerRDev));
+                conciliacion.setPTmontoTotalViatDev(formato.format(PTmontoTotalViatDev));
+
+//                System.out.println(conciliacion.getPTPtotalViatCheq());
+//                System.out.println(conciliacion.getPTtotalGasCheq());
+//                System.out.println(conciliacion.getPTtotalPeajeCheq());
+//                System.out.println(conciliacion.getPTtotalPasTerrCheq());
+//                System.out.println(conciliacion.getPTtotTotalCheq());
+//                System.out.println(conciliacion.getPTtotalViatDev());
+//                System.out.println(conciliacion.getPTtotalGasDev());
+//                System.out.println(conciliacion.getPTtotalPeajeDev());
+//                System.out.println(conciliacion.getPTtotalPasTerRDev());
+//                System.out.println(conciliacion.getPTmontoTotalViatDev());
+            }
+
             listaConciliacion.add(conciliacion);
         }
 

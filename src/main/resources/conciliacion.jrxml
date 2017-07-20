@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2017-07-20T12:15:42 -->
+<!-- 2017-07-20T13:46:56 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Concilacion" pageWidth="1820" pageHeight="612" orientation="Landscape" columnWidth="1820" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" isIgnorePagination="true" uuid="206916a3-9f90-479c-aa84-92072dd13b74">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -80,7 +80,7 @@
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="10"/>
+					<font fontName="Lucida Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[Secretaría de Educación Pública]]></text>
 			</staticText>
@@ -89,7 +89,7 @@
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="10"/>
+					<font fontName="Lucida Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[Subsecretaría de Educación Media Superior]]></text>
 			</staticText>
@@ -98,7 +98,7 @@
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="10"/>
+					<font fontName="Lucida Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[Coordinación Sectorial de Planeación y Administración]]></text>
 			</staticText>
@@ -107,7 +107,7 @@
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="10"/>
+					<font fontName="Lucida Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[Ejercicio 2017]]></text>
 			</staticText>
@@ -116,7 +116,7 @@
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="10"/>
+					<font fontName="Lucida Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[Coordinación Administrativa]]></text>
 			</staticText>
@@ -131,7 +131,7 @@
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[NOMBRE DEL COMISIONADO:]]></text>
 			</staticText>
@@ -141,7 +141,7 @@
 					<bottomPen lineWidth="2.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Bottom">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{apPaterno}]]></textFieldExpression>
 			</textField>
@@ -154,7 +154,7 @@
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Bottom">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{apMaterno}]]></textFieldExpression>
 			</textField>
@@ -164,7 +164,7 @@
 					<bottomPen lineWidth="2.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Bottom">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombre_s}]]></textFieldExpression>
 			</textField>
@@ -173,6 +173,9 @@
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font fontName="Lucida Sans" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
@@ -190,7 +193,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[RETIRO LA DGPyRF]]></text>
 			</staticText>
@@ -206,7 +209,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[MONTO DEL REINTEGRO]]></text>
 			</staticText>
@@ -222,7 +225,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[CHEQUE CANCELADO]]></text>
 			</staticText>
@@ -237,7 +240,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[PASAJES TERRESTRES]]></text>
 			</staticText>
@@ -253,7 +256,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[PEAJE]]></text>
 			</staticText>
@@ -268,7 +271,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[GASOLINA]]></text>
 			</staticText>
@@ -284,7 +287,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[VIATICOS]]></text>
 			</staticText>
@@ -300,7 +303,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[MONTO DE LOS VIATICOS DEVENGADOS]]></text>
 			</staticText>
@@ -315,7 +318,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[PASAJES TERRESTRES]]></text>
 			</staticText>
@@ -330,7 +333,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[DEVENGADO]]></text>
 			</staticText>
@@ -345,7 +348,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[GASOLINA]]></text>
 			</staticText>
@@ -361,7 +364,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[PEAJE]]></text>
 			</staticText>
@@ -377,7 +380,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[VIATICOS]]></text>
 			</staticText>
@@ -393,7 +396,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[TOTAL]]></text>
 			</staticText>
@@ -409,7 +412,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[ANTICIPO CHEQUE]]></text>
 			</staticText>
@@ -424,7 +427,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[PASAJES TERRESTRES]]></text>
 			</staticText>
@@ -440,7 +443,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[PEAJE]]></text>
 			</staticText>
@@ -455,7 +458,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[GASOLINA]]></text>
 			</staticText>
@@ -468,7 +471,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[VIATICOS]]></text>
 			</staticText>
@@ -483,7 +486,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[No. DE CHEQUE]]></text>
 			</staticText>
@@ -496,7 +499,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[AL]]></text>
 			</staticText>
@@ -511,7 +514,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[PERIODO DE LA COMISION]]></text>
 			</staticText>
@@ -524,7 +527,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[DEL]]></text>
 			</staticText>
@@ -540,7 +543,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[PAIS/POBLACION]]></text>
 			</staticText>
@@ -555,7 +558,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[No.]]></text>
 			</staticText>
@@ -571,7 +574,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[TOTAL REINTEGRADO]]></text>
 			</staticText>
@@ -587,7 +590,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[CHEQUE 3]]></text>
 			</staticText>
@@ -602,7 +605,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[OBSERVACIONES]]></text>
 			</staticText>
@@ -617,7 +620,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[SALDO]]></text>
 			</staticText>
@@ -632,7 +635,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[OMVI]]></text>
 			</staticText>
@@ -647,7 +650,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[SALDO A REINTEGRAR]]></text>
 			</staticText>
@@ -662,7 +665,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[SALDO A PAGAR DEVENGADO]]></text>
 			</staticText>
@@ -677,7 +680,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[CHEQUE 1]]></text>
 			</staticText>
@@ -692,7 +695,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[CHEQUE 2]]></text>
 			</staticText>
@@ -707,7 +710,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[HRS]]></text>
 			</staticText>
@@ -729,7 +732,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{idViaje}]]></textFieldExpression>
 			</textField>
@@ -745,7 +748,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{poblacion}]]></textFieldExpression>
 			</textField>
@@ -760,7 +763,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{del}]]></textFieldExpression>
 			</textField>
@@ -775,7 +778,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{al}]]></textFieldExpression>
 			</textField>
@@ -790,7 +793,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numCheque}]]></textFieldExpression>
 			</textField>
@@ -805,7 +808,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{viaticosCheq}]]></textFieldExpression>
 			</textField>
@@ -820,7 +823,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{gasolinaCheq}]]></textFieldExpression>
 			</textField>
@@ -835,7 +838,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{peajeCheq}]]></textFieldExpression>
 			</textField>
@@ -850,7 +853,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pasajesTerrCheq}]]></textFieldExpression>
 			</textField>
@@ -865,7 +868,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{totalCheq}]]></textFieldExpression>
 			</textField>
@@ -880,7 +883,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{viaticosDev}]]></textFieldExpression>
 			</textField>
@@ -895,7 +898,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{gasolinaDev}]]></textFieldExpression>
 			</textField>
@@ -910,7 +913,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{peajeDev}]]></textFieldExpression>
 			</textField>
@@ -925,7 +928,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pasajesTerrDev}]]></textFieldExpression>
 			</textField>
@@ -940,7 +943,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{viaticosReint}]]></textFieldExpression>
 			</textField>
@@ -953,7 +956,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{gasolinaReint}]]></textFieldExpression>
 			</textField>
@@ -966,7 +969,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{peajeReint}]]></textFieldExpression>
 			</textField>
@@ -979,7 +982,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pasajesTerrReint}]]></textFieldExpression>
 			</textField>
@@ -992,7 +995,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{chequeCancelado}]]></textFieldExpression>
 			</textField>
@@ -1005,7 +1008,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{retiroDGPyRF}]]></textFieldExpression>
 			</textField>
@@ -1018,7 +1021,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{totalReintegrado}]]></textFieldExpression>
 			</textField>
@@ -1031,7 +1034,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{saldoAReintegrar}]]></textFieldExpression>
 			</textField>
@@ -1046,7 +1049,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{saldoPagarDevengado}]]></textFieldExpression>
 			</textField>
@@ -1061,7 +1064,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cheque1}]]></textFieldExpression>
 			</textField>
@@ -1076,7 +1079,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cheque2}]]></textFieldExpression>
 			</textField>
@@ -1091,7 +1094,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cheque3}]]></textFieldExpression>
 			</textField>
@@ -1106,7 +1109,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{saldo}]]></textFieldExpression>
 			</textField>
@@ -1119,7 +1122,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
 			</textField>
@@ -1134,7 +1137,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{omvi}]]></textFieldExpression>
 			</textField>
@@ -1149,7 +1152,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{horas}]]></textFieldExpression>
 			</textField>
@@ -1165,7 +1168,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{montoViatDev}]]></textFieldExpression>
 			</textField>
@@ -1185,7 +1188,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[TOTALES]]></text>
 			</staticText>
@@ -1201,7 +1204,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
@@ -1217,7 +1220,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
@@ -1233,7 +1236,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
@@ -1249,7 +1252,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
@@ -1265,7 +1268,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTPtotalViatCheq}]]></textFieldExpression>
 			</textField>
@@ -1281,7 +1284,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalGasCheq}]]></textFieldExpression>
 			</textField>
@@ -1297,7 +1300,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalPeajeCheq}]]></textFieldExpression>
 			</textField>
@@ -1312,7 +1315,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalPasTerrCheq}]]></textFieldExpression>
 			</textField>
@@ -1325,7 +1328,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotTotalCheq}]]></textFieldExpression>
 			</textField>
@@ -1341,7 +1344,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalViatDev}]]></textFieldExpression>
 			</textField>
@@ -1354,7 +1357,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalGasDev}]]></textFieldExpression>
 			</textField>
@@ -1367,7 +1370,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalPeajeDev}]]></textFieldExpression>
 			</textField>
@@ -1380,7 +1383,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalPasTerRDev}]]></textFieldExpression>
 			</textField>
@@ -1393,7 +1396,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTmontoTotalViatDev}]]></textFieldExpression>
 			</textField>
@@ -1406,7 +1409,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalViatReint}]]></textFieldExpression>
 			</textField>
@@ -1419,7 +1422,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalGasReint}]]></textFieldExpression>
 			</textField>
@@ -1432,7 +1435,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalPeajeReint}]]></textFieldExpression>
 			</textField>
@@ -1448,7 +1451,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalPasTerrReint}]]></textFieldExpression>
 			</textField>
@@ -1461,7 +1464,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalRetDGPyRFReint}]]></textFieldExpression>
 			</textField>
@@ -1474,7 +1477,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalTotReintegrado}]]></textFieldExpression>
 			</textField>
@@ -1489,7 +1492,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalSaldoReintegrar}]]></textFieldExpression>
 			</textField>
@@ -1504,7 +1507,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalSaldoPagarDev}]]></textFieldExpression>
 			</textField>
@@ -1519,7 +1522,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalCheq1}]]></textFieldExpression>
 			</textField>
@@ -1534,7 +1537,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalCheq2}]]></textFieldExpression>
 			</textField>
@@ -1549,7 +1552,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalCheq3}]]></textFieldExpression>
 			</textField>
@@ -1564,7 +1567,7 @@
 					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial Narrow"/>
+					<font fontName="Lucida Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PTtotalsaldo}]]></textFieldExpression>
 			</textField>
